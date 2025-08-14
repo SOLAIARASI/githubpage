@@ -17,3 +17,5 @@ platforms :mingw, :x64_mingw, :mswin, :jruby do
   gem "tzinfo-data"
 end
 gem 'wdm', '>= 0.1.0', group: :development if Gem.win_platform?
+
+gem "just-the-docs"
