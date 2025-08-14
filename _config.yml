@@ -5,9 +5,10 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # `jekyll serve`. If you change this file, please restart the server process.
 
-remote_theme             : "mmistakes/minimal-mistakes@4.19.3"
+#remote_theme             : "mmistakes/minimal-mistakes@4.19.3"
+theme                     : null
 
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+#minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
@@ -16,8 +17,8 @@ title_separator          : "-"
 subtitle                 : "By Ladybird Web Solution"
 name                     : &name "Ladybird Web Solution Pvt Ltd" # &name is a YAML anchor which can be *referenced later
 description              : &description "Install Faveo in minutes with our awesome documentation"
-url                      : https://docs.faveohelpdesk.com # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : #"/faveo-server-images" # the subpath of your site, e.g. "/blog"
+url                      : #https://docs.faveohelpdesk.com # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+baseurl                  : /githubpage #"/faveo-server-images" # the subpath of your site, e.g. "/blog"
 repository               : "ladybirdweb/faveo-server-images"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : /assets/images/logo.png # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
