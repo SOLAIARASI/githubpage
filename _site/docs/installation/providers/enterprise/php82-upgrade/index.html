@@ -1,0 +1,894 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Upgrade From PHP 8.1.x to PHP 8.2.x for Faveo - Faveo Installation Guide</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Ladybird Web Solution Pvt Ltd">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Faveo Installation Guide">
+<meta property="og:title" content="Upgrade From PHP 8.1.x to PHP 8.2.x for Faveo">
+<meta property="og:url" content="http://localhost:4000/docs/installation/providers/enterprise/php82-upgrade/">
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/logo.png">
+
+
+
+  <meta name="twitter:site" content="@faveohelpdesk">
+  <meta name="twitter:title" content="Upgrade From PHP 8.1.x to PHP 8.2.x for Faveo">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:url" content="http://localhost:4000/docs/installation/providers/enterprise/php82-upgrade/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/logo.png">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2025-08-14T01:22:17-04:00">
+
+
+
+  <meta property="article:modified_time" content="2024-11-12T00:00:00-04:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/docs/installation/providers/enterprise/php82-upgrade/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Ladybird Web Solution Pvt Ltd",
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/faveohelpdesk","https://www.facebook.com/faveohelpdesk"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Faveo Installation Guide Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Faveo Installation Guide
+          <span class="site-subtitle">By Ladybird Web Solution</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/knowledgebase">User Manual</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://docs.faveohelpdesk.com/">Installation Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/">Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://community.faveohelpdesk.com/">Community</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://developers.faveohelpdesk.com/">Developer Portal</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://status.faveotools.com/status/updates/">Server Status</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://www.faveohelpdesk.com/online-demo/">Demo</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">INSTALLATION GUIDE</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-alma">Faveo on Alma Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rocky">Faveo on Rocky Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rhel">Faveo on RHEL</a></li>
+          
+            <li><a href="/docs/helpers/choose-ubuntu">Faveo on Ubuntu  (Recommended)</a></li>
+          
+            <li><a href="/docs/helpers/choose-debian">Faveo on Debian</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/windows-iis">Windows IIS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/apache-windows">Windows Apache Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/wamp-windows">Faveo on WAMP</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/xampp-windows/">Faveo on XAMPP</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">How To's</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-php/">Upgrade PHP Version</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/generic-migration/">Faveo Migrate or Clone</a></li>
+          
+            <li><a href="/docs/helpers/choose-backup/">Faveo Automated Backup</a></li>
+          
+            <li><a href="/docs/helper/cname/">Custom Domain</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/network-discovery">Install Network Discovery</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/ssl-error">SSL Error Solution (Linux)</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/meilisearch">Install Meilisearch</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/memcached">Install Memcached</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/websockets">Enable Websockets</a></li>
+          
+            <li><a href="/docs/helpers/email-server">Setup Email Server</a></li>
+          
+            <li><a href="/docs/helpers/ldaps">Configure LDAPS</a></li>
+          
+            <li><a href="/docs/helpers/server-hardening/home">Secure Server</a></li>
+          
+            <li><a href="/docs/helpers/node">Install Node</a></li>
+          
+            <li><a href="/docs/helpers/nats">Install NATS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/basic-troubleshooting-script">Troubleshooting script</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Kubernetes</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-k8s/">Faveo on Kubernetes</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Docker</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-docker/">Faveo on Docker</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Upgrade From PHP 8.1.x to PHP 8.2.x for Faveo">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2025-08-14T01:22:17-04:00">
+    <meta itemprop="dateModified" content="2024-11-12T00:00:00-04:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Upgrade From PHP 8.1.x to PHP 8.2.x for Faveo
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#"></a>
+    <ul>
+      <li><a href="#introduction">Introduction</a>
+        <ul>
+          <li><a href="#1-ubuntu-and-debian">1. Ubuntu and Debian</a></li>
+          <li><a href="#install-php-82">Install PHP 8.2</a></li>
+          <li><a href="#install-and-configure-ioncube-82-extension">Install and configure Ioncube 8.2 extension</a></li>
+          <li><a href="#update-the-php-configuration-files">Update the PHP Configuration files</a>
+            <ul>
+              <li><a href="#for-apache">For Apache</a></li>
+              <li><a href="#for-nginx">For NGINX</a></li>
+            </ul>
+          </li>
+          <li><a href="#change-php-fpm-default-settings">Change php-fpm default settings</a></li>
+          <li><a href="#enable-php-fpm">Enable php-fpm</a>
+            <ul>
+              <li><a href="#for-apache-1">For Apache</a></li>
+              <li><a href="#for-nginx-1">For Nginx</a></li>
+            </ul>
+          </li>
+          <li><a href="#restart-webserver">Restart Webserver</a>
+            <ul>
+              <li><a href="#for-apache-2">For Apache</a></li>
+              <li><a href="#for-nginx-2">For Nginx</a></li>
+            </ul>
+          </li>
+          <li><a href="#2-alma-rocky-and-rhel">2. Alma, Rocky and RHEL</a></li>
+          <li><a href="#install-and-configure-ioncube-82-extension-1">Install and configure IonCube 8.2 extension</a></li>
+          <li><a href="#restart-php-fpm">Restart php-fpm</a></li>
+          <li><a href="#restart-webserver-1">Restart Webserver</a></li>
+          <li><a href="#1-windows-servers">1. Windows Servers</a></li>
+          <li><a href="#update-the-environment-variable-for-php-binary">Update the Environment Variable for PHP Binary</a></li>
+          <li><a href="#enable-cacertpem-file-in-php-configuration-file">Enable cacert.pem File in PHP Configuration File</a></li>
+          <li><a href="#install-ioncube-loader">Install Ioncube Loader</a></li>
+          <li><a href="#create-fastcgi-handler-mapping">Create FastCGI Handler Mapping</a></li>
+          <li><a href="#install-php-redis-82-extension">Install PHP Redis 8.2 Extension</a></li>
+          <li><a href="#4-cpanel">4. cPanel</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <h1><!-- omit in toc --></h1>
+
+<p><img alt="PHP" src="https://i.php.watch/static/p/93/php82-logo.png" width="200" /></p>
+
+<hr />
+
+<p>This document will guide you to upgrade PHP version for Faveo Helpdesk from PHP 8.1.x to PHP 8.2.x on Ubuntu, Debian, Alma, Rocky, RHEL,Windows Server and on Shared Hosting (cPanel).</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>Faveo Helpdesk is now powered by <a href="https://laravel.com/docs/10.x" target="_blank" rel="noopener">Laravel 10</a> with full <a href="https://www.php.net/releases/8.2/en.php" target="_blank" rel="noopener">PHP 8.2</a> support. To make the most of the latest features, kindly update your PHP version by following the instructions below.</p>
+
+<p><strong>Choose your server OS: </strong></p>
+
+<ul>
+  <li><a href="#1ubuntu&amp;debian"><strong>1. Ubuntu and Debian</strong></a></li>
+  <li><a href="#2alma-rocky-and-rhel"><strong>2. Alma, Rocky and RHEL</strong></a></li>
+  <li><a href="#3windows-servers"><strong>3. Widows Servers</strong></a></li>
+  <li><a href="#4cpanel"><strong>4. cPanel</strong></a></li>
+</ul>
+
+<p>Before proceeding further check your current PHP version. To find out which version of PHP you are currently using, run this in the Terminal or Windows command prompt.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php <span class="nt">-v</span>
+</code></pre></div></div>
+
+<p>If you are running PHP 8.1.x, you can continue with this guide to upgrade to PHP 8.2.x</p>
+
+<p><a id="1ubuntu&amp;debian" name="1ubuntu&amp;debian"></a></p>
+
+<h3 id="1-ubuntu-and-debian"><strong>1. Ubuntu and Debian</strong></h3>
+
+<p>Type the following command to remove the existing PHP version.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get purge php8.1<span class="k">*</span>
+</code></pre></div></div>
+<p>Press y and ENTER when prompted.</p>
+
+<p>After uninstalling packages, it’s advised to run these two commands.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get autoclean
+</code></pre></div></div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get autoremove
+</code></pre></div></div>
+
+<p>The PHP 8.2 binary packages are only available in the Ondřej Surý PPA repository. This was already added while installing PHP 8.1, so we don’t need to add it again.</p>
+
+<h3 id="install-php-82">Install PHP 8.2</h3>
+
+<p>Update the repository cache by running the below command</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
+</code></pre></div></div>
+
+<p>Install PHP 8.2 along with the necessary extensions required by Faveo Helpdesk.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt <span class="nb">install</span> <span class="nt">-y</span> php8.2 libapache2-mod-php8.2 php8.2-mysql <span class="se">\</span>
+    php8.2-cli php8.2-common php8.2-fpm php8.2-soap php8.2-gd <span class="se">\</span>
+    php8.2-opcache  php8.2-mbstring php8.2-zip <span class="se">\</span>
+    php8.2-bcmath php8.2-intl php8.2-xml php8.2-curl  <span class="se">\</span>
+    php8.2-imap php8.2-ldap php8.2-gmp php8.2-redis <span class="se">\</span>
+    php8.2-memcached
+</code></pre></div></div>
+<p>Press Y and ENTER if prompted.</p>
+
+<h3 id="install-and-configure-ioncube-82-extension">Install and configure Ioncube 8.2 extension</h3>
+
+<p>Download the latest IonCube Loader.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz 
+</code></pre></div></div>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-xvf</span> ioncube_loaders_lin_x86-64.tar.gz
+</code></pre></div></div>
+
+<p>Copy the ioncube_loader_lin_8.2.so to PHP Extension directory.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>ioncube/ioncube_loader_lin_8.2.so /usr/lib/php/20220829
+</code></pre></div></div>
+
+<h3 id="update-the-php-configuration-files">Update the PHP Configuration files</h3>
+
+<h4 id="for-apache">For Apache</h4>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'2 a zend_extension = "/usr/lib/php/20220829/ioncube_loader_lin_8.2.so"'</span> /etc/php/8.2/apache2/php.ini
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'2 a zend_extension = "/usr/lib/php/20220829/ioncube_loader_lin_8.2.so"'</span> /etc/php/8.2/cli/php.ini
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'2 a zend_extension = "/usr/lib/php/20220829/ioncube_loader_lin_8.2.so"'</span> /etc/php/8.2/fpm/php.ini
+</code></pre></div></div>
+
+<h4 id="for-nginx">For NGINX</h4>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'2 a zend_extension = "/usr/lib/php/20220829/ioncube_loader_lin_8.2.so"'</span> /etc/php/8.2/cli/php.ini
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'2 a zend_extension = "/usr/lib/php/20220829/ioncube_loader_lin_8.2.so"'</span> /etc/php/8.2/fpm/php.ini
+</code></pre></div></div>
+
+<h3 id="change-php-fpm-default-settings">Change php-fpm default settings</h3>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo sed</span> <span class="nt">-i</span> <span class="nt">-e</span> <span class="s1">'s/^file_uploads =.*/file_uploads = On/'</span> <span class="se">\</span>
+           <span class="nt">-e</span> <span class="s1">'s/^allow_url_fopen =.*/allow_url_fopen = On/'</span> <span class="se">\</span>
+           <span class="nt">-e</span> <span class="s1">'s/^short_open_tag =.*/short_open_tag = On/'</span> <span class="se">\</span>
+           <span class="nt">-e</span> <span class="s1">'s/^memory_limit =.*/memory_limit = 256M/'</span> <span class="se">\</span>
+           <span class="nt">-e</span> <span class="s1">'s/^;cgi.fix_pathinfo=1.*/cgi.fix_pathinfo = 0/'</span> <span class="se">\</span>
+           <span class="nt">-e</span> <span class="s1">'s/^upload_max_filesize =.*/upload_max_filesize = 100M/'</span> <span class="se">\</span>
+           <span class="nt">-e</span> <span class="s1">'s/^post_max_size =.*/post_max_size = 100M/'</span> <span class="se">\</span>
+           <span class="nt">-e</span> <span class="s1">'s/^max_execution_time =.*/max_execution_time = 360/'</span> <span class="se">\</span>
+           /etc/php/8.2/fpm/php.ini
+</code></pre></div></div>
+
+<h3 id="enable-php-fpm">Enable php-fpm</h3>
+
+<h4 id="for-apache-1">For Apache</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a2enconf php8.2-fpm
+</code></pre></div></div>
+
+<h4 id="for-nginx-1">For Nginx</h4>
+
+<p>If you are using Faveo with nginx webserver, make the following change in faveo.conf file.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/nginx/sites-available/faveo.conf
+</code></pre></div></div>
+
+<p>Change this line <code><b>fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;</b></code> to below to use php8.2-fpm.sock.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;
+</code></pre></div></div>
+
+<h3 id="restart-webserver">Restart Webserver</h3>
+
+<h4 id="for-apache-2">For Apache</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart php8.2-fpm
+systemctl restart apache2
+</code></pre></div></div>
+
+<h4 id="for-nginx-2">For Nginx</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart php8.2-fpm
+systemctl restart nginx
+</code></pre></div></div>
+
+<hr />
+
+<p><a id="2alma-rocky-and-rhel" name="2alma-rocky-and-rhel"></a></p>
+
+<h3 id="2-alma-rocky-and-rhel"><strong>2. Alma, Rocky and RHEL</strong></h3>
+
+<p>In Alma, Rocky and RHEL machines, we can simply upgrade from a lower version of PHP to a higher version by switching the Repository.</p>
+
+<p class="notice--warning">
+For RHEL you may come accorss with this error while installing php8.2 <code><b>This system is not registered with an entitlement server. You can use subscription-manager to register.</b></code>. To resolve this error <a href="https://access.redhat.com/solutions/253273" target="_blank" rel="noopener">follow this official documentation</a> of RHEL, if you don't have a Licensed RHEL server, do the following change in the plugin configuration file to disable plugin <code><b>vim /etc/yum/pluginconf.d/subscription-manager.conf</b></code> change <code><b>enabled=0</b></code>
+</p>
+
+<p>Run the below commands to disable PHP 8.1 and enable PHP 8.2 Remi repo.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf module reset php:remi-8.1 -y
+sudo dnf module enable php:remi-8.2 -y
+</code></pre></div></div>
+
+<p>Now run the below command to update to PHP 8.2</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum update -y
+</code></pre></div></div>
+
+<p>Now install the below php extensions which were not installed earlier in php 8.1</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum -y install php-pecl-memcached php-pecl-memcache
+</code></pre></div></div>
+
+<h3 id="install-and-configure-ioncube-82-extension-1">Install and configure IonCube 8.2 extension</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz
+tar xfz ioncube_loaders_lin_x86-64.tar.gz
+</code></pre></div></div>
+
+<p>Copy the ioncube_loader_lin_8.2.so to PHP Extension directory.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp ioncube/ioncube_loader_lin_8.2.so /usr/lib64/php/modules
+</code></pre></div></div>
+
+<p>Update the PHP configuration file</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sed -i 's:ioncube_loader_lin_8.1.so:ioncube_loader_lin_8.2.so:g' /etc/php.ini
+sed -i "s/max_execution_time = .*/max_execution_time = 300/" /etc/php.ini
+</code></pre></div></div>
+
+<h3 id="restart-php-fpm">Restart php-fpm</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart php-fpm 
+</code></pre></div></div>
+
+<h3 id="restart-webserver-1">Restart Webserver</h3>
+
+<p>For Apache</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart httpd
+</code></pre></div></div>
+
+<p>For Nginx</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart nginx
+</code></pre></div></div>
+
+<hr />
+
+<p><a id="3windows-servers" name="3windows-servers"></a></p>
+
+<h3 id="1-windows-servers"><strong>1. Windows Servers</strong></h3>
+
+<ul>
+  <li><a href="https://windows.php.net/downloads/releases/archives/" target="_blank" rel="noopener">Click Here</a> to download php 8.2.9 NTS 64bit file. Extract the zip file &amp; rename it to <code><b>php8.2</b></code>. Now move the renamed <code><b>php8.2</b></code> folder to <code><b>C:\php8.2</b></code>.</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/GUI-images/php82-a.png" alt="" style=" width:400px ; height:80px " /></p>
+
+<ul>
+  <li>Open <code><b>php8.2</b></code> folder, find <code><b>php.ini-development</b></code> &amp; rename it to <code><b>php.ini</b></code> to make it php configuration file.</li>
+</ul>
+
+<p><img src="https://github.com/ladybirdweb/faveo-server-images/blob/master/_docs/installation/providers/enterprise/windows-images/phpconfig.png?raw=true" alt="" style=" width:400px ; height:230px " /></p>
+
+<ul>
+  <li>Open <code><b>php.ini</b></code> using Notepad++, add the below lines at the end of this file &amp; save the file:</li>
+</ul>
+
+<p>Required configuration changes for Faveo Helpdesk.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error_log=C:\Windows\temp\PHP82x64_errors.log
+upload_tmp_dir="C:\Windows\Temp"
+session.save_path="C:\Windows\Temp"
+cgi.force_redirect=0
+cgi.fix_pathinfo=1
+fastcgi.impersonate=1
+fastcgi.logging=0
+max_execution_time=300
+date.timezone=Asia/Kolkata
+extension_dir="C:\php8.2\ext\"
+upload_max_filesize = 100M
+post_max_size = 100M
+memory_limit = 256M
+</code></pre></div></div>
+
+<p>Uncomment these extensions.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>extension=bz2
+extension=curl
+extension=fileinfo
+extension=gd2
+extension=imap
+extension=ldap
+extension=mbstring
+extension=mysqli
+extension=soap
+extension=sockets
+extension=sodium
+extension=openssl
+extension=pdo_mysql
+</code></pre></div></div>
+<h3 id="update-the-environment-variable-for-php-binary">Update the Environment Variable for PHP Binary</h3>
+<ul>
+  <li>Right click on This PC, go to Properties &gt; Advanced System Settings &gt; Environment Variables.</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/env1.png" alt="" style=" width:500px ; height:200px " /></p>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/env2.png" alt="" style=" width:500px ; height:300px " /></p>
+
+<ul>
+  <li>Now click on Path &gt; Edit &gt; New &amp; add copied path C:\php8.2\ here and click OK in all 3 tabs.</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/envpath.png" alt="" style=" width:500px ; height:300px " /></p>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/GUI-images/php82-b.png" alt="" style=" width:500px ; height:300px " /></p>
+
+<h3 id="enable-cacertpem-file-in-php-configuration-file">Enable cacert.pem File in PHP Configuration File</h3>
+
+<ul>
+  <li>
+    <p><a href="https://www.faveohelpdesk.com/user-manual/windows_installation/pem_file.zip)" target="_blank" rel="noopener">Click Here</a> to download <code><b>cacaert.pem</b></code> file. This is required to avoid the “cURL 60 error” which is one of the Probes that Faveo checks.</p>
+  </li>
+  <li>
+    <p>Extract the <code><b>cacert.pem</b></code> file and copy it to <code><b>C:\php8.2</b></code> path.</p>
+  </li>
+  <li>
+    <p>Edit the <code><b>php.ini</b></code> located in <code><b>C:\php8.2</b></code>, Uncomment <code><b>curl.cainfo</b></code> and add the location of cacert.pem to it as below:</p>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl.cainfo = "C:\php8.2\cacert.pem"
+</code></pre></div></div>
+
+<h3 id="install-ioncube-loader">Install Ioncube Loader</h3>
+
+<ul>
+  <li>
+    <p><a href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc16_x86-64.zip" target="_blank" rel="noopener">Click Here</a> to download Ioncube Loader zip file, Extract the zip file.</p>
+  </li>
+  <li>
+    <p>Copy the <code><b>ioncube_loader_win_8.2.dll</b></code> file from extracted Ioncube folder and paste it in the PHP extension directory <code><b>C:\php8.2\ext.</b></code></p>
+  </li>
+  <li>
+    <p>Add the below line in your php.ini file at the starting to enable Ioncube.</p>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zend_extension = "C:\php8.2\ext\ioncube_loader_win_8.2.dll"
+</code></pre></div></div>
+
+<h3 id="create-fastcgi-handler-mapping">Create FastCGI Handler Mapping</h3>
+
+<ul>
+  <li>Open Server Manager, locate <code><b>Tools</b></code> on the top right corner  of the Dashboard, Open <code><b>Internet Information Services (IIS) Manager</b></code>.</li>
+</ul>
+
+<p><img src="https://github.com/ladybirdweb/faveo-server-images/blob/master/_docs/installation/providers/enterprise/windows-images/iis.png?raw=true" alt="" style=" width:550px ; height:120px " /></p>
+
+<ul>
+  <li>Now in the Left Panel of the IIS Manager select the server then you will find the <code><b>Handler Mappings</b></code> it will populate the available options to configure.</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/handlermap.png" alt="" style=" width:400px ; height:250px " /></p>
+
+<ul>
+  <li>
+    <p>Open <code><b>Handler Mappings</b></code>, Select <code><b>FastCGI</b></code> Click on <code><b>Edit</b></code> in the Right Panel and update <code><b>c:\php8.2\php-cgi.exe</b></code> path.</p>
+  </li>
+  <li>
+    <p>Click on <code><b>OK</b></code> and restart the IIS server once.</p>
+  </li>
+</ul>
+
+<h3 id="install-php-redis-82-extension">Install PHP Redis 8.2 Extension</h3>
+
+<p><a href="https://pecl.php.net/package/redis/6.1.0/windows" target="_blank" rel="noopener">Click Here</a> to download PHP 8.2 NTS x64 zip file.</p>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/PHPredis.png" style=" width:400px ; height:250px " /></p>
+
+<ul>
+  <li>Unzip the php-redis zip file, a folder will be created, go inside the folder, copy the <em>php_redis.dll</em> file and paste it in <em>C:\php8.2\ext.</em> <em>(C:\php\ext incase of Apache WebServer).</em></li>
+  <li>Now enable php redis extension in <em>php.ini</em> configuration located in <em>C:\php8.2.</em>  <em>(C:\php incase of Apache WebServer).</em></li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>extension=php_redis.dll
+</code></pre></div></div>
+<ul>
+  <li>Now go to Server Manager, open IIS Server and restart it. <em>(or restart Apache incase of Apache WebServer)</em></li>
+</ul>
+
+<hr />
+
+<p><a id="4cpanel" name="4cpanel"></a></p>
+
+<h3 id="4-cpanel"><strong>4. cPanel</strong></h3>
+
+<ul>
+  <li>
+    <p>To enable PHP 8.2 in cPanel the PHP version has to be installed in the server this is done through <code><b>WHM</b></code>, This can be done by contacting your Hosting Provider.</p>
+  </li>
+  <li>
+    <p>After installing PHP 8.2 on the server we need to change the php version for the faveo domain, follow the below steps to do so.</p>
+  </li>
+  <li>
+    <p>Login to the cPanel and search for <code><b>MultiPHP Manager</b></code>  as shown in the below snap.</p>
+  </li>
+</ul>
+
+<p><img alt="" src="https://github.com/ladybirdweb/faveo-server-images/blob/master/_docs/installation/providers/enterprise/GUI-images/multi-php-manager.png?raw=true" /></p>
+
+<ul>
+  <li>After opening the MultiPHP Manager select the <em>“checkbox”</em> of the domain, change the PHP version from the drop-down to PHP 8.2 and click <code><b>Apply</b></code> as shown in the below snap.</li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/GUI-images/multiphpmanager.png" /></p>
+
+<blockquote>
+  <p><strong>Note:</strong> If you are not able to find the PHP version in the drop-down then it is not installed on the server Please contact your Hosting provider and install PHP-8.2 and try again.</p>
+</blockquote>
+
+<ul>
+  <li>Once PHP 8.2 is updated to the domain we need to update PHP version in cron as well to do so, search for <code><b>Cron Jobs</b></code> in the Cpanel search and click on it to open the cron jobs page as below.</li>
+</ul>
+
+<p><img alt="" src="https://github.com/ladybirdweb/faveo-server-images/blob/master/_docs/installation/providers/enterprise/GUI-images/cron-search.png?raw=true" /></p>
+
+<p><img alt="" src="https://github.com/ladybirdweb/faveo-server-images/blob/master/_docs/installation/providers/enterprise/GUI-images/Screenshot%20from%202022-11-28%2011-30-14.png?raw=true" /></p>
+
+<ul>
+  <li>Once we get to the cronjobs page we need to edit the cron to use the php8.2, to do so we need to edit the cron job to use the domain-specific php path and save as shown in the below snap with the below commands.</li>
+</ul>
+
+<p>Change This</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/bin/ea-php8.1 
+</code></pre></div></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/GUI-images/cronjob1.png" /></p>
+
+<p>To This</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/bin/ea-php8.2
+</code></pre></div></div>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/GUI-images/cronjob2.png" /></p>
+
+<hr />
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-11-12">November 12, 2024</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/docs/installation/providers/enterprise/php-upgrade/" class="pagination--pager" title="Upgrade From PHP 7.3.x to PHP 8.1.x
+">Previous</a>
+    
+    
+      <a href="/docs/installation/providers/enterprise/plesk-ubuntu/" class="pagination--pager" title="Faveo Installation on Ubuntu with Plesk Panel
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/ladybirdweb" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 Ladybird Web Solution Pvt Ltd. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

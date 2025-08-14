@@ -1,0 +1,1129 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Nginx Hardening for Security Implications - Faveo Installation Guide</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Ladybird Web Solution Pvt Ltd">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Faveo Installation Guide">
+<meta property="og:title" content="Nginx Hardening for Security Implications">
+<meta property="og:url" content="http://localhost:4000/docs/helpers/server-hardening/nginx-hardening">
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/logo.png">
+
+
+
+  <meta name="twitter:site" content="@faveohelpdesk">
+  <meta name="twitter:title" content="Nginx Hardening for Security Implications">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:url" content="http://localhost:4000/docs/helpers/server-hardening/nginx-hardening">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/logo.png">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2025-08-14T01:22:17-04:00">
+
+
+
+  <meta property="article:modified_time" content="2024-09-12T00:00:00-04:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/docs/helpers/server-hardening/nginx-hardening">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Ladybird Web Solution Pvt Ltd",
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/faveohelpdesk","https://www.facebook.com/faveohelpdesk"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Faveo Installation Guide Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Faveo Installation Guide
+          <span class="site-subtitle">By Ladybird Web Solution</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/knowledgebase">User Manual</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://docs.faveohelpdesk.com/">Installation Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/">Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://community.faveohelpdesk.com/">Community</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://developers.faveohelpdesk.com/">Developer Portal</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://status.faveotools.com/status/updates/">Server Status</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://www.faveohelpdesk.com/online-demo/">Demo</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">INSTALLATION GUIDE</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-alma">Faveo on Alma Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rocky">Faveo on Rocky Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rhel">Faveo on RHEL</a></li>
+          
+            <li><a href="/docs/helpers/choose-ubuntu">Faveo on Ubuntu  (Recommended)</a></li>
+          
+            <li><a href="/docs/helpers/choose-debian">Faveo on Debian</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/windows-iis">Windows IIS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/apache-windows">Windows Apache Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/wamp-windows">Faveo on WAMP</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/xampp-windows/">Faveo on XAMPP</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">How To's</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-php/">Upgrade PHP Version</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/generic-migration/">Faveo Migrate or Clone</a></li>
+          
+            <li><a href="/docs/helpers/choose-backup/">Faveo Automated Backup</a></li>
+          
+            <li><a href="/docs/helper/cname/">Custom Domain</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/network-discovery">Install Network Discovery</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/ssl-error">SSL Error Solution (Linux)</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/meilisearch">Install Meilisearch</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/memcached">Install Memcached</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/websockets">Enable Websockets</a></li>
+          
+            <li><a href="/docs/helpers/email-server">Setup Email Server</a></li>
+          
+            <li><a href="/docs/helpers/ldaps">Configure LDAPS</a></li>
+          
+            <li><a href="/docs/helpers/server-hardening/home">Secure Server</a></li>
+          
+            <li><a href="/docs/helpers/node">Install Node</a></li>
+          
+            <li><a href="/docs/helpers/nats">Install NATS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/basic-troubleshooting-script">Troubleshooting script</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Kubernetes</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-k8s/">Faveo on Kubernetes</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Docker</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-docker/">Faveo on Docker</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Nginx Hardening for Security Implications">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2025-08-14T01:22:17-04:00">
+    <meta itemprop="dateModified" content="2024-09-12T00:00:00-04:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Nginx Hardening for Security Implications
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#11-enforce-hsts-http-strict-transport-security">11. Enforce HSTS (HTTP Strict Transport Security)</a></li>
+  <li><a href="#nginx-virtual-host-configuration-for-security-hardening">Nginx Virtual Host Configuration for Security Hardening</a>
+    <ul>
+      <li><a href="#enabling-and-applying-configuration">Enabling and Applying Configuration:</a></li>
+    </ul>
+  </li>
+  <li><a href="#nginx-virtual-host-configuration-for-security-hardening-1">Nginx Virtual Host Configuration for Security Hardening</a>
+    <ul>
+      <li><a href="#enabling-and-applying-configuration-1">Enabling and Applying Configuration:</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p><img alt="NGINX" src="https://linuxctl.com/images/thumb/cover-nginx.png" /></p>
+
+<p>The web server has a crucial role in web-based applications. Since most of us leave it to the default configuration, it can leak sensitive data regarding the web server.</p>
+
+<p>By applying numerous configuration tweaks, we can make NGINX more resilient against malicious attacks. Following are some NGINX hardening tips that you can incorporate to improve security.</p>
+
+<ul>
+  <li><a href="#1Hide-NGINX-Version"><strong>1. Hide NGINX Version</strong></a></li>
+  <li><a href="#2Disable-Unnecessary-HTTP-Methods"><strong>2. Disable Unnecessary HTTP Methods</strong></a></li>
+  <li><a href="#3Disable-Directory-Listing"><strong>3. Disable Directory Listing</strong></a></li>
+  <li><a href="#4Click-Jacking-defense-with-X-Frame-Options"><strong>4. Click Jacking defense with X-Frame Options</strong></a></li>
+  <li><a href="#5Basic-XSS-Protection"><strong>5. Basic XSS Protection</strong></a></li>
+  <li><a href="#6Enable-HttpOnly-and-Secure-Flag"><strong>6. Enable HttpOnly and Secure Flag</strong></a></li>
+  <li><a href="#7Disable-ETag"><strong>7. Disable ETag</strong></a></li>
+  <li><a href="#8Enable-HTTP/2-Protocol"><strong>8. Enable HTTP/2 Protocol</strong></a></li>
+  <li><a href="#9Set-Referrer-Policy"><strong>9. Set Referrer Policy</strong></a></li>
+  <li><a href="#10Set-Permissions-Policy"><strong>10. Set Permissions Policy</strong></a></li>
+  <li>
+    <h2 id="11-enforce-hsts-http-strict-transport-security"><a href="#11Enforce-HSTS-HTTP-Strict-Transport-Security"><strong>11. Enforce HSTS (HTTP Strict Transport Security)</strong></a></h2>
+  </li>
+</ul>
+
+<p><a id="1Hide-NGINX-Version" name="1Hide-NGINX-Version"></a></p>
+
+<p><strong>1. Hide NGINX Version</strong></p>
+
+<p>Hiding the NGINX version number can prevent attackers from using known vulnerabilities specific to your NGINX version. Exposing the Nginx version can provide attackers with useful information for targeting known vulnerabilities. To hide the version:</p>
+
+<p>Edit the NGINX configuration file:</p>
+
+<ul>
+  <li>RHEL Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/nginx.conf
+</code></pre></div>    </div>
+  </li>
+  <li>Debian Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/sites-available/faveo.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Find the <code class="language-plaintext highlighter-rouge">http</code> block and add the following line:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server_tokens off;
+</code></pre></div></div>
+
+<p>Save and exit the file.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctrl + x
+</code></pre></div></div>
+
+<p>Restart NGINX:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart nginx
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">server_tokens off;</code> directive disables the display of the NGINX version in HTTP headers and error pages.</p>
+
+<p><a id="2Disable-Unnecessary-HTTP-Methods" name="2Disable-Unnecessary-HTTP-Methods"></a></p>
+
+<p><strong>2. Disable Unnecessary HTTP Methods</strong></p>
+
+<p>Limiting HTTP methods helps to prevent attacks that exploit certain HTTP methods.</p>
+
+<p>Edit the NGINX configuration file:</p>
+
+<ul>
+  <li>RHEL Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/nginx.conf
+</code></pre></div>    </div>
+  </li>
+  <li>Debian Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/sites-available/faveo.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Find the <code class="language-plaintext highlighter-rouge">http</code> block and add the following line:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if ($request_method !~ ^(GET|POST|HEAD)$ ) {
+    return 444;
+}
+</code></pre></div></div>
+
+<p>Save and exit the file.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctrl + x
+</code></pre></div></div>
+
+<p>Restart NGINX:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart nginx
+</code></pre></div></div>
+
+<p>This configuration will return a <code class="language-plaintext highlighter-rouge">444 No Response</code> status code for requests using HTTP methods other than GET, POST, and HEAD, which helps mitigate risks..</p>
+
+<p><a id="3Disable-Directory-Listing" name="3Disable-Directory-Listing"></a></p>
+
+<p><strong>3. Disable Directory Listing</strong></p>
+
+<p>Directory listing should be disabled to prevent exposure of sensitive files and directory contents.</p>
+
+<p>Edit the NGINX configuration file:</p>
+
+<ul>
+  <li>RHEL Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/nginx.conf
+</code></pre></div>    </div>
+  </li>
+  <li>Debian Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/sites-available/faveo.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Find the <code class="language-plaintext highlighter-rouge">http</code> block and add the following line:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location / {
+    autoindex off;
+}
+</code></pre></div></div>
+<p>For Faveo Helpdesk, we can skip this step as we have already enabled it in default configuration file as below:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location / {
+            try_files $uri $uri/ /index.php?$query_string;
+        }
+</code></pre></div></div>
+
+<p>Save and exit the file.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctrl + x
+</code></pre></div></div>
+
+<p>Restart NGINX:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart nginx
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">autoindex off;</code> directive disables directory listing.</p>
+
+<p><a id="4Clickjacking-Defense-with-X-Frame-Options" name="4Clickjacking-Defense-with-X-Frame-Options"></a></p>
+
+<p><strong>4. Clickjacking Defense with X-Frame-Options</strong></p>
+
+<p>To prevent your content from being used in a frame, which could be exploited for clickjacking attacks:</p>
+
+<p>Edit the NGINX configuration file:</p>
+
+<ul>
+  <li>RHEL Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/nginx.conf
+</code></pre></div>    </div>
+  </li>
+  <li>Debian Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/sites-available/faveo.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Find the <code class="language-plaintext highlighter-rouge">http</code> block and add the following line:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>add_header X-Frame-Options "SAMEORIGIN";
+</code></pre></div></div>
+
+<p>Save and exit the file.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctrl + x
+</code></pre></div></div>
+
+<p>Restart NGINX:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart nginx
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">add_header X-Frame-Options "SAMEORIGIN";</code> directive ensures that your content can only be framed by pages from the same origin.</p>
+
+<p><a id="5Basic-XSS-Protection" name="5Basic-XSS-Protection"></a></p>
+
+<p><strong>5. Basic XSS Protection</strong></p>
+
+<p>Enabling XSS protection in modern browsers helps prevent cross-site scripting attacks.</p>
+
+<p>Edit the NGINX configuration file:</p>
+
+<ul>
+  <li>RHEL Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/nginx.conf
+</code></pre></div>    </div>
+  </li>
+  <li>Debian Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/sites-available/faveo.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Find the <code class="language-plaintext highlighter-rouge">http</code> block and add the following line:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>add_header X-XSS-Protection "1; mode=block";
+</code></pre></div></div>
+
+<p>Save and exit the file.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctrl + x
+</code></pre></div></div>
+
+<p>Restart NGINX:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart nginx
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">add_header X-XSS-Protection "1; mode=block";</code> directive enables the XSS filter built into modern browsers.</p>
+
+<p><a id="6Enable-HttpOnly-and-Secure-Flags-for-Cookies" name="6Enable-HttpOnly-and-Secure-Flags-for-Cookies"></a></p>
+
+<p><strong>6. Enable HttpOnly and Secure Flags for Cookies</strong></p>
+
+<p>Setting HttpOnly and Secure flags for cookies helps protect them from theft via client-side scripts and ensures they are only sent over HTTPS.</p>
+
+<p>Edit the NGINX configuration file:</p>
+
+<ul>
+  <li>RHEL Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/nginx.conf
+</code></pre></div>    </div>
+  </li>
+  <li>Debian Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/sites-available/faveo.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Find the <code class="language-plaintext highlighter-rouge">http</code> block and add the following line:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http {
+    ...
+    add_header Set-Cookie "HttpOnly;Secure";
+    ...
+}
+</code></pre></div></div>
+
+<p>Save and exit the file.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctrl + x
+</code></pre></div></div>
+
+<p>Restart NGINX:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart nginx
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">add_header Set-Cookie "HttpOnly;Secure";</code> directive ensures that cookies are marked as HttpOnly and Secure.</p>
+
+<p><a id="7Disable-ETag" name="7Disable-ETag"></a></p>
+
+<p><strong>7. Disable ETag</strong></p>
+
+<p>Disabling ETags helps prevent leaking information about the server. Disabling them can enhance privacy.</p>
+
+<p>Edit the NGINX configuration file:</p>
+
+<ul>
+  <li>RHEL Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/nginx.conf
+</code></pre></div>    </div>
+  </li>
+  <li>Debian Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/sites-available/faveo.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Find the <code class="language-plaintext highlighter-rouge">http</code> block and add the following line:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+    ...
+    add_header ETag "";
+    ...
+}
+</code></pre></div></div>
+
+<p>Save and exit the file.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctrl + x
+</code></pre></div></div>
+
+<p>Restart NGINX:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart nginx
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">add_header ETag "";</code> directive disables the generation of ETag headers.</p>
+
+<p><a id="8Enable-HTTP/2-Protocol" name="8Enable-HTTP/2-Protocol"></a></p>
+
+<p><strong>8. Enable HTTP/2 Protocol</strong></p>
+
+<p>Enabling HTTP/2 can improve performance and security over HTTP/1.1..</p>
+
+<p>Edit the NGINX configuration file:</p>
+
+<ul>
+  <li>RHEL Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/nginx.conf
+</code></pre></div>    </div>
+  </li>
+  <li>Debian Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/sites-available/faveo.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Find the <code class="language-plaintext highlighter-rouge">http</code> block and add the following line:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>listen 443 ssl http2;
+</code></pre></div></div>
+
+<p>Save and exit the file.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctrl + x
+</code></pre></div></div>
+
+<p>Restart NGINX:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart nginx
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">listen 443 ssl http2;</code> directive enables HTTP/2 for improved performance.</p>
+
+<p><a id="9Set-Referrer-Policy" name="9Set-Referrer-Policy"></a></p>
+
+<p><strong>9. Set Referrer Policy</strong></p>
+
+<p>A referrer policy can prevent sensitive information from being leaked in HTTP referrer headers. Setting a strict referrer policy enhances privacy and security.</p>
+
+<p>Edit the NGINX configuration file:</p>
+
+<ul>
+  <li>RHEL Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/nginx.conf
+</code></pre></div>    </div>
+  </li>
+  <li>Debian Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/sites-available/faveo.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Find the <code class="language-plaintext highlighter-rouge">http</code> block and add the following line:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>add_header Referrer-Policy "strict-origin";
+</code></pre></div></div>
+
+<p>Save and exit the file.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctrl + x
+</code></pre></div></div>
+
+<p>Restart NGINX:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart nginx
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">add_header Referrer-Policy "strict-origin";</code> directive sets a referrer policy that restricts referrer information sent with requests.</p>
+
+<p><a id="10Set-Permissions-Policy" name="10Set-Permissions-Policy"></a></p>
+
+<p><strong>10. Set Permissions Policy</strong></p>
+
+<p>Implementing a permissions policy can enhance the security of your site by controlling the use of certain features. Permissions policies (formerly known as Feature Policy) control which features and APIs can be used in your web application.</p>
+
+<p>Edit the NGINX configuration file:</p>
+
+<ul>
+  <li>RHEL Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/nginx.conf
+</code></pre></div>    </div>
+  </li>
+  <li>Debian Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/sites-available/faveo.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Find the <code class="language-plaintext highlighter-rouge">http</code> block and add the following line:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>add_header Permissions-Policy "geolocation=(), microphone=(), camera=()";
+</code></pre></div></div>
+
+<p>Save and exit the file.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctrl + x
+</code></pre></div></div>
+
+<p>Restart NGINX:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart nginx
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">add_header Permissions-Policy "geolocation=(), microphone=(), camera=()";</code> directive restricts access to certain features.</p>
+
+<p><a id="11Enforce-HSTS-HTTP-Strict-Transport-Security" name="11Enforce-HSTS-HTTP-Strict-Transport-Security"></a></p>
+
+<p><strong>11. Enforce HSTS-HTTP Strict Transport Security</strong></p>
+
+<p>Enforcing HSTS ensures that browsers only connect to your server over HTTPS.</p>
+
+<p>Edit the NGINX configuration file:</p>
+
+<ul>
+  <li>RHEL Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/nginx.conf
+</code></pre></div>    </div>
+  </li>
+  <li>Debian Based Servers
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/sites-available/faveo.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Find the <code class="language-plaintext highlighter-rouge">http</code> block and add the following line:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>add_header Strict-Transport-Security "max-age=31536000; includeSubDomains";
+</code></pre></div></div>
+
+<p>Save and exit the file.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctrl + x
+</code></pre></div></div>
+
+<p>Restart NGINX:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart nginx
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">add_header Strict-Transport-Security "max-age=31536000; includeSubDomains";</code> directive enforces HSTS for one year and includes all subdomains.</p>
+
+<h2 id="nginx-virtual-host-configuration-for-security-hardening">Nginx Virtual Host Configuration for Security Hardening</h2>
+
+<p>Here is the combined configuration for Debian-based systems, summarized from all 11 points, to be placed in the virtual host configuration files. Here we are directly making changing in a single virtual host file for a particular website.</p>
+
+<h3 id="enabling-and-applying-configuration">Enabling and Applying Configuration:</h3>
+
+<p>Edit the NGINX configuration file:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/sites-available/faveo.conf
+</code></pre></div></div>
+
+<p>Edit or create the site-specific configuration file:</p>
+
+<div class="language-nginx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">root</span> <span class="n">/var/www/faveo/public</span><span class="p">;</span>
+    <span class="kn">index</span> <span class="s">index.php</span> <span class="s">index.html</span> <span class="s">index.htm</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">helpdesk.example.com</span><span class="p">;</span>
+
+    <span class="kn">client_max_body_size</span> <span class="mi">100M</span><span class="p">;</span>
+
+    <span class="kn">location</span> <span class="n">/</span> <span class="p">{</span>
+        <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri</span><span class="n">/</span> <span class="n">/index.php?</span><span class="nv">$query_string</span><span class="p">;</span>       
+
+<span class="c1">#1. Hide NGINX Version</span>
+        <span class="kn">server_tokens</span> <span class="no">off</span><span class="p">;</span>
+<span class="c1">#2. Disable Unnecessary HTTP Methods</span>
+<span class="kn">if</span> <span class="s">(</span><span class="nv">$request_method</span> <span class="s">!~</span> <span class="s">^(GET|POST|HEAD)</span>$ <span class="s">)</span> <span class="p">{</span>
+    <span class="kn">return</span> <span class="mi">444</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="c1"># Security Headers</span>
+<span class="c1">#4. Clickjacking Defense with X-Frame-Options</span>
+<span class="kn">add_header</span> <span class="s">X-Frame-Options</span> <span class="s">"SAMEORIGIN"</span><span class="p">;</span>
+<span class="c1">#5. Basic XSS Protection</span>
+<span class="kn">add_header</span> <span class="s">X-XSS-Protection</span> <span class="s">"1</span><span class="p">;</span> <span class="kn">mode=block"</span><span class="p">;</span>
+<span class="c1">#6. Enable HttpOnly and Secure Flags for Cookies</span>
+<span class="kn">add_header</span> <span class="s">Set-Cookie</span> <span class="s">"HttpOnly</span><span class="p">;</span><span class="kn">Secure"</span><span class="p">;</span>
+<span class="c1">#7. Disable ETag </span>
+<span class="c1">#add_header ETag "";</span>
+<span class="kn">etag</span> <span class="no">off</span><span class="p">;</span>
+<span class="c1">#9. Set Referrer Policy</span>
+<span class="kn">add_header</span> <span class="s">Referrer-Policy</span> <span class="s">"strict-origin"</span><span class="p">;</span>
+<span class="c1">#10. Set Permissions Policy</span>
+<span class="kn">add_header</span> <span class="s">Permissions-Policy</span> <span class="s">"geolocation=(),</span> <span class="s">microphone=(),</span> <span class="s">camera=()"</span><span class="p">;</span>
+<span class="c1">#11. Enforce HSTS (HTTP Strict Transport Security)</span>
+<span class="kn">add_header</span> <span class="s">Strict-Transport-Security</span> <span class="s">"max-age=31536000</span><span class="p">;</span> <span class="kn">includeSubDomains"</span><span class="p">;</span>
+
+    <span class="p">}</span>
+
+    <span class="kn">location</span> <span class="p">~</span> <span class="sr">\.php$</span> <span class="p">{</span>
+        <span class="kn">include</span> <span class="nc">snippets/fastcgi-php</span><span class="s">.conf</span><span class="p">;</span>
+        <span class="kn">fastcgi_pass</span> <span class="s">unix:/var/run/php/php8.2-fpm.sock</span><span class="p">;</span>
+        <span class="kn">fastcgi_param</span> <span class="s">SCRIPT_FILENAME</span> <span class="nv">$document_root$fastcgi_script_name</span><span class="p">;</span>
+        <span class="kn">include</span> <span class="s">fastcgi_params</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="c1">#8. Enable HTTP/2 Protocol</span>
+    <span class="kn">listen</span> <span class="s">[::]:443</span> <span class="s">ssl</span> <span class="s">ipv6only=on</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
+    <span class="kn">listen</span> <span class="mi">443</span> <span class="s">ssl</span> <span class="s">http2</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
+    <span class="kn">ssl_certificate</span> <span class="n">/etc/letsencrypt/live/helpdesk.example.com/fullchain.pem</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
+    <span class="kn">ssl_certificate_key</span> <span class="n">/etc/letsencrypt/live/helpdesk.example.com/privkey.pem</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
+    <span class="kn">include</span> <span class="n">/etc/letsencrypt/options-ssl-nginx.conf</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
+    <span class="kn">ssl_dhparam</span> <span class="n">/etc/letsencrypt/ssl-dhparams.pem</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
+
+<span class="p">}</span>
+<span class="k">server</span> <span class="p">{</span>
+    <span class="kn">if</span> <span class="s">(</span><span class="nv">$host</span> <span class="p">=</span> <span class="s">helpdesk.example.com)</span> <span class="p">{</span>
+        <span class="kn">return</span> <span class="mi">301</span> <span class="s">https://</span><span class="nv">$host$request_uri</span><span class="p">;</span>
+    <span class="p">}</span> <span class="c1"># managed by Certbot</span>
+
+
+    <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+    <span class="kn">listen</span> <span class="s">[::]:80</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">helpdesk.example.com</span><span class="p">;</span>
+    <span class="kn">return</span> <span class="mi">404</span><span class="p">;</span> <span class="c1"># managed by Certbot</span>
+
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Please make sure that the server name/domain is changed at all locations and ssl paths are correct.</p>
+
+<p>Save and exit the file.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctrl + x
+</code></pre></div></div>
+
+<p>Restart NGINX:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart nginx
+</code></pre></div></div>
+
+<h2 id="nginx-virtual-host-configuration-for-security-hardening-1">Nginx Virtual Host Configuration for Security Hardening</h2>
+
+<p>Here is the combined configuration for Debian-based systems, summarized from all 11 points, to be placed in the virtual host configuration files. Here we are directly making changing in a single virtual host file for a particular website.</p>
+
+<h3 id="enabling-and-applying-configuration-1">Enabling and Applying Configuration:</h3>
+
+<p>Edit the NGINX configuration file:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nano /etc/nginx/nginx.conf
+</code></pre></div></div>
+
+<p>Edit or create the site-specific configuration file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+user nginx;
+worker_processes auto;
+error_log /var/log/nginx/error.log;
+pid /run/nginx.pid;
+
+#Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.
+include /usr/share/nginx/modules/*.conf;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+#6. Enable HttpOnly and Secure Flags for Cookies
+    add_header Set-Cookie "HttpOnly;Secure";
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile            on;
+    tcp_nopush          on;
+    tcp_nodelay         on;
+    keepalive_timeout   65;
+    types_hash_max_size 4096;
+
+    include             /etc/nginx/mime.types;
+    default_type        application/octet-stream;
+
+    # Load modular configuration files from the /etc/nginx/conf.d directory.
+    # See http://nginx.org/en/docs/ngx_core_module.html#include
+    # for more information.
+    include /etc/nginx/conf.d/*.conf;
+
+    server {
+        server_name  helpdesk.example.com;
+        root         /var/www/faveo/public/;
+        index index.php index.html index.htm;
+
+#1. Hide NGINX Version
+        server_tokens off; # Disable server tokens for security
+#2. Disable Unnecessary HTTP Methods
+	if ($request_method !~ ^(GET|POST|HEAD)$ ) {
+	    return 444;
+	}
+
+
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+
+        # This is for user friendly URL 
+        location ~ \.php$ {
+            try_files $uri =404;
+            fastcgi_pass 127.0.0.1:9000;
+            fastcgi_index index.php;
+            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+            include fastcgi_params;
+        }
+
+        location / {
+            try_files $uri $uri/ /index.php?$query_string;
+#3. Disable Directory listing
+	    autoindex off;
+        }
+
+# Security Headers
+#4. Clickjacking Defense with X-Frame-Options
+add_header X-Frame-Options "SAMEORIGIN";
+#5. Basic XSS Protection
+add_header X-XSS-Protection "1; mode=block";
+#7. Disable ETag 
+#add_header ETag "";
+etag off;
+#9. Set Referrer Policy
+add_header Referrer-Policy "strict-origin";
+#10. Set Permissions Policy
+add_header Permissions-Policy "geolocation=(), microphone=(), camera=()";
+#11. Enforce HSTS (HTTP Strict Transport Security)
+add_header Strict-Transport-Security "max-age=31536000; includeSubDomains";
+
+
+
+        location ~* \.html$ {
+            expires -1;
+        }
+
+        location ~* \.(css|gif|jpe?g|png)$ {
+            expires 1M;
+            add_header Pragma public;
+            add_header Cache-Control "public, must-revalidate, proxy-revalidate";
+        }
+
+        error_page 404 /404.html;
+        location = /404.html {
+        }
+
+        error_page 500 502 503 504 /50x.html;
+        location = /50x.html {
+        }
+    
+#8. Enable HTTP/2 Protocol
+    listen 443 ssl http2; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/helpdesk.example.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/helpdesk.example.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+    gzip on;
+    gzip_http_version 1.1;
+    gzip_vary on;
+    gzip_comp_level 6;
+    gzip_proxied any;
+    gzip_types application/atom+xml
+               application/javascript
+               application/json
+               application/vnd.ms-fontobject
+               application/x-font-ttf
+               application/x-web-app-manifest+json
+               application/xhtml+xml
+               application/xml
+               font/opentype
+               image/svg+xml
+               image/x-icon
+               text/css
+               text/plain
+               text/xml;
+    gzip_buffers 16 8k;
+    gzip_disable "MSIE [1-6]\.(?!.*SV1)";
+
+
+
+    server {
+    if ($host = helpdesk.example.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+        server_name  helpdesk.example.com;
+    listen 80;
+    return 404; # managed by Certbot
+
+
+}}
+
+</code></pre></div></div>
+
+<p>Please make sure that the server name/domain is changed at all locations and ssl paths are correct.</p>
+
+<p>Save and exit the file.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctrl + x
+</code></pre></div></div>
+
+<p>Restart NGINX:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart nginx
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-09-12">September 12, 2024</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/docs/helpers/server-hardening/mod-security" class="pagination--pager" title="How to enable MOD-SECURITY for Apache2
+">Previous</a>
+    
+    
+      <a href="/docs/helpers/node" class="pagination--pager" title="Installing Node.js and Puppeteer for Faveo’s Graphical Reports
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/ladybirdweb" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 Ladybird Web Solution Pvt Ltd. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

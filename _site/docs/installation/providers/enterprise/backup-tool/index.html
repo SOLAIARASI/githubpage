@@ -1,0 +1,793 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>UrBackup Tool for Faveo File System and Database Backup - Faveo Installation Guide</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Ladybird Web Solution Pvt Ltd">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Faveo Installation Guide">
+<meta property="og:title" content="UrBackup Tool for Faveo File System and Database Backup">
+<meta property="og:url" content="http://localhost:4000/docs/installation/providers/enterprise/backup-tool/">
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/logo.png">
+
+
+
+  <meta name="twitter:site" content="@faveohelpdesk">
+  <meta name="twitter:title" content="UrBackup Tool for Faveo File System and Database Backup">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:url" content="http://localhost:4000/docs/installation/providers/enterprise/backup-tool/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/logo.png">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2025-08-14T01:22:17-04:00">
+
+
+
+  <meta property="article:modified_time" content="2023-05-03T00:00:00-04:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/docs/installation/providers/enterprise/backup-tool/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Ladybird Web Solution Pvt Ltd",
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/faveohelpdesk","https://www.facebook.com/faveohelpdesk"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Faveo Installation Guide Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Faveo Installation Guide
+          <span class="site-subtitle">By Ladybird Web Solution</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/knowledgebase">User Manual</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://docs.faveohelpdesk.com/">Installation Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/">Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://community.faveohelpdesk.com/">Community</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://developers.faveohelpdesk.com/">Developer Portal</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://status.faveotools.com/status/updates/">Server Status</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://www.faveohelpdesk.com/online-demo/">Demo</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">INSTALLATION GUIDE</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-alma">Faveo on Alma Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rocky">Faveo on Rocky Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rhel">Faveo on RHEL</a></li>
+          
+            <li><a href="/docs/helpers/choose-ubuntu">Faveo on Ubuntu  (Recommended)</a></li>
+          
+            <li><a href="/docs/helpers/choose-debian">Faveo on Debian</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/windows-iis">Windows IIS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/apache-windows">Windows Apache Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/wamp-windows">Faveo on WAMP</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/xampp-windows/">Faveo on XAMPP</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">How To's</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-php/">Upgrade PHP Version</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/generic-migration/">Faveo Migrate or Clone</a></li>
+          
+            <li><a href="/docs/helpers/choose-backup/">Faveo Automated Backup</a></li>
+          
+            <li><a href="/docs/helper/cname/">Custom Domain</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/network-discovery">Install Network Discovery</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/ssl-error">SSL Error Solution (Linux)</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/meilisearch">Install Meilisearch</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/memcached">Install Memcached</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/websockets">Enable Websockets</a></li>
+          
+            <li><a href="/docs/helpers/email-server">Setup Email Server</a></li>
+          
+            <li><a href="/docs/helpers/ldaps">Configure LDAPS</a></li>
+          
+            <li><a href="/docs/helpers/server-hardening/home">Secure Server</a></li>
+          
+            <li><a href="/docs/helpers/node">Install Node</a></li>
+          
+            <li><a href="/docs/helpers/nats">Install NATS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/basic-troubleshooting-script">Troubleshooting script</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Kubernetes</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-k8s/">Faveo on Kubernetes</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Docker</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-docker/">Faveo on Docker</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="UrBackup Tool for Faveo File System and Database Backup">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2025-08-14T01:22:17-04:00">
+    <meta itemprop="dateModified" content="2023-05-03T00:00:00-04:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">UrBackup Tool for Faveo File System and Database Backup
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#urbackup-tool">UrBackup Tool</a></li>
+  <li><a href="#requirements">Requirements</a></li>
+  <li><a href="#usage">Usage</a></li>
+  <li><a href="#to-restore">To Restore:</a></li>
+  <li><a href="#conclusion">Conclusion:</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p><img src="https://www.faveohelpdesk.com/wp-content/uploads/2022/10/faveo-logo-1.png" alt="" style=" width:200px ; height:80px " /></p>
+
+<h2 id="urbackup-tool">UrBackup Tool</h2>
+
+<blockquote>
+  <p><strong>Note</strong>
+We are using <strong>URBACKUP</strong> a Third Party Tool which is used to backup file system and Database to a remote server, This can be used for both Linux Based and Windows server.</p>
+</blockquote>
+
+<h2 id="requirements">Requirements</h2>
+<hr />
+<p><b>1. </b> We need a Server to store the backups which are taken. this server can be Windows or Linux based.</p>
+
+<h2 id="usage">Usage</h2>
+<p><b>1. </b> We need to set up the URBACKUP Server first to do the same follow the below steps.</p>
+
+<p>1.a. In the backup server you need to install URBackup server to install follow this : (https://www.urbackup.org/download.html)</p>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/download.png" style=" width:550px ; height:250px " /></p>
+
+<p>1.b Once the installation is started it might ask for the directory where to store the backups please select a directory and the urbackup user should have permissions to access it once it is done, you can browse the domain or IP of the URBackup server with the port 55414.</p>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/urbackup-opening.png" style=" width:550px ; height:200px " /></p>
+
+<p>1.c. Once that is done we need to configure the server.</p>
+
+<ul>
+  <li>Once the above page is opened we need to create a user and set a password for the same, to do so we need to click on the setting icon on the top and then click on the user and create a user as shown in the below snap.</li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/useradd.png" style=" width:550px ; height:150px " /></p>
+
+<ul>
+  <li>Once the above is done we can continue setting up the server to do so click on general as shown in the below snap.</li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/serverconfig1.png" style=" width:550px ; height:250px " /></p>
+
+<ul>
+  <li>Click on <strong>server</strong> under general as shown in the above snap and fill the details below as shown in the above.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Backup Storage Path</strong> : 
+This is the location where we need to store the backups in the server.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>Server URL for client file/backup access/browsing</strong> : 
+Here we need to add the server url which you are trying to access urbackup</p>
+</blockquote>
+
+<ul>
+  <li>Once that is done we need to set the options for the <strong>File Backup</strong> to do so click the next option after the server as shown in the below snap.</li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/filebackup.png" style=" width:550px ; height:250px " /></p>
+
+<ul>
+  <li>we need to change the default values like interval for incremental file backups and things as shown in the snap above, we can also change the options as per our requirements.</li>
+</ul>
+
+<blockquote>
+  <p><strong>Incremental Backup</strong> : 
+Instead of making a copy of every file on the server, backing up files incrementally stores just what has changed since the last backup was performed, only the files and db entries that have changed are backed up instead of backing up the whole data.</p>
+</blockquote>
+
+<blockquote>
+  <p><strong>Incremental Backup Interval</strong> : 
+By default Incremental Backup Interval is set in hours, the default value is 5 hours, if it is to be changed, the minutes need to be changed to hours.</p>
+</blockquote>
+
+<ul>
+  <li>Then we can also change the options for <strong>Image Backups</strong> as shown in the below snap. This is optional and depends upon the needs of the client.</li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/imagebackup.png" style=" width:550px ; height:250px " /></p>
+
+<ul>
+  <li>
+    <p>Once the above is done we need to configre the <strong>Internet/Active Clients</strong> option, this will be the configuration we need to pass in the URbackupp client servers.</p>
+  </li>
+  <li>
+    <p>To do the same follow the below snap.</p>
+  </li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/internetclientserver.png" style=" width:550px ; height:250px " /></p>
+
+<ul>
+  <li>
+    <p>As shown in the above snap we need to enter the URbackup Server Domain or IP to it, this IP or domain we use for connecting URbackup client to the server.</p>
+  </li>
+  <li>
+    <p>Save the configuration changes everytime before moving to the next section.</p>
+  </li>
+  <li>
+    <p>Once the above is done we can enable email notification for the backup to do so click on <strong>Mail</strong> next to general and configure as show in the below snap.</p>
+  </li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/emailconfig.png" style=" width:550px ; height:250px " /></p>
+
+<ul>
+  <li>
+    <p>Once this is done the server is ready, now we can start adding clients to the server to do so, follow the below in structions.</p>
+  </li>
+  <li>
+    <p>Go to the urbackup home page, you can find a <strong>Add New Client</strong> button over there as show in the below snap.</p>
+  </li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/urbackup-opening.png" style=" width:550px ; height:200px " /></p>
+
+<ul>
+  <li>Click on the <strong>Add New Client</strong>, it will ask you the client details with the IP or hostname and the client name as show in the below snap.</li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/clientadd.png" style=" width:550px ; height:250px " /></p>
+
+<p>There are two options to add the client:</p>
+<ol>
+  <li>Internet/Active Client - This is the remote client, only client name needs to be mentioined for this option.</li>
+  <li>Client to be discovered - This is for local network, IP/hostname of client needs to be mentioined for this option.</li>
+</ol>
+
+<ul>
+  <li>Once this is done it will take you to the client download page as show in the below snap.</li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/clientdownload.png" style=" width:550px ; height:350px " /></p>
+
+<ul>
+  <li>In the above snap we have options to download clients on different OS like windows, linux, docker..</li>
+</ul>
+
+<p><strong>For Linux:</strong></p>
+
+<ul>
+  <li>
+    <p>It is easy for linux we just need to run the command under (Install it directly in the terminal via), this will set up the urbackup client in the linux. Make sure the port 55414 and passive port range 49152-65534 are open.</p>
+  </li>
+  <li>
+    <p>Once the above is done we need to setup the directories which has to be backuped up in client server, the below command is used in terminal to check the current backup directory list:</p>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/bin/urbackupclientctl list 
+</code></pre></div></div>
+
+<ul>
+  <li>To add a backup direcroty you need to run the below command in the terminal:</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/bin/urbackupclientctl add-backupdir -x -f -d /home/backupdir/
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>The above command will add the /home/backupdir as the directory whcih has to be backedup.</p>
+  </li>
+  <li>
+    <p>To remove a existing direcroty you need to get the direcroty which is added and to be removed from the list command and then need to run the below command replacing your path.</p>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/local/bin/urbackupclientctl remove-backupdir -d /path/to/backup/dir
+</code></pre></div></div>
+
+<ul>
+  <li>Once the above is added we need to restart the urbackup client to do so run the below command:</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart urbackupclientbackend
+</code></pre></div></div>
+
+<ul>
+  <li>Check urbackup client status</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl status urbackupclientbackend
+</code></pre></div></div>
+
+<ul>
+  <li>Install LSB Modules for client</li>
+</ul>
+
+<p>For apt based servers like Ubuntu, Debian:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get install lsb
+</code></pre></div></div>
+
+<p>For yum based servers like Alma, Rocky, RedHat, CentOS:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum install lsb-core
+</code></pre></div></div>
+
+<ul>
+  <li>You can find the client in the urbackup dashboard as online and last seen as shown in the below snap for example.</li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/clientaddstatus.png" style=" width:550px ; height:200px " /></p>
+
+<ul>
+  <li>You can start the backup by clicking the drop down and then you can select whcih type of backup and start it once started it will do the backup as per the intervals setted in the server configuration above.</li>
+</ul>
+
+<p><strong>For Windows:</strong></p>
+
+<ul>
+  <li>To setup urbackup client in the windows we need to download the preconfigured windows client from the download page which will be shown while we are adding a client as shown below.</li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/clientdownload.png" style=" width:550px ; height:250px " /></p>
+
+<ul>
+  <li>Once downloaded we need to install the client in the windows machine follow the below snaps.</li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/urbackupclientinstallation1.png" style=" width:400px ; height:350px " /></p>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/urbackupinstall2.png" style=" width:400px ; height:250px " /></p>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/urbackupinstall3.png" style=" width:400px ; height:250px " /></p>
+
+<ul>
+  <li>
+    <p>Once you click on the install the installer will install the urbackup client on the windows machine.</p>
+  </li>
+  <li>
+    <p>Once it is installed you will open a configuration page like below.</p>
+  </li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/urbackupclientconfig.png" style=" width:400px ; height:250px " /></p>
+
+<ul>
+  <li>
+    <p>In the above tab you can select the mode of backups we can keet the defaults as shown in the above snap and click on finish.</p>
+  </li>
+  <li>
+    <p>once that is done the URBackup client is installed with the selected options.</p>
+  </li>
+  <li>
+    <p>After that you can find the urbackup icon on the tray as shown in below snap.</p>
+  </li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/urbackupclienticon.png" style=" width:250px ; height:150px " /></p>
+
+<ul>
+  <li>Right click on the icon will give you the options as shown in below snap.</li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/urbackupclienticontray.png" style=" width:400px ; height:250px " /></p>
+
+<ul>
+  <li>Click on setting to configure the urbackup client it will open a windows as below.</li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/urbackupclientsetting.png" style=" width:400px ; height:250px " /></p>
+
+<ul>
+  <li>
+    <p>It will open a tab similar to above image and here you can set the interval of file backups and the folders to exclude and other options you can configre as per your requrement.</p>
+  </li>
+  <li>
+    <p>Then click on the Image backups you will get a tab similar to the below snap and you can configure according to your requirements the default is below.</p>
+  </li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/urbackupclientsetting1.png" style=" width:400px ; height:250px " /></p>
+
+<ul>
+  <li>Once the above is done click on client next to the image backups. As this is a preconfigured windows client, the client section will be configured already so we don’t need to chnage anything over there.</li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/urbackupclientsetting3.png" style=" width:400px ; height:250px " /></p>
+
+<ul>
+  <li>Once you verify the above, click on the next option Internet, this will also be preconfigured just verify with the server details that we set in the server that tab will be similar to the below.</li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/urbackupclientsetting4.png" style=" width:400px ; height:250px " /></p>
+
+<ul>
+  <li>With the above step the URbackup client configuration on the setting is done. then click on the add/remove backup paths in the tray icon it will open a page similar to the below snap, this we used to set the directory for the backup this is similar to adding directory in the linux. we can also remove the path in the same window.</li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/urbackupadd.png" style=" width:400px ; height:250px " /></p>
+
+<ul>
+  <li>
+    <p>Once the above is done the client configuration will be compeletd, restart the urbackup service from the services in your windows machine.</p>
+  </li>
+  <li>
+    <p>Once this is done you can check the status of the backup client and backup in the status option on the tray icon. it will be similar to below snap but this snap is a test so the connection is still waiting if it is connected it will show you as connected.</p>
+  </li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/urbackupststus.png" style=" width:400px ; height:200px " /></p>
+
+<p><strong>To take DB backups</strong></p>
+
+<ul>
+  <li>
+    <p>On Linux with the binary client: Change 0 to 1, also provide mysql root password in /usr/local/etc/urbackup/mariadbdump.conf. Afterwards file backups will include the dump file of the database at urbackup_backup_scripts/mariadbdump.sql and restart the urbackup client.</p>
+  </li>
+  <li>
+    <p>Once the above is done the urbackup will start taking DB backups also.</p>
+  </li>
+  <li>
+    <p>Configure the client to backup the MySQL data directory. E.g. /var/lib/mysql on Linux and C:\ProgramData\MySQL\MySQL Server 5.5\data on Windows. Make sure you have configured a snapshotting method on Linux and restart the urbackup client</p>
+  </li>
+  <li>
+    <p>This way we will take the entire directory of the mysql.</p>
+  </li>
+</ul>
+
+<h2 id="to-restore">To Restore:</h2>
+
+<ul>
+  <li>We can download the backups for the URbackup server page, to do so go to the backups page in the urbackup server dashboard as shown in the below snap from there we can download the backups.</li>
+</ul>
+
+<p><img alt="" src="https://raw.githubusercontent.com/ladybirdweb/backup-script/main/snaps/urbackuprestore.png" style=" width:550px ; height:150px " /></p>
+
+<hr />
+<h2 id="conclusion">Conclusion:</h2>
+<blockquote>
+  <p><strong>Note</strong>
+The URBackup is configured successfully to take File and DB backups.</p>
+</blockquote>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2023-05-03">May 3, 2023</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/docs/installation/providers/enterprise/backup-script/" class="pagination--pager" title="Automated Backup Script for Faveo File System and Database to the FTP-Server
+">Previous</a>
+    
+    
+      <a href="/docs/installation/providers/enterprise/basic-troubleshooting-script/" class="pagination--pager" title="Faveo Basic Troubleshooting via Scripts
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/ladybirdweb" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 Ladybird Web Solution Pvt Ltd. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

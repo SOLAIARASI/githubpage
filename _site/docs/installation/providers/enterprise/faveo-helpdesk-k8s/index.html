@@ -1,0 +1,845 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Faveo Helpdesk K8s - Faveo Installation Guide</title>
+<meta name="description" content="Deploying Faveo Helpdesk on managed Kubernetes Cluster">
+
+
+  <meta name="author" content="Ladybird Web Solution Pvt Ltd">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Faveo Installation Guide">
+<meta property="og:title" content="Faveo Helpdesk K8s">
+<meta property="og:url" content="http://localhost:4000/docs/installation/providers/enterprise/faveo-helpdesk-k8s/">
+
+
+  <meta property="og:description" content="Deploying Faveo Helpdesk on managed Kubernetes Cluster">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/logo.png">
+
+
+
+  <meta name="twitter:site" content="@faveohelpdesk">
+  <meta name="twitter:title" content="Faveo Helpdesk K8s">
+  <meta name="twitter:description" content="Deploying Faveo Helpdesk on managed Kubernetes Cluster">
+  <meta name="twitter:url" content="http://localhost:4000/docs/installation/providers/enterprise/faveo-helpdesk-k8s/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/logo.png">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2025-08-14T01:22:17-04:00">
+
+
+
+  <meta property="article:modified_time" content="2024-11-20T00:00:00-04:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/docs/installation/providers/enterprise/faveo-helpdesk-k8s/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Ladybird Web Solution Pvt Ltd",
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/faveohelpdesk","https://www.facebook.com/faveohelpdesk"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Faveo Installation Guide Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Faveo Installation Guide
+          <span class="site-subtitle">By Ladybird Web Solution</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/knowledgebase">User Manual</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://docs.faveohelpdesk.com/">Installation Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/">Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://community.faveohelpdesk.com/">Community</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://developers.faveohelpdesk.com/">Developer Portal</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://status.faveotools.com/status/updates/">Server Status</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://www.faveohelpdesk.com/online-demo/">Demo</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">INSTALLATION GUIDE</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-alma">Faveo on Alma Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rocky">Faveo on Rocky Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rhel">Faveo on RHEL</a></li>
+          
+            <li><a href="/docs/helpers/choose-ubuntu">Faveo on Ubuntu  (Recommended)</a></li>
+          
+            <li><a href="/docs/helpers/choose-debian">Faveo on Debian</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/windows-iis">Windows IIS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/apache-windows">Windows Apache Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/wamp-windows">Faveo on WAMP</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/xampp-windows/">Faveo on XAMPP</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">How To's</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-php/">Upgrade PHP Version</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/generic-migration/">Faveo Migrate or Clone</a></li>
+          
+            <li><a href="/docs/helpers/choose-backup/">Faveo Automated Backup</a></li>
+          
+            <li><a href="/docs/helper/cname/">Custom Domain</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/network-discovery">Install Network Discovery</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/ssl-error">SSL Error Solution (Linux)</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/meilisearch">Install Meilisearch</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/memcached">Install Memcached</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/websockets">Enable Websockets</a></li>
+          
+            <li><a href="/docs/helpers/email-server">Setup Email Server</a></li>
+          
+            <li><a href="/docs/helpers/ldaps">Configure LDAPS</a></li>
+          
+            <li><a href="/docs/helpers/server-hardening/home">Secure Server</a></li>
+          
+            <li><a href="/docs/helpers/node">Install Node</a></li>
+          
+            <li><a href="/docs/helpers/nats">Install NATS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/basic-troubleshooting-script">Troubleshooting script</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Kubernetes</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-k8s/" class="active">Faveo on Kubernetes</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Docker</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-docker/">Faveo on Docker</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Faveo Helpdesk K8s">
+    <meta itemprop="description" content="Deploying Faveo Helpdesk on managed Kubernetes Cluster ">
+    <meta itemprop="datePublished" content="2025-08-14T01:22:17-04:00">
+    <meta itemprop="dateModified" content="2024-11-20T00:00:00-04:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Faveo Helpdesk K8s
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#deploying-faveo-helpdesk-on-managed-kubernetes-cluster-">Deploying Faveo Helpdesk on managed Kubernetes Cluster </a></li>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#prerequisites">Prerequisites</a>
+    <ul>
+      <li><a href="#step-1-configuring-and-deploying-faveo-helpdesk">Step 1: Configuring and Deploying Faveo Helpdesk</a></li>
+      <li><a href="#step-2-configuring-nginx-ingress-controller">Step 2: Configuring Nginx Ingress Controller</a></li>
+      <li><a href="#step-3-securing-the-ingress-using-ssl">Step 3: Securing the Ingress Using SSL</a></li>
+      <li><a href="#step-4-faveo-helpdesk-web-ui-installtion">Step 4: Faveo Helpdesk Web UI installtion</a></li>
+      <li><a href="#step-5-creating-and-configuring-configmap-for-env">Step 5: Creating and Configuring ConfigMap for .env</a></li>
+      <li><a href="#step-6-configuring-and-deploying-supervisor">Step 6: Configuring and Deploying Supervisor</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <h1 id="deploying-faveo-helpdesk-on-managed-kubernetes-cluster-">Deploying Faveo Helpdesk on managed Kubernetes Cluster <!-- omit in toc --></h1>
+<p><img src="https://support.faveohelpdesk.com/uploads/2021/kubernetes-logo.png" alt="drawing" width="300" /></p>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>In this article, we’ll be deploying Faveo Helpdesk app on top of Kubernetes. But first, you may be wondering why we’re using Kubernetes and Docker for the deployment of our Faveo Helpdesk application. Kubernetes allows us to derive maximum utility from containers and build cloud-native applications that can run anywhere, independent of cloud-specific requirements. With Kubernetes, we can automatically deploy, scale, and manage our application. We will go through the steps one by one required in deploying Faveo Helpdesk app.</p>
+
+<h1 id="prerequisites">Prerequisites</h1>
+
+<ul>
+  <li>A Managed Kubernetes 1.28+ cluster with your connection configuration set as the kubectl default on the local machine from which you access the cluster. You can read more about installing kubectl in the <a href="https://kubernetes.io/docs/tasks/tools/">official documentation</a>.</li>
+  <li>The Helm 3 package manager installed on your local machine. You can follow the <a href="https://helm.sh/docs/intro/install/">official guide here</a> to install Helm 3.</li>
+  <li>A Managed Mysql 8.0+ or MariaDB 10.6+ database in the same region as of the Cluster.</li>
+  <li>A Managed Redis database in the same region as of the Cluster.</li>
+  <li>Spaces bucket in the same region.
+(We recommend to have all this requirements in the same region as of the cluster for better performance and good connectivity among them)</li>
+  <li>A fully registered domain name with an available A record.You can use the domain registrar of your choice. Don’t worry about associating your domain’s A record with an IP at this time. Once you deploy Nginx ingress controller and your Load balancer is attached to your cluster, you will connect your_domain to the proper IP.</li>
+</ul>
+
+<p>Before beginning the installation take a look at the simplified Architectural Diagram of Faveo Helpdesk on kubernetes. This will help you understand the different components used and how they are inter connected to make Faveo Helpdesk work.
+<img src="https://support.faveohelpdesk.com/uploads/2021/faveo-kubernetes.png" /></p>
+
+<p>Note: Digital Ocean allows you to install some of the resources or addons via one-click installers. But we recommend to follow the steps in this guide, which uses the Offcial documentaion of that addons to install them, as you will have complete control over there versions.</p>
+
+<h2 id="step-1-configuring-and-deploying-faveo-helpdesk">Step 1: Configuring and Deploying Faveo Helpdesk</h2>
+
+<p>In this step, you’ll create a Kubernetes object description file, also known as a manifest, for a deployment. This manifest will contain all of the configuration details needed to deploy your Faveo app to your cluster.</p>
+
+<p>First, you’ll need a directory to store all your YAML configuration files. Create a new directory of your choice and create and open deploy-faveo.yaml. Add the below configurations, making sure to replace <mark>order-no</mark> and <mark>license-key</mark> with your order number and license in the CURL Api. Leave the commented lines as it is. The reason for commenting certain lines here will be explained later in Step 6.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Service</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">faveo-svc</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">faveo</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">type</span><span class="pi">:</span> <span class="s">ClusterIP</span>
+  <span class="na">ports</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">port</span><span class="pi">:</span> <span class="m">80</span>
+    <span class="na">targetPort</span><span class="pi">:</span> <span class="m">80</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">faveo-pods</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">faveo-deploy</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">faveo</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">1</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">faveo-pods</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">faveo-pods</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">faveo-apache</span>
+        <span class="na">image</span><span class="pi">:</span> <span class="s">ladybird/faveo-k8s:apache-8.2.25</span>
+        <span class="na">resources</span><span class="pi">:</span>
+          <span class="na">limits</span><span class="pi">:</span>
+            <span class="na">memory</span><span class="pi">:</span> <span class="s">700Mi</span>
+            <span class="na">cpu</span><span class="pi">:</span> <span class="m">1</span>
+          <span class="na">requests</span><span class="pi">:</span>
+            <span class="na">memory</span><span class="pi">:</span> <span class="s">600Mi</span>
+            <span class="na">cpu</span><span class="pi">:</span> <span class="s">800m</span>
+        <span class="na">livenessProbe</span><span class="pi">:</span>
+          <span class="na">httpGet</span><span class="pi">:</span>
+            <span class="na">path</span><span class="pi">:</span> <span class="s">/probe.php</span>
+            <span class="na">port</span><span class="pi">:</span> <span class="m">80</span>
+          <span class="na">initialDelaySeconds</span><span class="pi">:</span> <span class="m">5</span>
+          <span class="na">timeoutSeconds</span><span class="pi">:</span> <span class="m">5</span>
+          <span class="na">periodSeconds</span><span class="pi">:</span> <span class="m">10</span>
+          <span class="na">failureThreshold</span><span class="pi">:</span> <span class="m">1</span>
+        <span class="na">readinessProbe</span><span class="pi">:</span>
+          <span class="na">httpGet</span><span class="pi">:</span>
+            <span class="na">path</span><span class="pi">:</span> <span class="s">/probe.php</span>
+            <span class="na">port</span><span class="pi">:</span> <span class="m">80</span>
+          <span class="na">initialDelaySeconds</span><span class="pi">:</span> <span class="m">5</span>
+          <span class="na">timeoutSeconds</span><span class="pi">:</span> <span class="m">5</span>
+          <span class="na">periodSeconds</span><span class="pi">:</span> <span class="m">10</span>
+          <span class="na">failureThreshold</span><span class="pi">:</span> <span class="m">1</span>
+        <span class="na">volumeMounts</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">volume-data</span>
+          <span class="na">mountPath</span><span class="pi">:</span> <span class="s">/var/www/html</span>
+<span class="c1">#        - name: cm</span>
+<span class="c1">#          mountPath: /var/www/html/.env</span>
+<span class="c1">#          subPath: .env</span>
+<span class="c1">#        - name: ca-certificates</span>
+<span class="c1">#          mountPath: /usr/local/share/ca-certificates/faveorootCA.crt</span>
+<span class="c1">#          subPath: faveorootCA.crt</span>
+      <span class="na">initContainers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">fetch</span>
+        <span class="na">image</span><span class="pi">:</span> <span class="s">ladybird/faveo-k8s:fetcher-v9.2.2</span>
+        <span class="na">command</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">sh'</span><span class="pi">,</span><span class="s1">'</span><span class="s">-c'</span><span class="pi">,</span><span class="s1">'</span><span class="s">apt</span><span class="nv"> </span><span class="s">update;apt</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">git</span><span class="nv"> </span><span class="s">-y;</span><span class="nv"> </span><span class="s">curl</span><span class="nv"> </span><span class="s">https://billing.faveohelpdesk.com/download/faveo\?order_number\=order-no\&amp;serial_key\=license-key</span><span class="nv"> </span><span class="s">--output</span><span class="nv"> </span><span class="s">faveo.zip;</span><span class="nv"> </span><span class="s">unzip</span><span class="nv"> </span><span class="s">faveo.zip</span><span class="nv"> </span><span class="s">-d</span><span class="nv"> </span><span class="s">html;chown</span><span class="nv"> </span><span class="s">-R</span><span class="nv"> </span><span class="s">www-data:www-data</span><span class="nv"> </span><span class="s">/html'</span><span class="pi">]</span>
+        <span class="na">volumeMounts</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">volume-data</span>
+          <span class="na">mountPath</span><span class="pi">:</span> <span class="s">/html</span>
+      <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">volume-data</span>
+        <span class="na">emptyDir</span><span class="pi">:</span> <span class="pi">{}</span>
+<span class="c1">#      - name: cm-</span>
+<span class="c1">#        configMap:</span>
+<span class="c1">#          name: faveo-env</span>
+<span class="c1">#      - name: ca-certificates</span>
+<span class="c1">#        configMap:</span>
+<span class="c1">#          name: faveo-ca-certificates</span>
+</code></pre></div></div>
+<p>Save and close the file.</p>
+
+<p>Create a namespace for faveo</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl create ns faveo 
+</code></pre></div></div>
+
+<p>Set the Current Context</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl config set-context <span class="nt">--current</span> <span class="nt">--namespace</span><span class="o">=</span>faveo
+</code></pre></div></div>
+
+<p>Next, apply your new deployment with the following command:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply <span class="nt">-f</span> deploy-faveo.yaml
+</code></pre></div></div>
+<p>This will create a service and deployment for Faveo helpdesk pods.You can confirm by executing below commands.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get pods
+</code></pre></div></div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get svc
+</code></pre></div></div>
+
+<p>Now that we have the Faveo app running but it is still not accessible externally. For this we need to route the external traffic to faveo-svc service which we created by applying deploy-faveo.yaml to the cluster.</p>
+
+<p>You’ve created deployment of the Faveo helpdesk app with accompanying Service.In the next step, you’ll install the Nginx Ingress Controller which will enable external traffic to route to appropriate backed service.</p>
+
+<h2 id="step-2-configuring-nginx-ingress-controller">Step 2: Configuring Nginx Ingress Controller</h2>
+
+<p>The Nginx Ingress Controller consists of a Pod and a Service. The Pod runs the Controller, which constantly polls the /ingresses endpoint on the API server of your cluster for updates to available Ingress Resources. The Service is of type LoadBalancer, the cluster will automatically create a Load Balancer on your cloud provider, through which all external traffic will flow to the Controller. The Controller will then route the traffic to appropriate Services, as defined in Ingress Resources.</p>
+
+<p>Only the LoadBalancer Service knows the IP address of the automatically created Load Balancer. To install the Nginx Ingress Controller to your cluster, you’ll first need to add its repository to Helm by running:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+</code></pre></div></div>
+<p>Update your local Helm chart repository cache:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>helm repo update
+</code></pre></div></div>
+<p>Create a namespace for Ingress Nginx:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl create ns ingress-nginx
+</code></pre></div></div>
+<p>Finally, run the following command to install the Nginx ingress:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>helm <span class="nb">install </span>ingress-nginx ingress-nginx/ingress-nginx <span class="nt">--namespace</span><span class="o">=</span>ingress-nginx
+</code></pre></div></div>
+<p>The above command installs the Nginx Ingress Controller from the stable charts repository and deploys a LoadBalancer. You can watch the LoadBalancer become availble by running.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl <span class="nt">--namespace</span> ingress-nginx get services <span class="nt">-o</span> wide <span class="nt">-w</span> ingress-nginx-controller
+</code></pre></div></div>
+<p>At this point once the External IP is availble copy that and set the A record for your domain in your registrar.</p>
+
+<p>You’ve installed the Nginx Ingress maintained by the Kubernetes community. It will route HTTP and HTTPS traffic from the Load Balancer to appropriate back-end Services, configured in Ingress Resources. In the next step, you’ll expose the Faveo Helpdesk app deployments using an Ingress Resource.</p>
+
+<h2 id="step-3-securing-the-ingress-using-ssl">Step 3: Securing the Ingress Using SSL</h2>
+
+<p>Secure Sockets Layer (SSL) is a standard security technology that creates an encrypted connection between a server and a client. SSL is essential for protecting data transmitted over networks, especially for applications like Faveo, which require HTTPS to function correctly with the latest versions.</p>
+
+<ul>
+  <li>
+    <p><a href="/docs/installation/providers/enterprise/k8s-cert-manager">Let’s Encrypt SSL installation documentation</a></p>
+  </li>
+  <li>
+    <p><a href="/docs/installation/providers/enterprise/k8s-paid-ssl">Paid SSL installation documentation</a></p>
+  </li>
+  <li>
+    <p><a href="/docs/installation/providers/enterprise/k8s-self-signed-ssl">Self-Signed SSL installation documentation</a></p>
+  </li>
+</ul>
+
+<h2 id="step-4-faveo-helpdesk-web-ui-installtion">Step 4: Faveo Helpdesk Web UI installtion</h2>
+
+<p>At this point if the domain name is propagated properly with your server’s IP you can open Faveo in browser just by entering your domainname. You can also check the Propagation update by Visiting this site www.whatsmydns.net.</p>
+
+<p>Now you can install Faveo via <a href="/docs/installation/installer/k8s-gui">GUI</a> Wizard</p>
+
+<h2 id="step-5-creating-and-configuring-configmap-for-env">Step 5: Creating and Configuring ConfigMap for .env</h2>
+
+<p>After completing Step 4 you have generated .env file under the faveo root directory. Faveo Helpdesk is laravel based Web Application which solely relies on .env file for functionality. The .env file stores all the sensitive information such as Database credentials, Redis, S3 etc which is later used by the code base.</p>
+
+<p>If you take a look at deploy-faveo.yaml which you created in Step 1, the replicas and part of volume definitions will be commented out. So creating that deploy-faveo.yaml manifest will result in creating only one pod which contains the Faveo code base where we generated the .env file after completing the Step 5.</p>
+
+<p>ConfigMaps allow us to keep configurations separate from application images. Such separation is useful when other alternatives are not a good fit. ConfigMap takes a configuration from a source and mounts it into running containers as a volume. This was we can achieve the configuration of the .env file to be shared across multiple pods and nodes. We are literally achieving persistent volume.</p>
+
+<p>After injecting configmap as volume, we can achieve multiple replicas of pods, auto scalling of pods.</p>
+
+<p>First let’s retrive the content of .env by getting inside the running container. Execute the below command to get the pod name.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get pod
+</code></pre></div></div>
+<p>Copy and replace the pod name from the previous output</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl <span class="nb">exec</span> <span class="nt">-ti</span> your_pod_name <span class="nt">--</span> bash
+</code></pre></div></div>
+<p>This is will give you access to the bash shell inside the container.
+Use cat or nano to get the content of the .env file.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> .env
+</code></pre></div></div>
+<p>or</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano .env
+</code></pre></div></div>
+<p>Copy those values and save it somewhere on you machine to be used later.</p>
+
+<p>Now, create a file named configmap.yaml. Add the following lines and place all the content of .env you copied previously under “.env</p>
+
+<p>We need to add the details of redis cluster, space keys like the below.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: faveo-env
+  namespace: faveo
+data:
+  .env: |
+<span class="c">#    ---- Replace your content here ----</span>
+    <span class="nv">APP_NAME</span><span class="o">=</span>Faveo:xxxxxxxxxxxxxxxxxxxxxxxx
+    <span class="nv">APP_DEBUG</span><span class="o">=</span><span class="nb">false
+    </span><span class="nv">APP_BUGSNAG</span><span class="o">=</span><span class="nb">true
+    </span><span class="nv">APP_URL</span><span class="o">=</span>https://your_domain_name
+    <span class="nv">APP_KEY</span><span class="o">=</span><span class="nb">base64</span>:xxxxxxxxxxxxxxxxxxxxxxxx
+    <span class="nv">DB_TYPE</span><span class="o">=</span>mysql
+    <span class="nv">DB_WRITE_HOST</span><span class="o">=</span>
+    <span class="nv">DB_READ_HOST</span><span class="o">=</span>
+    <span class="nv">DB_HOST</span><span class="o">=</span><span class="s2">"xxxxxxxxxxxxxxxxxxxxxxxx"</span>
+    <span class="nv">DB_PORT</span><span class="o">=</span><span class="s2">"xxxxx"</span>
+    <span class="nv">DB_DATABASE</span><span class="o">=</span><span class="s2">"xxxxx"</span>
+    <span class="nv">DB_USERNAME</span><span class="o">=</span><span class="s2">"xxxxx"</span>
+    <span class="nv">DB_PASSWORD</span><span class="o">=</span><span class="s2">"xxxxxxxxxxxxxxxxxxxxxxxx"</span>
+    <span class="nv">DB_ENGINE</span><span class="o">=</span>InnoDB
+    <span class="nv">MAIL_MAILER</span><span class="o">=</span>smtp
+    <span class="nv">MAIL_HOST</span><span class="o">=</span>mailtrap.io
+    <span class="nv">MAIL_PORT</span><span class="o">=</span>2525
+    <span class="nv">MAIL_USERNAME</span><span class="o">=</span>null
+    <span class="nv">MAIL_PASSWORD</span><span class="o">=</span>null
+    <span class="nv">CACHE_DRIVER</span><span class="o">=</span>file
+    <span class="nv">SESSION_DRIVER</span><span class="o">=</span>file
+    <span class="nv">SESSION_COOKIE_NAME</span><span class="o">=</span>faveo_3557
+    <span class="nv">QUEUE_DRIVER</span><span class="o">=</span><span class="nb">sync
+    </span><span class="nv">FCM_SERVER_KEY</span><span class="o">=</span>xxxxxxxxxxxxxxxxxxxxxxxx
+    <span class="nv">FCM_SENDER_ID</span><span class="o">=</span>xxxxxxxxxxxxxxxxxxxxxxxx
+    <span class="nv">PROBE_PASS_PHRASE</span><span class="o">=</span>xxxxxxxxxxxxxxxxxxxxxxxx
+    <span class="nv">REDIS_DATABASE</span><span class="o">=</span>0
+    <span class="nv">BROADCAST_DRIVER</span><span class="o">=</span>pusher
+    <span class="nv">LARAVEL_WEBSOCKETS_ENABLED</span><span class="o">=</span><span class="nb">false
+    </span><span class="nv">LARAVEL_WEBSOCKETS_PORT</span><span class="o">=</span>6001
+    <span class="nv">LARAVEL_WEBSOCKETS_HOST</span><span class="o">=</span>127.0.0.1
+    <span class="nv">LARAVEL_WEBSOCKETS_SCHEME</span><span class="o">=</span>http
+    <span class="nv">PUSHER_APP_ID</span><span class="o">=</span>xxxxxxxxxxxxxxxxxxxxxxxx
+    <span class="nv">PUSHER_APP_KEY</span><span class="o">=</span>xxxxxxxxxxxxxxxxxxxxxxxx
+    <span class="nv">PUSHER_APP_SECRET</span><span class="o">=</span>xxxxxxxxxxxxxxxxxxxxxxxx
+    <span class="nv">PUSHER_APP_CLUSTER</span><span class="o">=</span>mt1
+    <span class="nv">MIX_PUSHER_APP_KEY</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">PUSHER_APP_KEY</span><span class="k">}</span><span class="s2">"</span>
+    <span class="nv">MIX_PUSHER_APP_CLUSTER</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">PUSHER_APP_CLUSTER</span><span class="k">}</span><span class="s2">"</span>
+    <span class="nv">SOCKET_CLIENT_SSL_ENFORCEMENT</span><span class="o">=</span><span class="nb">false
+    </span><span class="nv">LARAVEL_WEBSOCKETS_SSL_LOCAL_CERT</span><span class="o">=</span>null
+    <span class="nv">LARAVEL_WEBSOCKETS_SSL_LOCAL_PK</span><span class="o">=</span>null
+    <span class="nv">LARAVEL_WEBSOCKETS_SSL_PASSPHRASE</span><span class="o">=</span>null
+    <span class="nv">DB_SSL_KEY</span><span class="o">=</span>
+    <span class="nv">DB_SSL_CERT</span><span class="o">=</span>
+    <span class="nv">DB_SSL_CA</span><span class="o">=</span>
+    <span class="nv">DB_SSL_VERIFY_PEER_CERT</span><span class="o">=</span><span class="nb">false
+    </span><span class="nv">SCOUT_DRIVER</span><span class="o">=</span>database
+    <span class="nv">MEILISEARCH_HOST</span><span class="o">=</span>
+    <span class="nv">MEILISEARCH_KEY</span><span class="o">=</span>
+    <span class="nv">ALGOLIA_APP_ID</span><span class="o">=</span>
+    <span class="nv">ALGOLIA_SECRET</span><span class="o">=</span>
+    <span class="nv">DB_INSTALL</span><span class="o">=</span>1
+    <span class="nv">APP_ENV</span><span class="o">=</span>production
+    <span class="nv">JWT_SECRET</span><span class="o">=</span>xxxxxxxxxxxxxxxxxxxxxxxx
+<span class="c">#   ---- Add the details of redis cluster, space ----</span>
+    <span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>xxxxxxxxxxxxxxxxxxxxxxxx
+    <span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>xxxxxxxxxxxxxxxxxxxxxxxx
+    <span class="nv">AWS_DEFAULT_REGION</span><span class="o">=</span>us-east-1
+    <span class="nv">AWS_BUCKET</span><span class="o">=</span>xxxxxxxxxxxxxxxxxxxxxxxx
+    <span class="nv">AWS_ENDPOINT</span><span class="o">=</span>xxxxxxxxxxxxxxxxxxxxxxxx
+    <span class="nv">FILESYSTEM_DISK</span><span class="o">=</span>s3
+    <span class="nv">REDIS_HOST</span><span class="o">=</span>xxxxxxxxxxxxxxxxxxxxxxxx
+    <span class="nv">REDIS_PORT</span><span class="o">=</span> xxxxx
+    <span class="nv">REDIS_PASSWORD</span><span class="o">=</span>xxxxxxxxxxxxxxxxxxxxxxxx
+    <span class="nv">REDIS_SCHEME</span><span class="o">=</span>tls
+</code></pre></div></div>
+
+<p>Make sure you replaced all the content of your .env under the “.env |”.
+Roll it out with kubectl:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply <span class="nt">-f</span> configmap.yaml
+</code></pre></div></div>
+<p>Verfify its running:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get cm
+</code></pre></div></div>
+<p>Now, Let’s modify the deployment to mount configmap inside and also lets increase the number of replicas.</p>
+
+<p>Open deploy-faveo.yaml and uncomment all the faveo-env commented lines. It should now look like this.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">cm</span>
+          <span class="na">mountPath</span><span class="pi">:</span> <span class="s">/var/www/html/.env</span>
+          <span class="na">subPath</span><span class="pi">:</span> <span class="s">.env</span>
+
+<span class="nn">---</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">cm</span>
+        <span class="na">configMap</span><span class="pi">:</span>
+          <span class="na">name</span><span class="pi">:</span> <span class="s">faveo-env</span>
+</code></pre></div></div>
+
+<p>Save and close the file.
+Lets inject this updated definition to kube api:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl apply <span class="nt">-f</span> deploy-faveo.yaml
+</code></pre></div></div>
+<p>Now the single pod which was running before will be terminating and new 3 pods will be created with updated definition. You can give your desired number of replicas.
+You can also use Horizontal Pod scaling along with metrics server for autoscaling and descaling.
+Verify the new pods running by executing the below command:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get pods
+</code></pre></div></div>
+<p>Now that you have created a configmap out of .env and configured it in the deployment which will mount the .env inside all the pods that it creates.
+The configmap not only will be used by faveo deployment pods but aslo by the supervisor deployment which you will create in next step.</p>
+
+<h2 id="step-6-configuring-and-deploying-supervisor">Step 6: Configuring and Deploying Supervisor</h2>
+
+<p>Faveo Helpdesk requires certain set of command to be executed to have the Emails sending/receiving, reports generating and recurring. To achieve this we will be spinng a supervisor pod with .env mounted inside it via configmap, which then does the job or us.</p>
+
+<p>Create and open file supervisor.yaml and copy the following lines inside it. Make sure to replace <mark>order-no</mark> and <mark>license-key</mark> with your order number and license in the CURL Api.</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">supervior-deploy</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">faveo</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">1</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">supervisor-pods</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">supervisor-pods</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">faveo-supervisor</span>
+        <span class="na">image</span><span class="pi">:</span> <span class="s">ladybird/faveo-k8s:supervisor-8.2.25</span>
+        <span class="na">resources</span><span class="pi">:</span>
+          <span class="na">limits</span><span class="pi">:</span>
+            <span class="na">memory</span><span class="pi">:</span> <span class="s">1024Mi</span>
+            <span class="na">cpu</span><span class="pi">:</span> <span class="m">1</span>
+          <span class="na">requests</span><span class="pi">:</span>
+            <span class="na">memory</span><span class="pi">:</span> <span class="s">900Mi</span>
+            <span class="na">cpu</span><span class="pi">:</span> <span class="s">900m</span>
+        <span class="na">volumeMounts</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">volume-data</span>
+          <span class="na">mountPath</span><span class="pi">:</span> <span class="s">/var/www/html</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">cm</span>
+          <span class="na">mountPath</span><span class="pi">:</span> <span class="s">/var/www/html/.env</span>
+          <span class="na">subPath</span><span class="pi">:</span> <span class="s">.env</span>
+      <span class="na">initContainers</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">fetch</span>
+        <span class="na">image</span><span class="pi">:</span> <span class="s">ladybird/fetcher-v9.2.2</span>
+       <span class="na">command</span><span class="pi">:</span> <span class="pi">[</span><span class="s1">'</span><span class="s">sh'</span><span class="pi">,</span><span class="s1">'</span><span class="s">-c'</span><span class="pi">,</span><span class="s1">'</span><span class="s">apt</span><span class="nv"> </span><span class="s">update;apt</span><span class="nv"> </span><span class="s">install</span><span class="nv"> </span><span class="s">git</span><span class="nv"> </span><span class="s">-y;</span><span class="nv"> </span><span class="s">curl</span><span class="nv"> </span><span class="s">https://billing.faveohelpdesk.com/download/faveo\?order_number\=order-no\&amp;serial_key\=license-key</span><span class="nv"> </span><span class="s">--output</span><span class="nv"> </span><span class="s">faveo.zip;</span><span class="nv"> </span><span class="s">unzip</span><span class="nv"> </span><span class="s">faveo.zip</span><span class="nv"> </span><span class="s">-d</span><span class="nv"> </span><span class="s">html;chown</span><span class="nv"> </span><span class="s">-R</span><span class="nv"> </span><span class="s">www-data:www-data</span><span class="nv"> </span><span class="s">/html'</span><span class="pi">]</span>
+        <span class="na">volumeMounts</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">volume-data</span>
+          <span class="na">mountPath</span><span class="pi">:</span> <span class="s">/html</span>
+      <span class="na">volumes</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">volume-data</span>
+        <span class="na">emptyDir</span><span class="pi">:</span> <span class="pi">{}</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">cm</span>
+        <span class="na">configMap</span><span class="pi">:</span>
+          <span class="na">name</span><span class="pi">:</span> <span class="s">faveo-env</span>
+</code></pre></div></div>
+<p>Save and close the file.</p>
+
+<p>Next, apply your new deployment with the following command:</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubetctl apply <span class="nt">-f</span> supervisor.yaml
+</code></pre></div></div>
+<p>This will create a supervisor deployment .You can confirm by executing below commands.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl get pods
+</code></pre></div></div>
+<p>Now you should see supervisor pod running along with Faveo Helpdesk pods.</p>
+
+<p>The supervisor pod will use the configuration from .env which is mounted via configmap to perform all the operations.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-11-20">November 20, 2024</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/docs/installation/providers/enterprise/faveo-helpdesk-docker/" class="pagination--pager" title="Faveo Helpdesk Docker
+">Previous</a>
+    
+    
+      <a href="/docs/installation/providers/enterprise/generic-migration/" class="pagination--pager" title="Cloning/Migrating Faveo Helpdesk from one server to another
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/ladybirdweb" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 Ladybird Web Solution Pvt Ltd. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,666 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Faveo Helpdesk System Requirements - Faveo Installation Guide</title>
+<meta name="description" content="1. PHP Version            a. PHP Extensions       b. PHP Settings           2. File Permissions            a. Linux       b. IIS (Windows)           3. Database            a. Version       b. User Privileges       c. Settings           4. Web Server            a. Apache       b. Nginx       c. IIS           5. Redis and Supervisor   6. Firewall Requirements">
+
+
+  <meta name="author" content="Ladybird Web Solution Pvt Ltd">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Faveo Installation Guide">
+<meta property="og:title" content="Faveo Helpdesk System Requirements">
+<meta property="og:url" content="http://localhost:4000/docs/system-requirement/requirement/">
+
+
+  <meta property="og:description" content="1. PHP Version            a. PHP Extensions       b. PHP Settings           2. File Permissions            a. Linux       b. IIS (Windows)           3. Database            a. Version       b. User Privileges       c. Settings           4. Web Server            a. Apache       b. Nginx       c. IIS           5. Redis and Supervisor   6. Firewall Requirements">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/logo.png">
+
+
+
+  <meta name="twitter:site" content="@faveohelpdesk">
+  <meta name="twitter:title" content="Faveo Helpdesk System Requirements">
+  <meta name="twitter:description" content="1. PHP Version            a. PHP Extensions       b. PHP Settings           2. File Permissions            a. Linux       b. IIS (Windows)           3. Database            a. Version       b. User Privileges       c. Settings           4. Web Server            a. Apache       b. Nginx       c. IIS           5. Redis and Supervisor   6. Firewall Requirements">
+  <meta name="twitter:url" content="http://localhost:4000/docs/system-requirement/requirement/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/logo.png">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2025-08-14T01:22:17-04:00">
+
+
+
+  <meta property="article:modified_time" content="2024-11-12T00:00:00-04:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/docs/system-requirement/requirement/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Ladybird Web Solution Pvt Ltd",
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/faveohelpdesk","https://www.facebook.com/faveohelpdesk"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Faveo Installation Guide Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Faveo Installation Guide
+          <span class="site-subtitle">By Ladybird Web Solution</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/knowledgebase">User Manual</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://docs.faveohelpdesk.com/">Installation Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/">Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://community.faveohelpdesk.com/">Community</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://developers.faveohelpdesk.com/">Developer Portal</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://status.faveotools.com/status/updates/">Server Status</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://www.faveohelpdesk.com/online-demo/">Demo</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">INSTALLATION GUIDE</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-alma">Faveo on Alma Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rocky">Faveo on Rocky Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rhel">Faveo on RHEL</a></li>
+          
+            <li><a href="/docs/helpers/choose-ubuntu">Faveo on Ubuntu  (Recommended)</a></li>
+          
+            <li><a href="/docs/helpers/choose-debian">Faveo on Debian</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/windows-iis">Windows IIS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/apache-windows">Windows Apache Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/wamp-windows">Faveo on WAMP</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/xampp-windows/">Faveo on XAMPP</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">How To's</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-php/">Upgrade PHP Version</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/generic-migration/">Faveo Migrate or Clone</a></li>
+          
+            <li><a href="/docs/helpers/choose-backup/">Faveo Automated Backup</a></li>
+          
+            <li><a href="/docs/helper/cname/">Custom Domain</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/network-discovery">Install Network Discovery</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/ssl-error">SSL Error Solution (Linux)</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/meilisearch">Install Meilisearch</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/memcached">Install Memcached</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/websockets">Enable Websockets</a></li>
+          
+            <li><a href="/docs/helpers/email-server">Setup Email Server</a></li>
+          
+            <li><a href="/docs/helpers/ldaps">Configure LDAPS</a></li>
+          
+            <li><a href="/docs/helpers/server-hardening/home">Secure Server</a></li>
+          
+            <li><a href="/docs/helpers/node">Install Node</a></li>
+          
+            <li><a href="/docs/helpers/nats">Install NATS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/basic-troubleshooting-script">Troubleshooting script</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Kubernetes</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-k8s/">Faveo on Kubernetes</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Docker</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-docker/">Faveo on Docker</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Faveo Helpdesk System Requirements">
+    <meta itemprop="description" content="  1. PHP Version          a. PHP Extensions      b. PHP Settings        2. File Permissions          a. Linux      b. IIS (Windows)        3. Database          a. Version      b. User Privileges      c. Settings        4. Web Server          a. Apache      b. Nginx      c. IIS        5. Redis and Supervisor  6. Firewall Requirements">
+    <meta itemprop="datePublished" content="2025-08-14T01:22:17-04:00">
+    <meta itemprop="dateModified" content="2024-11-12T00:00:00-04:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Faveo Helpdesk System Requirements
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#1-php-version">1. PHP Version</a>
+    <ul>
+      <li><a href="#a-php-extensions">a. PHP Extensions</a></li>
+      <li><a href="#b-php-settings">b. PHP Settings</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-file-permissions">2. File Permissions</a>
+    <ul>
+      <li><a href="#a-linux">a. Linux</a></li>
+      <li><a href="#b-iis-windows">b. IIS (Windows)</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-database">3. Database</a>
+    <ul>
+      <li><a href="#a-version">a. Version</a></li>
+      <li><a href="#b-user-privileges">b. User Privileges</a></li>
+      <li><a href="#c-settings">c. Settings</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-web-server">4. Web Server</a>
+    <ul>
+      <li><a href="#a-apache">a. Apache</a></li>
+      <li><a href="#b-nginx">b. Nginx</a></li>
+      <li><a href="#c-iis">c. IIS</a></li>
+    </ul>
+  </li>
+  <li><a href="#5-queue-driver">5. Queue Driver</a></li>
+  <li><a href="#6-firewall-requirements">6. Firewall Requirements</a></li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <ul>
+  <li><a href="#1-php-version">1. PHP Version</a>
+    <ul>
+      <li><a href="#a-php-extensions">a. PHP Extensions</a></li>
+      <li><a href="#b-php-settings">b. PHP Settings</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-file-permissions">2. File Permissions</a>
+    <ul>
+      <li><a href="#a-linux">a. Linux</a></li>
+      <li><a href="#b-iis-windows">b. IIS (Windows)</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-database">3. Database</a>
+    <ul>
+      <li><a href="#a-version">a. Version</a></li>
+      <li><a href="#b-user-privileges">b. User Privileges</a></li>
+      <li><a href="#c-settings">c. Settings</a></li>
+    </ul>
+  </li>
+  <li><a href="#4-web-server">4. Web Server</a>
+    <ul>
+      <li><a href="#a-apache">a. Apache</a></li>
+      <li><a href="#b-nginx">b. Nginx</a></li>
+      <li><a href="#c-iis">c. IIS</a></li>
+    </ul>
+  </li>
+  <li><a href="#6-firewall-requirements">5. Redis and Supervisor</a></li>
+  <li><a href="#6-firewall-requirements">6. Firewall Requirements</a></li>
+</ul>
+
+<p>Faveo requires a fairly standard PHP &amp; MySQL server setup in order to be installed and function correctly. If you require any assistance with setting up Faveo or determining if your system can support Faveo, please contact us.</p>
+
+<p><a id="php-versions" name="php-versions"></a></p>
+<h2 id="1-php-version">1. PHP Version</h2>
+<p>PHP versions <strong>8.2.x</strong> are supported.</p>
+
+<p>For assistance installing a new version of PHP please contact your hosting provider or server administrator.</p>
+
+<p><a id="php-extensions" name="php-extensions"></a></p>
+<h3 id="a-php-extensions">a. PHP Extensions</h3>
+<ul>
+  <li>BCMath</li>
+  <li>Ctype</li>
+  <li>cURL</li>
+  <li>DOM</li>
+  <li>FileInfo</li>
+  <li>GD</li>
+  <li>Iconv</li>
+  <li>ionCube Loaders</li>
+  <li>JSON</li>
+  <li>Mbstring</li>
+  <li>OpenSSL</li>
+  <li>PDO</li>
+  <li>Tokenizer</li>
+  <li>XML</li>
+  <li>IMAP - When using email download to pull in department tickets</li>
+  <li>LDAP - When using LDAP operator authentication</li>
+</ul>
+
+<p>PHP extensions differ depending on your server, your host and other system variable. For assistance installing missing extensions, please contact your hosting provider or server administrator.</p>
+
+<p><a id="php-settings" name="php-settings"></a></p>
+<h3 id="b-php-settings">b. PHP Settings</h3>
+<p>Your PHP configuration must adhere to the following settings:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">! allow_url_fopen</code> <strong>Enabled</strong>
+To use Gravatar and other Faveo features, <code class="language-plaintext highlighter-rouge">allow_url_fopen</code> must be enabled in your PHP configuration.</li>
+  <li><strong>IPv6 Support</strong>
+If your server has IPv6 networking support, this should be enabled by default. However if not please ensure you have the php-sockets extension enabled and PHP has been compiled with the <code class="language-plaintext highlighter-rouge">--enable-ipv6</code> flag.</li>
+  <li><strong>PNG &amp; JPG Support</strong>
+If the PHP GD extension has been manually compiled, please ensure the <code class="language-plaintext highlighter-rouge">--with-png-dir</code> and <code class="language-plaintext highlighter-rouge">--with-jpeg-dir</code> flags are provided.</li>
+  <li><strong>Disabled functions</strong>
+If you’re running under a particularly strict environment, please ensure that the following functions are not listed under the <code class="language-plaintext highlighter-rouge">disable_functions</code> directive: <code class="language-plaintext highlighter-rouge">ini_set</code></li>
+  <li><strong>Memory Limit</strong>
+A minimum of 128MB addressable memory is required to install and use Faveo. We recommend at least 256 MB.
+For assistance on modifying your PHP configuration, please contact your hosting provider or server administrator.</li>
+</ul>
+
+<p><a id="file-permissions" name="file-permissions"></a></p>
+<h2 id="2-file-permissions">2. File Permissions</h2>
+<p>The following directories (and directories within recursively) must be writable by the PHP/Web Server process.</p>
+
+<ul>
+  <li>storage/</li>
+  <li>config/</li>
+  <li>bootstrap/cache/</li>
+</ul>
+
+<p><a id="linux" name="linux"></a></p>
+<h3 id="a-linux">a. Linux</h3>
+<p>We recommend setting the above directories to 755 permissions. You may also need to adjust the owner and group of the directories.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find /path/to/directory <span class="nt">-type</span> f <span class="nt">-exec</span> <span class="nb">chmod </span>644 <span class="o">{}</span> <span class="se">\;</span>
+find /path/to/directory <span class="nt">-type</span> d <span class="nt">-exec</span> <span class="nb">chmod </span>755 <span class="o">{}</span> <span class="se">\;</span>
+<span class="nb">chown</span> <span class="nt">-R</span> www-data:www-data /path/to/directory
+</code></pre></div></div>
+<p class="notice--warning">
+If you're using CentOS, it has SELinux enabled by default which has measures in place to prevent <code>httpd</code> from writing to files, beyond the normal file permissions. You need to apply `httpd_sys_rw_content_t` to the directories: <code>chcon -Rv --type=httpd_sys_rw_content_t /path/to/directory</code>
+</p>
+
+<p><a id="iis" name="iis"></a></p>
+<h3 id="b-iis-windows">b. IIS (Windows)</h3>
+<p>Right click on the folder containing the Faveo files, click Properties and then the Security tab. Provide full permission to IUSR and IIS_ISURS group apply the changes.
+<a id="database" name="database"></a></p>
+<h2 id="3-database">3. Database</h2>
+<p><a id="version" name="version"></a></p>
+<h3 id="a-version">a. Version</h3>
+<p>Latest version of Faveo supports MySQL Server <b>8.0.x</b> and <b>MariaDB 10.6.x </b>.</p>
+
+<p><a id="user-privileges" name="user-privileges"></a></p>
+<h3 id="b-user-privileges">b. User Privileges</h3>
+<p>For day to day use, the following database privileges are required.</p>
+
+<ul>
+  <li>DELETE</li>
+  <li>INSERT</li>
+  <li>LOCK TABLES</li>
+  <li>SELECT</li>
+  <li>UPDATE</li>
+</ul>
+
+<p>For installing and upgrading the system, as well as activation and deactivation of plugins, the following additional privileges are required.</p>
+
+<ul>
+  <li>ALTER</li>
+  <li>CREATE</li>
+  <li>DROP</li>
+  <li>INDEX</li>
+</ul>
+
+<p><a id="settings" name="settings"></a></p>
+<h3 id="c-settings">c. Settings</h3>
+<p>We recommend the following MySQL configuration directives are changed:</p>
+
+<ul>
+  <li>max_allowed_packet - we recommend greater than 20MB to ensure large emails and embedded images are correctly handled.
+For assistance on modifying your MySQL configuration, please contact your hosting provider or server administrator.</li>
+</ul>
+
+<p><a id="web-server" name="web-server"></a></p>
+<h2 id="4-web-server">4. Web Server</h2>
+<p>Faveo supports Apache, nginx and IIS web server, in all cases you must enable the mod_rewrite module for SEO friendly URLs.</p>
+
+<p>Apache works out of the box, however for nginx and IIS you will need to install the rewrite rules.</p>
+
+<p>Depending on the web server you are running, you may need to configure it further to run Faveo correctly - for example, ensuring all the HTTP request verbs (DELETE, GET, OPTIONS, POST and PUT) are enabled. Below is a list of common web servers and steps required for them.</p>
+
+<h3 id="a-apache">a. Apache</h3>
+<p>Apache is supported out of the box.</p>
+
+<h3 id="b-nginx">b. Nginx</h3>
+<p>On nginx, please create a new virtual host for Faveo. The below is an example virtual host but will need editing for your specific environment (paths may vary):
+<a href="/installation-scripts/web-server/nginx/faveo.conf">faveo.conf</a></p>
+
+<h3 id="c-iis">c. IIS</h3>
+<p>On IIS, please create a web.config file in the root of your installation directory with the below contents:
+<a href="/installation-scripts/web-server/iis/web.config">web.config</a></p>
+
+<p><strong>Required Extension(s)</strong>
+The <a href="https://www.iis.net/downloads/microsoft/url-rewrite">URL Rewrite extension</a> is required for the below web.config file to function correctly, otherwise a 500.19 error is likely to be shown when visiting Faveo (see Understanding HTTP Error 500.19).</p>
+
+<p><a id="Redis and Supervisor" name="Redis and Supervisor"></a></p>
+<h2 id="5-queue-driver">5. Queue Driver</h2>
+<p>Currently, Faveo supports 3 queue drivers “sync,” “database,”  and “redis,” which are responsible for the core functionality of Faveo emails (incoming and outgoing), recurring emails, report generation, notifications, etc.</p>
+
+<ol>
+  <li>
+    <p>Sync: where the only requirements are incoming and outgoing emails. It is appropriate for a Cpanel-like environment or any other shared hosting environment where installing and configuring the Redis database is not possible.</p>
+  </li>
+  <li>
+    <p>Redis: preferred queue driver. It enables all the functionality of Faveo.</p>
+  </li>
+  <li>
+    <p>Database: An alternative to Redis that works only on Windows servers</p>
+  </li>
+</ol>
+
+<p>Redis requires “supervisor” daemon service we need to install the same for Redis to work smoothly.</p>
+
+<p><a id="firewall-requirements" name="firewall-requirements"></a></p>
+<h2 id="6-firewall-requirements">6. Firewall Requirements</h2>
+<p>Please open outbound access to billing.faveohelpdesk.com</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-11-12">November 12, 2024</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/docs/installation/providers/enterprise/windows-iis/" class="pagination--pager" title="Installing Faveo Helpdesk on Windows Server
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/ladybirdweb" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 Ladybird Web Solution Pvt Ltd. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

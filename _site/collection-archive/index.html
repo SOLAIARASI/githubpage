@@ -1,0 +1,4797 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Posts by Collection - Faveo Installation Guide</title>
+<meta name="description" content="Install Faveo in minutes with our awesome documentation">
+
+
+  <meta name="author" content="Ladybird Web Solution Pvt Ltd">
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Faveo Installation Guide">
+<meta property="og:title" content="Posts by Collection">
+<meta property="og:url" content="http://localhost:4000/collection-archive/">
+
+
+  <meta property="og:description" content="Install Faveo in minutes with our awesome documentation">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/logo.png">
+
+
+
+  <meta name="twitter:site" content="@faveohelpdesk">
+  <meta name="twitter:title" content="Posts by Collection">
+  <meta name="twitter:description" content="Install Faveo in minutes with our awesome documentation">
+  <meta name="twitter:url" content="http://localhost:4000/collection-archive/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/logo.png">
+    
+  
+
+  
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/collection-archive/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Ladybird Web Solution Pvt Ltd",
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/faveohelpdesk","https://www.facebook.com/faveohelpdesk"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Faveo Installation Guide Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--archive">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Faveo Installation Guide
+          <span class="site-subtitle">By Ladybird Web Solution</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/knowledgebase">User Manual</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://docs.faveohelpdesk.com/">Installation Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/">Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://community.faveohelpdesk.com/">Community</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://developers.faveohelpdesk.com/">Developer Portal</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://status.faveotools.com/status/updates/">Server Status</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://www.faveohelpdesk.com/online-demo/">Demo</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="/assets/images/michael-rose.jpg" alt="Ladybird Web Solution Pvt Ltd" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">Ladybird Web Solution Pvt Ltd</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>Just another <em>boring</em>, <em>tattooed</em>, <em>time traveling</em>, <em>designer</em>.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Buffalo, NY</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://faveohelpdesk.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">Made Mistakes</span></a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i><span class="label">Twitter</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/ladybirdweb" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i><span class="label">Instagram</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">INSTALLATION GUIDE</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-alma">Faveo on Alma Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rocky">Faveo on Rocky Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rhel">Faveo on RHEL</a></li>
+          
+            <li><a href="/docs/helpers/choose-ubuntu">Faveo on Ubuntu  (Recommended)</a></li>
+          
+            <li><a href="/docs/helpers/choose-debian">Faveo on Debian</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/windows-iis">Windows IIS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/apache-windows">Windows Apache Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/wamp-windows">Faveo on WAMP</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/xampp-windows/">Faveo on XAMPP</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">How To's</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-php/">Upgrade PHP Version</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/generic-migration/">Faveo Migrate or Clone</a></li>
+          
+            <li><a href="/docs/helpers/choose-backup/">Faveo Automated Backup</a></li>
+          
+            <li><a href="/docs/helper/cname/">Custom Domain</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/network-discovery">Install Network Discovery</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/ssl-error">SSL Error Solution (Linux)</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/meilisearch">Install Meilisearch</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/memcached">Install Memcached</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/websockets">Enable Websockets</a></li>
+          
+            <li><a href="/docs/helpers/email-server">Setup Email Server</a></li>
+          
+            <li><a href="/docs/helpers/ldaps">Configure LDAPS</a></li>
+          
+            <li><a href="/docs/helpers/server-hardening/home">Secure Server</a></li>
+          
+            <li><a href="/docs/helpers/node">Install Node</a></li>
+          
+            <li><a href="/docs/helpers/nats">Install NATS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/basic-troubleshooting-script">Troubleshooting script</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Kubernetes</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-k8s/">Faveo on Kubernetes</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Docker</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-docker/">Faveo on Docker</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Posts by Collection</h1>
+    
+    
+
+
+  
+    
+    
+      <h2 id="docs" class="archive__subtitle">docs</h2>
+      
+    
+  
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/allow-redis/" rel="permalink">Allow Redis Connection for Faveo Network Discovery
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helper/backup/" rel="permalink">Enable File Sysyem and Database Backup in Faveo
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Faveo has an inbuilt backup option which needs to be setup before taking backups. Let’s configure backup for the Faveo by following the below steps.
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/choose-alma/" rel="permalink">Installing Faveo on Alma Linux
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/choose-backup/" rel="permalink">Faveo Backup Options Guide
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/choose-debian/" rel="permalink">Installing Faveo on Debian
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/choose-php/" rel="permalink">Upgrade PHP Version for Faveo
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/choose-rhel/" rel="permalink">Installing Faveo on RHEL
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/choose-rocky/" rel="permalink">Installing Faveo on Rocky Linux
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/choose-ubuntu/" rel="permalink">Installing Faveo on Ubuntu
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helper/cname/" rel="permalink">Creating Custom Domains for Faveo Cloud
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">This document will guide you on how to create a custom domain for your Faveo Cloud instance.
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/email-server/" rel="permalink">Setup Email Server for Faveo
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helper/enable-redis/" rel="permalink">Enable Redis in Faveo
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Faveo can also be configured with Redis. This will help improve system performance as emails can be qued. We will go through the steps to configure Redis for...</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helper/enable-ssh/" rel="permalink">Enable SSH on Linux, Mac and Windows Devices
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">This document explains how to enable SSH on various operating systems for Faveo Network Discovery, allowing data collection from these devices.
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/ldaps/" rel="permalink">LDAPS Self-Signed Certificate Trust Configuration
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/license-key/" rel="permalink">How to get license code while installing Faveo on your system?
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">During Faveo Helpdesk or Faveo Service Desk installation you will be asked for the license code you can follow the below-given steps to get the license code ...</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/nats/" rel="permalink">Install NATS Server on Faveo Helpdesk Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">This document is for clients using the Agent Software. NATS Server needs to be installed on the Faveo Server to ensure the Agents (Assets) data is received/l...</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/server-hardening/access-control" rel="permalink">Configuring SSH Access Controls in Linux Servers
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/server-hardening/apache-hardening" rel="permalink">Apache Hardening for Security Implications
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/server-hardening/clamav" rel="permalink">Installing ClamAV and Setting Up a Cron Job
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">This guide provides step-by-step instructions for installing and configuring ConfigServer Security &amp; Firewall (CSF) on a server.
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helper/server-hardening/csf" rel="permalink">ConfigServer Security &amp; Firewall (CSF) Installation and Configuration Guide
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">This guide provides step-by-step instructions for installing and configuring ConfigServer Security &amp; Firewall (CSF) on a server.
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/server-hardening/home" rel="permalink">Server Hardening Guidelines for Faveo Helpdesk
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/server-hardening/log-rotation" rel="permalink">OS Patching and House Keeping on Linux Servers
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/server-hardening/mod-security" rel="permalink">How to enable MOD-SECURITY for Apache2
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/server-hardening/nginx-hardening" rel="permalink">Nginx Hardening for Security Implications
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/node" rel="permalink">Installing Node.js and Puppeteer for Faveo’s Graphical Reports
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/server-hardening/secure-ssh" rel="permalink">How to secure the server for SSH
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">This article describes how to server for SSH access, enable and disable two-factor authentication for SSH on an unmanaged server.
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/server-hardening/unsecure-ports" rel="permalink">Disabling Unsecured Ports on a Linux Server with CSF
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/installer/cli/" rel="permalink">Faveo CLI Installer
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Faveo comes with a CLI installer to help and guide you through the installation process. While the installer provides step by step guide during the installat...</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/installer/gui/" rel="permalink">Faveo Web GUI Installer
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Faveo comes with a web-based installer to help and guide you through the installation process. While the installer provides step by step guide during the ins...</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/installer/k8s-gui/" rel="permalink">Faveo Web GUI Installer
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Faveo comes with a web-based installer to help and guide you through the installation process. While the installer provides step by step guide during the ins...</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/community/agora-home/" rel="permalink">Introduction to Agora Invoicing
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/community/alma-apache/" rel="permalink">Installing Faveo Helpdesk Community Edition on Alma Linux with Apache Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/community/alma-nginx/" rel="permalink">Installing Faveo Helpdesk Community Edition on Alma Linux with Nginx Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/community/centos-apache" rel="permalink">Centos Apache
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Installing Faveo Helpdesk Community on Cent OS 7 
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/community/cpanel/" rel="permalink">Installing Faveo Helpdesk on cPanel
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/community/debian-apache/" rel="permalink">Installing Faveo Helpdesk Community Edition on Debian With Apache Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/community/debian-nginx/" rel="permalink">Installing Faveo Helpdesk Community Edition on Debian With Nginx Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/community/rhel-apache/" rel="permalink">Installing Faveo Helpdesk Community Edition on RHEL OS with Apache Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/community/rhel-nginx/" rel="permalink">Installing Faveo Helpdesk Community Edition on Rhel OS With Nginx Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/community/rocky-apache/" rel="permalink">Installing Faveo Helpdesk Community Edition on Rocky OS with Apache Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/community/rocky-nginx/" rel="permalink">Installing Faveo Helpdesk Community Edition on Rocky OS With Nginx Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/community/ubuntu-apache/" rel="permalink">Installing Faveo Helpdesk Community Edition on Ubuntu With Apache Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/community/ubuntu-nginx/" rel="permalink">Installing Faveo Helpdesk Community Edition on Ubuntu With Nginx Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/2FA-for-server-ssh/" rel="permalink">How to enable two-factor authentication (2FA) for SSH
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+  1. Create a normal user account
+  2. Disable SSH logins for root
+  3. Install an authenticator app on a mobile device
+  4. Enable two-factor authenticatio...</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/alma8-apache/" rel="permalink">Installing Faveo Helpdesk on Alma Linux 8
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/apache-windows/" rel="permalink">Faveo Installation on Windows with Apache Web Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/centos-apache-ssl/" rel="permalink">Centos Apache Ssl
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Install LetsEncrypt SSL for Faveo on Cent OS 7 Running Apache Web Server 
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/centos-apache/" rel="permalink">Centos Apache
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Installing Faveo Helpdesk Freelancer, Paid and Enterprise on CentOS 7  with Apache
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/centos-nginx-ssl/" rel="permalink">Centos Nginx Ssl
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Install LetsEncrypt SSL for Faveo on Cent OS 7 Running NGINX Web Server 
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/centos-nginx/" rel="permalink">Centos Nginx
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Installing Faveo Helpdesk Freelancer, paid and Enterprise on CentOS 7 with nginx 
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/centos-redis/" rel="permalink">Centos Redis
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Install and configure Redis, Supervisor and Worker for Faveo on Cent OS 7 
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/centos-web-panel/" rel="permalink">Faveo Installation on CentOS Web Panel
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">This document will list on how to install Faveo Helpdesk on a new Centos Web Panel on Centos server.
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/centos8s-apache-ssl/" rel="permalink">Centos8s Apache Ssl
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Install LetsEncrypt SSL for Faveo on CentOS-8-Stream Running Apache Web Server 
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/centos8s-apache/" rel="permalink">Centos8s Apache
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Installing Faveo Helpdesk Freelancer, Paid and Enterprise on CentOS-8-Stream 
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/centos8s-nginx-ssl/" rel="permalink">Centos8s Nginx Ssl
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Install LetsEncrypt SSL for Faveo on CentOS-8-Stream OS 8 Running NGINX Web Server 
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/centos8s-nginx/" rel="permalink">Centos8s Nginx
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Installing Faveo Helpdesk Freelancer, paid and Enterprise on Cent OS 8 Stream 
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/centos8s-redis/" rel="permalink">Centos8s Redis
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Install and configure Redis, Supervisor and Worker for Faveo on CentOS-8-Stream 
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/dynamodb/" rel="permalink">Installing DynamoDB for Faveo.
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/faveo-helpdesk-k8s/" rel="permalink">Faveo Helpdesk K8s
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Deploying Faveo Helpdesk on managed Kubernetes Cluster 
+
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/network-discovery/" rel="permalink">Installing Faveo Network Discovery Tool on Linux Distributions.
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Introduction :
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/plesk-panel-windows/" rel="permalink">Faveo Installation on Plesk Panel Windows Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">This document will guide you  on how to install Faveo Helpdesk on a Plesk Panel Windows Server.
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/redis-windows/" rel="permalink">Installing Redis on Windows Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rocky9-apache/" rel="permalink">Installing Faveo Helpdesk on Rocky OS
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rocky9-nginx/" rel="permalink">Installing Faveo Helpdesk on Rocky OS With Nginx Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/self-signed-ssl-centos/" rel="permalink">Self Signed Ssl Centos
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Install Self-Signed SSL for Faveo on Cent OS 
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/self-signed-ssl-windows/" rel="permalink">Install Self-Signed SSL for Faveo on Windows
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/windows/" rel="permalink">Installing Faveo Helpdesk Freelancer, paid and Enterprise on Windows
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/wkhtmltopdf/" rel="permalink">How to install wkhtmltopdf plugin on different servers
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/alma-apache-ssl/" rel="permalink">Install LetsEncrypt SSL for Faveo on Alma Linux Running Apache Web Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/alma-apache/" rel="permalink">Installing Faveo Helpdesk on Alma Linux
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/alma-nginx-ssl/" rel="permalink">Alma Nginx Ssl
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Install LetsEncrypt SSL for Faveo on Alma Running NGINX Web Server 
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/alma9-nginx/" rel="permalink">Installing Faveo Helpdesk Alma Linux with Nginx Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/alma-redis/" rel="permalink">Install and configure Redis, Supervisor and Worker for Faveo on Alma Linux
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/self-signed-ssl-alma-nginx/" rel="permalink">Install Self-Signed SSL for Faveo on Alma Linux
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/self-signed-ssl-alma/" rel="permalink">Install Self-Signed SSL for Faveo on Alma Linux 9
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rhel-apache-ssl/" rel="permalink">Install LetsEncrypt SSL for Faveo on RHEL Running Apache Web Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rhel-apache/" rel="permalink">Installing Faveo Helpdesk on RHEL OS
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rhel-nginx-ssl/" rel="permalink">Rhel Nginx Ssl
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Install LetsEncrypt SSL for Faveo on RHEL OS Running NGINX Web Server 
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rhel-nginx/" rel="permalink">Installing Faveo Helpdesk on Rhel OS With Nginx Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rhel-redis/" rel="permalink">Install and configure Redis, Supervisor and Worker for Faveo on RHEL OS
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/self-signed-ssl-rhel-nginx/" rel="permalink">Install Self-Signed SSL for Faveo on RHEL
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+This document will guide on how to install Self-Signed SSL certificates on RHEL with nginx.
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/self-signed-ssl-rhel/" rel="permalink">Install Self-Signed SSL for Faveo on RHEL
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rocky-apache-ssl/" rel="permalink">Install LetsEncrypt SSL for Faveo on Rocky Running Apache Web Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rocky9-apache/" rel="permalink">Installing Faveo Helpdesk on Rocky OS
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rocky-nginx-ssl/" rel="permalink">Rocky Nginx Ssl
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Install LetsEncrypt SSL for Faveo on Rocky OS Running NGINX Web Server 
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rocky9-nginx/" rel="permalink">Installing Faveo Helpdesk on Rocky OS With Nginx Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rocky-redis/" rel="permalink">Install and configure Redis, Supervisor and Worker for Faveo on Rocky OS
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/self-signed-ssl-rocky-nginx/" rel="permalink">Install Self-Signed SSL for Faveo on Rocky
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/self-signed-ssl-rocky/" rel="permalink">Install Self-Signed SSL for Faveo on Rocky
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/wamp-windows/" rel="permalink">Faveo Installation on Windows with Wamp Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/xampp-windows/" rel="permalink">Faveo Installation on Windows with Xampp Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/alma-apache-ssl/" rel="permalink">Install LetsEncrypt SSL for Faveo on Alma Linux Running Apache Web Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/alma-nginx-ssl/" rel="permalink">Alma Nginx Ssl
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Install LetsEncrypt SSL for Faveo on Alma Running NGINX Web Server 
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/alma-redis/" rel="permalink">Install and configure Redis, Supervisor and Worker for Faveo on Alma Linux
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/alma9-apache/" rel="permalink">Installing Faveo Helpdesk on Alma Linux with Apache Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/alma9-nginx/" rel="permalink">Installing Faveo Helpdesk Alma Linux with Nginx Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/apache-windows/" rel="permalink">Faveo Installation on Windows with Apache Web Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/backup-script/" rel="permalink">Automated Backup Script for Faveo File System and Database to the FTP-Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/backup-tool/" rel="permalink">UrBackup Tool for Faveo File System and Database Backup
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/basic-troubleshooting-script/" rel="permalink">Faveo Basic Troubleshooting via Scripts
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/csf-webmin/" rel="permalink">ConfigServer Security &amp; Firewall  installation on Webmin
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/database/" rel="permalink">Configuring Database Queue Driver on Windows Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/debian-apache-ssl/" rel="permalink">Install Let’s Encrypt SSL for Faveo on Debian Running Apache Web Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/debian-apache/" rel="permalink">Installing Faveo Helpdesk on Debian With Apache Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/debian-nginx-ssl/" rel="permalink">Install Let’s Encrypt SSL for Faveo on Debian Running Nginx Web Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/debian-nginx/" rel="permalink">Installing Faveo Helpdesk on Debian With Nginx Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/debian-redis/" rel="permalink">Install and configure Redis, Supervisor and Worker for Faveo on Debian
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/docker-migration/" rel="permalink">Faveo Helpdesk Migration to Docker
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/faveo-helpdesk-docker/" rel="permalink">Faveo Helpdesk Docker
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+Deploying Faveo Helpdesk on Docker   
+
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/faveo-helpdesk-k8s/" rel="permalink">Faveo Helpdesk K8s
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Deploying Faveo Helpdesk on managed Kubernetes Cluster 
+
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/generic-migration/" rel="permalink">Cloning/Migrating Faveo Helpdesk from one server to another
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/k8s-cert-manager" rel="permalink">Install Let’s Encrypt SSL for Faveo on K8s
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/k8s-paid-ssl" rel="permalink">Install Paid SSL for Faveo on K8s
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/k8s-self-signed-ssl" rel="permalink">Install Self-Signed SSL for Faveo on K8s
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/mariadb-windows/" rel="permalink">Installing Mariadb 10.6 on Windows Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/meilisearch/" rel="permalink">Installing Meilisearch Driver for Faveo.
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/memcached/" rel="permalink">Installing Memcached for Faveo
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/mysql-windows/" rel="permalink">Installing MySQL 8.0 on Windows Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/network-discovery/" rel="permalink">Installing Faveo Network Discovery Tool on Linux Distributions.
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Introduction :
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/paid-ssl-alma-nginx/" rel="permalink">Install Paid SSL for Faveo on Alma Linux
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/paid-ssl-alma/" rel="permalink">Install Paid SSL for Faveo on Alma Linux
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/paid-ssl-debian-nginx/" rel="permalink">Install Paid SSL for Faveo on Debain
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/paid-ssl-debian/" rel="permalink">Install Paid SSL for Faveo on Debian
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/paid-ssl-rhel-nginx/" rel="permalink">Install Paid SSL for Faveo on RHEL Linux
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/paid-ssl-rhel/" rel="permalink">Install Paid SSL for Faveo on RHEL Linux
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/paid-ssl-rocky-nginx/" rel="permalink">Install Paid SSL for Faveo on Rocky Linux
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/paid-ssl-rocky/" rel="permalink">Install Paid SSL for Faveo on Rocky
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/paid-ssl-ubuntu-nginx/" rel="permalink">Install Paid SSL for Faveo on Ubuntu
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/paid-ssl-ubuntu/" rel="permalink">Install Paid SSL for Faveo on Ubuntu
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/php-upgrade/" rel="permalink">Upgrade From PHP 7.3.x to PHP 8.1.x
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/php82-upgrade/" rel="permalink">Upgrade From PHP 8.1.x to PHP 8.2.x for Faveo
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/plesk-ubuntu/" rel="permalink">Faveo Installation on Ubuntu with Plesk Panel
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/plesk-redis/" rel="permalink">Redis Installation on Ubuntu with Plesk Panel
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/redis-windows/" rel="permalink">Installing Redis on Windows Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rhel-apache-ssl/" rel="permalink">Install LetsEncrypt SSL for Faveo on RHEL Running Apache Web Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rhel-nginx-ssl/" rel="permalink">Rhel Nginx Ssl
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Install LetsEncrypt SSL for Faveo on RHEL OS Running NGINX Web Server 
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rhel-redis/" rel="permalink">Install and configure Redis, Supervisor and Worker for Faveo on RHEL OS
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rhel9-apache/" rel="permalink">Installing Faveo Helpdesk on RHEL OS with Apache Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rhel9-nginx/" rel="permalink">Installing Faveo Helpdesk on Rhel OS With Nginx Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rocky-apache-ssl/" rel="permalink">Install LetsEncrypt SSL for Faveo on Rocky Running Apache Web Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rocky-nginx-ssl/" rel="permalink">Rocky Nginx Ssl
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Install LetsEncrypt SSL for Faveo on Rocky OS Running NGINX Web Server 
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rocky-redis/" rel="permalink">Install and configure Redis, Supervisor and Worker for Faveo on Rocky OS
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rocky9-apache/" rel="permalink">Installing Faveo Helpdesk on Rocky OS with Apache Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/rocky9-nginx/" rel="permalink">Installing Faveo Helpdesk on Rocky OS With Nginx Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/script-installers/" rel="permalink">Script Installers
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Faveo Helpesk Installation via Scripts 
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/self-signed-ssl-alma-nginx/" rel="permalink">Install Self-Signed SSL for Faveo on Alma Linux
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/self-signed-ssl-alma/" rel="permalink">Install Self-Signed SSL for Faveo on Alma Linux
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/self-signed-ssl-debian-nginx/" rel="permalink">Install Self-Signed SSL for Faveo on Debian
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/self-signed-ssl-debian/" rel="permalink">Install Self-Signed SSL for Faveo on Debian
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/self-signed-ssl-rhel-nginx/" rel="permalink">Install Self-Signed SSL for Faveo on RHEL
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Introduction
+This document will guide on how to install Self-Signed SSL certificates on RHEL with nginx.
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/self-signed-ssl-rhel/" rel="permalink">Install Self-Signed SSL for Faveo on RHEL
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/self-signed-ssl-rocky-nginx/" rel="permalink">Install Self-Signed SSL for Faveo on Rocky
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/self-signed-ssl-rocky/" rel="permalink">Install Self-Signed SSL for Faveo on Rocky
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/self-signed-ssl-ubuntu-nginx/" rel="permalink">Install Self-Signed SSL for Faveo on Ubuntu
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/self-signed-ssl-ubuntu/" rel="permalink">Install Self-Signed SSL for Faveo on Ubuntu
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/self-signed-ssl-windows/" rel="permalink">Install Self-Signed SSL for Faveo on Windows
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/helpers/ssh-key/" rel="permalink">SSH Key Authentication Setup Guide
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/ssl-error/" rel="permalink">Resolve SSL Certificates Error for Faveo Probe Page.
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Introduction :
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/ubuntu-apache-ssl/" rel="permalink">Install LetsEncrypt SSL for Faveo on Ubuntu 20.04 and 22.04 Running Apache Web Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/ubuntu-apache/" rel="permalink">Installing Faveo Helpdesk on Ubuntu With Apache Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/ubuntu-nginx-ssl/" rel="permalink">Install LetsEncrypt SSL for Faveo on Ubuntu 20.04 and 22.04 Running Nginx Web Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/ubuntu-nginx/" rel="permalink">Installing Faveo Helpdesk on Ubuntu With Nginx Webserver
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/ubuntu-redis/" rel="permalink">Install and configure Redis, Supervisor and Worker for Faveo on Ubuntu 20.04 and 22.04
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/wamp/" rel="permalink">Faveo Helpdesk Installation on Wamp Server with Apache on PHP 7.3
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Faveo can run on WamServer.
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/webmin-install/" rel="permalink">Webmin Installation on Linux Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">This document is divided into three sections:
+
+  Installing Webmin on Linux Server
+  Installing ConfigServer Security &amp; Firewall (CSF) on Webmin
+  Enabli...</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/websockets/" rel="permalink">Enabling Websockets in Faveo Helpdesk
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Introduction:
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/windows-apache-ssl/" rel="permalink">Install Self-Signed SSL for Faveo on Windows
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/windows-iis-ssl/" rel="permalink">Install Let’s Encrypt SSL for Faveo on Windows Server Running IIS Web Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/installation/providers/enterprise/windows-iis/" rel="permalink">Installing Faveo Helpdesk on Windows Server
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/docs/system-requirement/requirement/" rel="permalink">Faveo Helpdesk System Requirements
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+  1. PHP Version
+    
+      a. PHP Extensions
+      b. PHP Settings
+    
+  
+  2. File Permissions
+    
+      a. Linux
+      b. IIS (Windows)
+    
+  
+  3. Da...</p>
+  </article>
+</div>
+
+    
+  
+
+  
+    
+    
+      <h2 id="pets" class="archive__subtitle">pets</h2>
+      
+    
+  
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/pets/lhasa-apso/" rel="permalink">Lhasa Apso
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">The Lhasa Apso is a non-sporting dog breed originating in Tibet.
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/pets/tabby/" rel="permalink">Tabby
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">A tabby is any domestic cat that has a coat featuring distinctive stripes, dots, lines or swirling patterns, usually with a mark resembling an ‘M’ on its for...</p>
+  </article>
+</div>
+
+    
+  
+
+  
+    
+    
+      <h2 id="portfolio" class="archive__subtitle">portfolio</h2>
+      
+    
+  
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/portfolio/baz-boom-identity/" rel="permalink">Baz Boom Identity
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Baz Boom design system including logo mark, website design, and branding applications.
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/portfolio/fizz-bang-identity/" rel="permalink">Fizz Bang Identity
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Fizz Bang design system including logo mark, website design, and branding applications.
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/portfolio/foo-bar-website/" rel="permalink">Foo Bar Identity
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Foo Bar design system including logo mark, website design, and branding applications.
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/portfolio/ginger-gulp-identity/" rel="permalink">Ginger Gulp Identity
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Ginger Gulp design system including logo mark, website design, and branding applications.
+</p>
+  </article>
+</div>
+
+    
+  
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+  
+    
+    
+      <h2 id="recipes" class="archive__subtitle">recipes</h2>
+      
+    
+  
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/recipes/chocolate-chip-cookies/" rel="permalink">Chocolate Chip Cookies
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">A chocolate chip cookie is a drop cookie that originated in the United States and features chocolate chips as its distinguishing ingredient.
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/recipes/oatmeal-cookies/" rel="permalink">Oatmeal Cookies
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Oatmeal cookies are a proverbial favorite with both kids and adults. This crisp and chewy cookie is loaded with oats, dried fruit, and chopped nuts.
+
+</p>
+  </article>
+</div>
+
+    
+  
+    
+      
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/recipes/peanut-butter-cookies/" rel="permalink">Peanut Butter Cookies
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">A peanut butter cookie is a type of cookie that is distinguished for having peanut butter as a principal ingredient. The cookie generally originated in the U...</p>
+  </article>
+</div>
+
+    
+  
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/ladybirdweb" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 Ladybird Web Solution Pvt Ltd. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,656 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Install Self-Signed SSL for Faveo on Windows - Faveo Installation Guide</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Ladybird Web Solution Pvt Ltd">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Faveo Installation Guide">
+<meta property="og:title" content="Install Self-Signed SSL for Faveo on Windows">
+<meta property="og:url" content="http://localhost:4000/docs/installation/providers/enterprise/self-signed-ssl-windows/">
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/logo.png">
+
+
+
+  <meta name="twitter:site" content="@faveohelpdesk">
+  <meta name="twitter:title" content="Install Self-Signed SSL for Faveo on Windows">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:url" content="http://localhost:4000/docs/installation/providers/enterprise/self-signed-ssl-windows/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/logo.png">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2025-08-14T01:22:17-04:00">
+
+
+
+  <meta property="article:modified_time" content="2025-06-12T00:00:00-04:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/docs/installation/providers/enterprise/self-signed-ssl-windows/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Ladybird Web Solution Pvt Ltd",
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/faveohelpdesk","https://www.facebook.com/faveohelpdesk"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Faveo Installation Guide Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Faveo Installation Guide
+          <span class="site-subtitle">By Ladybird Web Solution</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/knowledgebase">User Manual</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://docs.faveohelpdesk.com/">Installation Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/">Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://community.faveohelpdesk.com/">Community</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://developers.faveohelpdesk.com/">Developer Portal</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://status.faveotools.com/status/updates/">Server Status</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://www.faveohelpdesk.com/online-demo/">Demo</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">INSTALLATION GUIDE</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-alma">Faveo on Alma Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rocky">Faveo on Rocky Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rhel">Faveo on RHEL</a></li>
+          
+            <li><a href="/docs/helpers/choose-ubuntu">Faveo on Ubuntu  (Recommended)</a></li>
+          
+            <li><a href="/docs/helpers/choose-debian">Faveo on Debian</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/windows-iis">Windows IIS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/apache-windows">Windows Apache Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/wamp-windows">Faveo on WAMP</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/xampp-windows/">Faveo on XAMPP</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">How To's</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-php/">Upgrade PHP Version</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/generic-migration/">Faveo Migrate or Clone</a></li>
+          
+            <li><a href="/docs/helpers/choose-backup/">Faveo Automated Backup</a></li>
+          
+            <li><a href="/docs/helper/cname/">Custom Domain</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/network-discovery">Install Network Discovery</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/ssl-error">SSL Error Solution (Linux)</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/meilisearch">Install Meilisearch</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/memcached">Install Memcached</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/websockets">Enable Websockets</a></li>
+          
+            <li><a href="/docs/helpers/email-server">Setup Email Server</a></li>
+          
+            <li><a href="/docs/helpers/ldaps">Configure LDAPS</a></li>
+          
+            <li><a href="/docs/helpers/server-hardening/home">Secure Server</a></li>
+          
+            <li><a href="/docs/helpers/node">Install Node</a></li>
+          
+            <li><a href="/docs/helpers/nats">Install NATS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/basic-troubleshooting-script">Troubleshooting script</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Kubernetes</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-k8s/">Faveo on Kubernetes</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Docker</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-docker/">Faveo on Docker</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Install Self-Signed SSL for Faveo on Windows">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2025-08-14T01:22:17-04:00">
+    <meta itemprop="dateModified" content="2025-06-12T00:00:00-04:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Install Self-Signed SSL for Faveo on Windows
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#setting-up-openssl-for-windows">Setting up OpenSSL for Windows</a></li>
+  <li><a href="#steps">Steps</a>
+    <ul>
+      <li><a href="#create-openssl-configuration-file-">Create OpenSSL Configuration File </a></li>
+      <li><a href="#generate-certificate-and-private-key">Generate Certificate and Private Key</a></li>
+      <li><a href="#compiling-the-created-certificate-and-key-file-as-pfx-file">Compiling the created certificate and key file as .pfx file</a></li>
+      <li><a href="#installing-the-ssl-certificate">Installing the SSL certificate</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p><img alt="Windows" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Windows_logo_and_wordmark_-_2021.svg/250px-Windows_logo_and_wordmark_-_2021.svg.png" width="200" /></p>
+
+<h2 id="introduction"><strong>Introduction</strong></h2>
+
+<p>This document will list how to install Self-Signed SSL certificates on Windows servers.</p>
+
+<ul>
+  <li>
+    <p>We will be using the tool OpenSSL for creating a Self-Signed SSL certificate in a windows machine.</p>
+  </li>
+  <li>
+    <p>The OpenSSL is an open-source library that provides cryptographic functions and implementations.</p>
+  </li>
+  <li>
+    <p>OpenSSL is a defacto library for cryptography-related operations and is used by a lot of different applications.</p>
+  </li>
+  <li>
+    <p>OpenSSL is provided as a library and application.</p>
+  </li>
+  <li>
+    <p>OpenSSL provides functions and features like SSL/TLS, SHA1, Encryption, Decryption, AES, etc.</p>
+  </li>
+</ul>
+
+<h2 id="setting-up-openssl-for-windows"><strong>Setting up OpenSSL for Windows</strong></h2>
+
+<p>With the below commands we can install OpenSSL in the windows server:</p>
+
+<p>Open SSL is not available for windows in .exe format the easiest way to install is by using a third-party software CHOCOLATEY.</p>
+
+<p>Install “Chocolatey” a package management software for windows by using the below command.</p>
+
+<p>Open Powershell.exe with Administrator Privilege, Paste the below command and hit enter</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+</code></pre></div></div>
+<p>It may ask for permission please select yes for all and when the installation is over then enter the below command.</p>
+
+<p>Open the command prompt with Administrator privilege and enter the below command to install OpenSSL.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>choco install openssl 
+</code></pre></div></div>
+<p>It will prompt and ask for <em>yes</em> give <em>yes</em> and wait till the installation gets done.</p>
+
+<h2 id="steps"><strong>Steps</strong></h2>
+
+<ul>
+  <li>Create OpenSSL Configuration File</li>
+  <li>Generate Certificate and Private Key</li>
+  <li>Export to .pfx format for IIS</li>
+  <li>Install the Certificate</li>
+</ul>
+
+<h3 id="create-openssl-configuration-file-"><strong>Create OpenSSL Configuration File </strong></h3>
+<p>Create a directory named <code><b>SSL</b></code> under the desktop or on any directory.</p>
+
+<p>Create a file <code><b>openssl.cnf</b></code> inside the <code><b>SSL</b></code> directory created above and save the below content to the file.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[req]
+default_bits = 2048
+prompt = no
+default_md = sha256
+distinguished_name = dn
+x509_extensions = v3_req
+
+[dn]
+C = IN
+ST = Karnataka
+L = Banglore
+O = Faveo
+OU = IT
+CN = faveo-helpdesk.local
+
+[v3_req]
+basicConstraints = CA:FALSE
+keyUsage = digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = faveo-helpdesk.local
+</code></pre></div></div>
+<blockquote>
+  <p><strong>Note:</strong> Please provide the below details according to your need:</p>
+</blockquote>
+
+<p><code><b>C = IN
+ST = Karnataka
+L = Banglore
+O = Faveo
+OU = IT
+CN = faveo-helpdesk.local
+DNS.1 = faveo-helpdesk.local</b></code></p>
+
+<h3 id="generate-certificate-and-private-key"><strong>Generate Certificate and Private Key</strong></h3>
+
+<p>Open the command prompt from the SSL Directory and run the below command which will create the certificate and the private key.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout private.key -out faveo.crt -config openssl.cnf -extensions v3_req
+</code></pre></div></div>
+
+<h3 id="compiling-the-created-certificate-and-key-file-as-pfx-file"><strong>Compiling the created certificate and key file as .pfx file</strong></h3>
+
+<p>As windows need the certificate file in .pfx format which will contain the both certificate and the key file, so we need to convert the created files to .pfx format, this can be done with the below command.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl pkcs12 -export -inkey private.key -in faveo.crt -out faveo.pfx
+</code></pre></div></div>
+
+<p>The above command will create a .pfx file with the name <em>faveo.pfx</em> in the SSL directory.</p>
+
+<h3 id="installing-the-ssl-certificate"><strong>Installing the SSL certificate</strong></h3>
+
+<ul>
+  <li>
+    <p>The installation of the SSL certificate is simple in windows machines we need to double click on the <em>faveo.pfx</em> file that we created from the above step which will open the certificate installation wizard.</p>
+
+    <p><img src="https://github.com/ladybirdweb/faveo-server-images/blob/master/_docs/installation/providers/enterprise/windows-images/certificateinstallation.png?raw=true" alt="windows" /></p>
+  </li>
+  <li>
+    <p>Click on install certificates and all the settings to be left default and once the installation is successful it will prompt the installation is successful.</p>
+  </li>
+  <li>
+    <p>Once the Certificate is installed we need to add the <em>faveo.crt</em> file content to the <em>cacert.pem</em> file which will be in the below location:</p>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\php8.2
+</code></pre></div></div>
+
+<ul>
+  <li>After adding that we need to edit the host file which will be in this location</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\Windows\System32\drivers\etc
+</code></pre></div></div>
+
+<ul>
+  <li>And add the below line by replacing the <em>yourdomain</em> with the domain that we used to create the server SSL certificate.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>127.0.0.1            yourdomain
+</code></pre></div></div>
+
+<ul>
+  <li>If the above is done we need to edit the <em>php.ini</em> file which is found inside the PHP root directory. Uncomment and add the location of <em>cacert.pem</em> to <em>openssl.cafile</em> like.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl.cainfo = "C:\php8.2\cacert.pem"
+openssl.cafile = "C:\php8.2\cacert.pem"
+</code></pre></div></div>
+
+<ul>
+  <li>After updating the above, the last part is to add bindings for the SSL.</li>
+  <li>
+    <p>As shown below open the IIS manager and click on the site and on the right pane select Bindings.</p>
+
+    <p><img src="https://github.com/ladybirdweb/faveo-server-images/blob/master/_docs/installation/providers/enterprise/windows-images/bindings.jpeg?raw=true" alt="windows" /></p>
+  </li>
+  <li>
+    <p>As shown below there will be a prompt, there select Add option.</p>
+
+    <p><img src="https://github.com/ladybirdweb/faveo-server-images/blob/master/_docs/installation/providers/enterprise/windows-images/portadd.jpeg?raw=true" alt="windows" /></p>
+  </li>
+  <li>
+    <p>As shown below change the HTTP to HTTPS and add the domain name in the Hostname section and select the SSL certificate which we installed and click OK.</p>
+
+    <p><img src="https://github.com/ladybirdweb/faveo-server-images/blob/master/_docs/installation/providers/enterprise/windows-images/bindingwithdomain.png?raw=true" alt="windows" /></p>
+  </li>
+</ul>
+
+<p>The certificate is installed successfully, since this is a self-signed certificate the browser will show not valid since the faveo considers the server-side SSL certificates in the probe page Domain SSL will be valid.</p>
+
+<blockquote>
+  <p><strong>Note:</strong> If the SSL certificate is not shown in the Bindings tab then follow the below steps:</p>
+</blockquote>
+
+<ul>
+  <li>Open IIS manager and go to <em>Server Certificates</em>, double click on it a new tab will appear.</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/servercertificates.png" alt="" style=" width:580px ; height:330px " /></p>
+
+<ul>
+  <li>Click on <em>Import</em>, a small tab will open, click on three dots and navigate to the <em>faveo.pfx</em> file, select the <em>faveo.pfx file</em> and enter the password if the certicate is password protected, then click on <em>OK</em>, the SSL certificate will be exported.</li>
+</ul>
+
+<p><img src="https://github.com/ladybirdweb/faveo-server-images/blob/master/_docs/installation/providers/enterprise/windows-images/certificateadd.png?raw=true" alt="" style=" width:580px ; height:330px " /></p>
+
+<ul>
+  <li>Now add Bindings for the certificate as shown as shown above.</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2025-06-12">June 12, 2025</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/docs/installation/providers/enterprise/self-signed-ssl-ubuntu/" class="pagination--pager" title="Install Self-Signed SSL for Faveo on Ubuntu
+">Previous</a>
+    
+    
+      <a href="/docs/helpers/ssh-key/" class="pagination--pager" title="SSH Key Authentication Setup Guide
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/ladybirdweb" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 Ladybird Web Solution Pvt Ltd. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,789 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Upgrade From PHP 7.3.x to PHP 8.1.x - Faveo Installation Guide</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Ladybird Web Solution Pvt Ltd">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Faveo Installation Guide">
+<meta property="og:title" content="Upgrade From PHP 7.3.x to PHP 8.1.x">
+<meta property="og:url" content="http://localhost:4000/docs/installation/providers/enterprise/php-upgrade/">
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/logo.png">
+
+
+
+  <meta name="twitter:site" content="@faveohelpdesk">
+  <meta name="twitter:title" content="Upgrade From PHP 7.3.x to PHP 8.1.x">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:url" content="http://localhost:4000/docs/installation/providers/enterprise/php-upgrade/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/logo.png">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2025-08-14T01:22:17-04:00">
+
+
+
+  <meta property="article:modified_time" content="2022-11-26T00:00:00-04:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/docs/installation/providers/enterprise/php-upgrade/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Ladybird Web Solution Pvt Ltd",
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/faveohelpdesk","https://www.facebook.com/faveohelpdesk"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Faveo Installation Guide Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Faveo Installation Guide
+          <span class="site-subtitle">By Ladybird Web Solution</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/knowledgebase">User Manual</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://docs.faveohelpdesk.com/">Installation Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/">Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://community.faveohelpdesk.com/">Community</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://developers.faveohelpdesk.com/">Developer Portal</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://status.faveotools.com/status/updates/">Server Status</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://www.faveohelpdesk.com/online-demo/">Demo</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">INSTALLATION GUIDE</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-alma">Faveo on Alma Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rocky">Faveo on Rocky Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rhel">Faveo on RHEL</a></li>
+          
+            <li><a href="/docs/helpers/choose-ubuntu">Faveo on Ubuntu  (Recommended)</a></li>
+          
+            <li><a href="/docs/helpers/choose-debian">Faveo on Debian</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/windows-iis">Windows IIS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/apache-windows">Windows Apache Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/wamp-windows">Faveo on WAMP</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/xampp-windows/">Faveo on XAMPP</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">How To's</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-php/">Upgrade PHP Version</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/generic-migration/">Faveo Migrate or Clone</a></li>
+          
+            <li><a href="/docs/helpers/choose-backup/">Faveo Automated Backup</a></li>
+          
+            <li><a href="/docs/helper/cname/">Custom Domain</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/network-discovery">Install Network Discovery</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/ssl-error">SSL Error Solution (Linux)</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/meilisearch">Install Meilisearch</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/memcached">Install Memcached</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/websockets">Enable Websockets</a></li>
+          
+            <li><a href="/docs/helpers/email-server">Setup Email Server</a></li>
+          
+            <li><a href="/docs/helpers/ldaps">Configure LDAPS</a></li>
+          
+            <li><a href="/docs/helpers/server-hardening/home">Secure Server</a></li>
+          
+            <li><a href="/docs/helpers/node">Install Node</a></li>
+          
+            <li><a href="/docs/helpers/nats">Install NATS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/basic-troubleshooting-script">Troubleshooting script</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Kubernetes</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-k8s/">Faveo on Kubernetes</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Docker</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-docker/">Faveo on Docker</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Upgrade From PHP 7.3.x to PHP 8.1.x">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2025-08-14T01:22:17-04:00">
+    <meta itemprop="dateModified" content="2022-11-26T00:00:00-04:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Upgrade From PHP 7.3.x to PHP 8.1.x
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#"></a></li>
+  <li><a href="#how-to-upgrade-from-php-7x-to-php-81-on-ubuntu-centos-rhel-debian-windows-server-">How to Upgrade from PHP 7.x to PHP 8.1 on Ubuntu, CentOS, RHEL, Debian, Windows Server </a>
+    <ul>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#for-ubuntu-and-debian">For Ubuntu and Debian</a>
+        <ul>
+          <li><a href="#add-ondřej-surýs-ppa-repository">Add Ondřej Surý’s PPA repository</a></li>
+          <li><a href="#install-php-81">Install PHP 8.1</a></li>
+          <li><a href="#restart-apache">Restart Apache</a></li>
+          <li><a href="#if-running-nginx-make-sure-to-install-fpm-optional-only-for-nginx-web-server">If running Nginx, make sure to install FPM. (Optional only for Nginx Web Server)</a></li>
+          <li><a href="#install-and-configure-ioncube-81-extension">Install and configure Ioncube 8.1 extension</a></li>
+          <li><a href="#update-the-php-configuration-files">Update the PHP Configuration files</a></li>
+          <li><a href="#change-php-default-settings">Change PHP default settings</a></li>
+          <li><a href="#change-php-default-settings-if-nginx-is-configured-optional">Change PHP default settings if NGINX is configured (Optional)</a></li>
+          <li><a href="#restart-apache-1">Restart Apache</a></li>
+        </ul>
+      </li>
+      <li><a href="#for-centos-7">For CentOS 7</a>
+        <ul>
+          <li><a href="#install-and-configure-ioncube-81-extension-1">Install and configure Ioncube 8.1 extension</a></li>
+        </ul>
+      </li>
+      <li><a href="#for-centos-8-stream-and-rocky-8">For Centos 8 Stream and Rocky 8</a>
+        <ul>
+          <li><a href="#install-and-configure-ioncube-81-extension-2">Install and configure Ioncube 8.1 extension</a></li>
+        </ul>
+      </li>
+      <li><a href="#for-cpanel">For Cpanel</a></li>
+      <li><a href="#for-windows-servers">For Windows Servers</a>
+        <ul>
+          <li><a href="#update-the-environment-variable-for-php-binarypermalink">Update the Environment Variable for PHP BinaryPermalink</a></li>
+          <li><a href="#create-fastcgi-handler-mapping">Create FastCGI Handler Mapping</a></li>
+          <li><a href="#configure-ioncube-php-81-loader">Configure Ioncube PHP 8.1 loader</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <h1><!-- omit in toc --></h1>
+
+<p><img alt="PHP" src="https://upload.wikimedia.org/wikipedia/commons/2/27/PHP-logo.svg" width="200" /></p>
+
+<h1 id="how-to-upgrade-from-php-7x-to-php-81-on-ubuntu-centos-rhel-debian-windows-server-">How to Upgrade from PHP 7.x to PHP 8.1 on Ubuntu, CentOS, RHEL, Debian, Windows Server <!-- omit in toc --></h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>This document will guide you to upgrade PHP-8.1 for Faveo Helpdesk.</p>
+
+<ul>
+  <li><strong>This guide has been tested on: </strong></li>
+  <li><a href="#ubuntu&amp;debian"><strong>Ubuntu 18.04, 20.04, 22.04  </strong></a></li>
+  <li><a href="#ubuntu&amp;debian"><strong> Debian 10, 11 </strong></a></li>
+  <li><a href="#centos"><strong>CentOS 7, 8 Stream, 9 Stream </strong></a></li>
+  <li><a href="#cpanel"><strong>Shared Hosting (Cpanel) </strong></a></li>
+  <li><a href="#windows"><strong>Windows 2012, 2016, 2019 </strong></a></li>
+</ul>
+
+<p>Before proceeding further check your current PHP version. To find out which version of PHP you are currently using, run this in the Terminal or Windows command prompt.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php <span class="nt">-v</span>
+</code></pre></div></div>
+<p>If you are running PHP 7.x, you can continue with this guide to upgrade to PHP 8.1 
+<a id="ubuntu&amp;debian" name="ubuntu&amp;debian"></a></p>
+<h2 id="for-ubuntu-and-debian">For Ubuntu and Debian</h2>
+<p>Type the following command to remove the existing PHP version.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get purge php7.<span class="k">*</span>
+</code></pre></div></div>
+<p>Press y and ENTER when prompted.</p>
+
+<p>After uninstalling packages, it’s advised to run these two commands.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get autoclean
+</code></pre></div></div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get autoremove
+</code></pre></div></div>
+<h3 id="add-ondřej-surýs-ppa-repository">Add Ondřej Surý’s PPA repository</h3>
+<p>If you are running Ubuntu 22.04 and above, you do not need to add this repository below. Instead, skip this step.</p>
+
+<p>If you are running Ubuntu 20.04 or 18.04, the PHP 8.1 binary packages are only available in the Ondřej Surý PPA repository. Install below.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>add-apt-repository ppa:ondrej/php
+</code></pre></div></div>
+<p>You may see a welcome message.</p>
+
+<p>Output:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Co-installable PHP versions: PHP 5.6, PHP 7.x, and most requested extensions are included. Only Supported Versions of PHP <span class="o">(</span>http://php.net/supported-versions.php<span class="o">)</span> <span class="k">for </span>Supported Ubuntu Releases <span class="o">(</span>https://wiki.ubuntu.com/Releases<span class="o">)</span> are provided. Don<span class="s1">'t ask for end-of-life PHP versions or Ubuntu releases, they won'</span>t be provided.
+
+Debian old stable and stable packages are provided as well: https://deb.sury.org/debian-dpa
+
+You can get more information about the packages at https://deb.sury.org
+
+IMPORTANT: The <span class="nt">-backports</span> are now required on older Ubuntu releases.
+
+BUGS&amp;FEATURES: This PPA now has an issue tracker:
+https://deb.sury.org/bug-reporting
+
+CAVEATS:
+1. If you are using php-gearman, you need to add ppa:ondrej/pkg-gearman
+2. If you are using apache2, you are advised to add ppa:ondrej/apache2
+3. If you are using nginx, you are advised to add ppa:ondrej/nginx-mainline
+   or ppa:ondrej/nginx
+
+PLEASE READ: If you like my work and want to give me a little motivation, please consider donating regularly: https://donate.sury.org/
+
+WARNING: add-apt-repository is broken with non-UTF-8 locales, see
+https://github.com/oerdnj/deb.sury.org/issues/56 <span class="k">for </span>a workaround:
+
+<span class="nv">LC_ALL</span><span class="o">=</span>C.UTF-8 add-apt-repository ppa:ondrej/php
+ More info: https://launchpad.net/~ondrej/+archive/ubuntu/php
+Press <span class="o">[</span>ENTER] to <span class="k">continue </span>or Ctrl-c to cancel adding it.
+</code></pre></div></div>
+<p>Press ENTER to add the repository.</p>
+
+<p>If you are running Debian 10 or 11</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"deb https://packages.sury.org/php/ </span><span class="si">$(</span>lsb_release <span class="nt">-sc</span><span class="si">)</span><span class="s2"> main"</span> | <span class="nb">sudo tee</span> /etc/apt/sources.list.d/sury-php.list
+curl <span class="nt">-fsSL</span>  https://packages.sury.org/php/apt.gpg| <span class="nb">sudo </span>gpg <span class="nt">--dearmor</span> <span class="nt">-o</span> /etc/apt/trusted.gpg.d/sury-keyring.gpg <span class="nt">--yes</span>
+</code></pre></div></div>
+
+<h3 id="install-php-81">Install PHP 8.1</h3>
+<p>Update the repository cache by running the below command</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
+</code></pre></div></div>
+<p>Install PHP 8.1 along with the necessary extensions required by Faveo Helpdesk.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="nt">-y</span> php8.1 libapache2-mod-php8.1 php8.1-mysql <span class="se">\</span>
+            php8.1-cli php8.1-common php8.1-soap php8.1-gd <span class="se">\</span>
+            php8.1-opcache  php8.1-mbstring php8.1-zip <span class="se">\</span>
+            php8.1-bcmath php8.1-intl php8.1-xml php8.1-curl  <span class="se">\</span>
+            php8.1-imap php8.1-ldap php8.1-gmp php8.1-redis
+</code></pre></div></div>
+<p>Press Y and ENTER if prompted.</p>
+<h3 id="restart-apache">Restart Apache</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl restart apache2
+</code></pre></div></div>
+<h3 id="if-running-nginx-make-sure-to-install-fpm-optional-only-for-nginx-web-server">If running Nginx, make sure to install FPM. (Optional only for Nginx Web Server)</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>php8.1-fpm
+</code></pre></div></div>
+<h3 id="install-and-configure-ioncube-81-extension">Install and configure Ioncube 8.1 extension</h3>
+<p>Download the latest Ioncube loader</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz 
+</code></pre></div></div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-xvf</span> ioncube_loaders_lin_x86-64.tar.gz
+</code></pre></div></div>
+<p>Copy the ioncube_loader_lin_8.1.so to PHP Extension directory.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>ioncube/ioncube_loader_lin_8.1.so /usr/lib/php/20210902/
+</code></pre></div></div>
+<h3 id="update-the-php-configuration-files">Update the PHP Configuration files</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'2 a zend_extension = "/usr/lib/php/20210902/ioncube_loader_lin_8.1.so"'</span> /etc/php/8.1/apache2/php.ini
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'2 a zend_extension = "/usr/lib/php/20210902/ioncube_loader_lin_8.1.so"'</span> /etc/php/8.1/cli/php.ini
+
+</code></pre></div></div>
+<h3 id="change-php-default-settings">Change PHP default settings</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/upload_max_filesize =.*/upload_max_filesize = 100M/g'</span> /etc/php/8.1/apache2/php.ini
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/post_max_size =.*/post_max_size = 100M/g'</span> /etc/php/8.1/apache2/php.ini
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/max_execution_time =.*/max_execution_time = 360/g'</span> /etc/php/8.1/apache2/php.ini 
+</code></pre></div></div>
+<h3 id="change-php-default-settings-if-nginx-is-configured-optional">Change PHP default settings if NGINX is configured (Optional)</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/upload_max_filesize =.*/upload_max_filesize = 100M/g'</span> /etc/php/8.1/fpm/php.ini
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/post_max_size =.*/post_max_size = 100M/g'</span> /etc/php/8.1/fpm/php.ini
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s/max_execution_time =.*/max_execution_time = 360/g'</span> /etc/php/8.1/fpm/php.ini 
+</code></pre></div></div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl restart php8.1-fpm
+<span class="nb">sudo </span>systemctl restart nginx
+</code></pre></div></div>
+<h3 id="restart-apache-1">Restart Apache</h3>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl restart apache2
+</code></pre></div></div>
+<p><a id="centos" name="centos"></a></p>
+<h2 id="for-centos-7">For CentOS 7</h2>
+
+<p>In CentOS machines, we can simply upgrade from a lower version of PHP to a Higher one by switching the Repository. Run the below command to enable PHP 8.1 Remi repo.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>yum-config-manager <span class="nt">--enable</span> remi-php81
+</code></pre></div></div>
+<p>Now run the below command to update to PHP 8.1</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>yum update <span class="nt">-y</span>
+</code></pre></div></div>
+<h3 id="install-and-configure-ioncube-81-extension-1">Install and configure Ioncube 8.1 extension</h3>
+<p>Download the latest Ioncube loader</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz
+<span class="nb">tar </span>xfz ioncube_loaders_lin_x86-64.tar.gz
+</code></pre></div></div>
+<p>Copy the ioncube_loader_lin_8.1.so to PHP Extension directory.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>ioncube/ioncube_loader_lin_8.1.so /usr/lib64/php/modules
+</code></pre></div></div>
+<p>Update the PHP configuration file</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s:ioncube_loader_lin_7.3.so:ioncube_loader_lin_8.1.so:g'</span> /etc/php.ini
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s2">"s/max_execution_time = .*/max_execution_time = 300/"</span> /etc/php.ini
+</code></pre></div></div>
+<p>To make the changes effect please restart the webserver.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart httpd (Incase of Apache)
+systemctl restart nginx (Incase of Nginx)
+systemctl restart php8.1-fpm (Incase of Nginx with php-fpm)
+</code></pre></div></div>
+
+<h2 id="for-centos-8-stream-and-rocky-8">For Centos 8 Stream and Rocky 8</h2>
+
+<p>In CentOS 8 stream and Rocky 8 machines, we can simply upgrade from a lower version of PHP to a Higher one by switching the Repository. Run the below command to disable PHP 7.3 and enable PHP 8.1 Remi repo.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dnf module reset php:remi-7.3 <span class="nt">-y</span>
+<span class="nb">sudo </span>dnf module <span class="nb">enable </span>php:remi-8.1 <span class="nt">-y</span>
+</code></pre></div></div>
+<p>Now run the below command to update to PHP 8.1</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>yum update <span class="nt">-y</span>
+</code></pre></div></div>
+<h3 id="install-and-configure-ioncube-81-extension-2">Install and configure Ioncube 8.1 extension</h3>
+<p>Download the latest Ioncube loader</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz
+<span class="nb">tar </span>xfz ioncube_loaders_lin_x86-64.tar.gz
+</code></pre></div></div>
+<p>Copy the ioncube_loader_lin_8.1.so to PHP Extension directory.</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>ioncube/ioncube_loader_lin_8.1.so /usr/lib64/php/modules
+</code></pre></div></div>
+<p>Update the PHP configuration file</p>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>ioncube/ioncube_loader_lin_8.1.so /usr/lib64/php/modules 
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s1">'s:ioncube_loader_lin_7.3.so:ioncube_loader_lin_8.1.so:g'</span> /etc/php.ini
+<span class="nb">sed</span> <span class="nt">-i</span> <span class="s2">"s/max_execution_time = .*/max_execution_time = 300/"</span> /etc/php.ini
+</code></pre></div></div>
+<p>To make the changes effect please restart the webserver.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart httpd (Incase of Apache)
+systemctl restart nginx (Incase of Nginx)
+systemctl restart php8.1-fpm (Incase of Nginx with php-fpm)
+</code></pre></div></div>
+<p>Note: After the update, if you came across an ioncube not loaded issue please reboot the machine.</p>
+
+<p><a id="cpanel" name="cpanel"></a></p>
+<h2 id="for-cpanel">For Cpanel</h2>
+
+<ul>
+  <li>To enable PHP 8.1 in Cpanel the PHP version has to be installed in the server this is done through WHM, This can be done by contacting your Hosting Provider.</li>
+  <li>After installing PHP 8.1 on the server we need to change the php version for the faveo domain, follow the below steps to do so.</li>
+  <li>Login to the Cpanel and search for <strong>MultiPHP Manager</strong> as shown in the below snap.
+<img alt="" src="https://github.com/ladybirdweb/faveo-server-images/blob/master/_docs/installation/providers/enterprise/GUI-images/multi-php-manager.png?raw=true" /></li>
+  <li>After opening the MultiPHP Manager select the “checkbox” of the domain, change the PHP version from the drop-down to PHP 8.1 and click apply as shown in the below snap
+<img alt="" src="https://github.com/ladybirdweb/faveo-server-images/blob/master/_docs/installation/providers/enterprise/GUI-images/php-version-change-apply.png?raw=true" />
+Note: if you are not able to find the PHP version in the drop-down then it is not installed on the server Please contact your Hosting provider and install PHP-8.1 and try again.
+<img alt="" src="https://github.com/ladybirdweb/faveo-server-images/blob/master/_docs/installation/providers/enterprise/GUI-images/after-php-change.png?raw=true" /></li>
+  <li>Once PHP 8.1 is updated to the domain we need to update PHP version in cron as well to do so, search for cron jobs in the Cpanel search and click on it to open the cron jobs page as below.
+<img alt="" src="https://github.com/ladybirdweb/faveo-server-images/blob/master/_docs/installation/providers/enterprise/GUI-images/cron-search.png?raw=true" />
+<img alt="" src="https://github.com/ladybirdweb/faveo-server-images/blob/master/_docs/installation/providers/enterprise/GUI-images/Screenshot%20from%202022-11-28%2011-30-14.png?raw=true" /></li>
+  <li>
+    <p>Once we get to the cronjobs page we need to edit the cron to use the php8.1 to do so we need to edit the cron job to use the domain-specific php path and save as shown in the below snap with the below commands.
+<img alt="" src="https://github.com/ladybirdweb/faveo-server-images/blob/6bfb7af0993f57bb9c975aaf3978083b8c7353f1/_docs/installation/providers/enterprise/GUI-images/cron-before-change.png?raw=true" />
+<img alt="" src="https://github.com/ladybirdweb/faveo-server-images/blob/6bfb7af0993f57bb9c975aaf3978083b8c7353f1/_docs/installation/providers/enterprise/GUI-images/cron-after-change.png?raw=true" /></p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>```sh
+/usr/local/bin/php (we need to change this path to the below)
+/usr/local/bin/ea-php8.1
+```
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><a id="windows" name="windows"></a></p>
+<h2 id="for-windows-servers">For Windows Servers</h2>
+
+<ul>
+  <li>
+    <p><a href="https://windows.php.net/downloads/releases/archives/" target="_blank" rel="noopener">Click Here</a> to download “php-8.1.12-nts-Win32-vs16-x64.zip” file. Extract the zip file &amp; “rename it to <em>php8.1</em>. Now move the renamed <em>php8.1</em> folder to <em>C:\php8.1</em>.
+<img alt="" src="https://github.com/ladybirdweb/faveo-server-images/blob/6bfb7af0993f57bb9c975aaf3978083b8c7353f1/_docs/installation/providers/enterprise/windows-images/php-8.1.png?raw=true" />
+<img alt="" src="https://github.com/ladybirdweb/faveo-server-images/blob/6bfb7af0993f57bb9c975aaf3978083b8c7353f1/_docs/installation/providers/enterprise/windows-images/movphp8.1.png?raw=true" /></p>
+  </li>
+  <li>
+    <p>Open php8.1 folder, find php.ini-development &amp; rename it to php.ini to make it php configuration file.
+<img alt="" src="https://github.com/ladybirdweb/faveo-server-images/blob/6bfb7af0993f57bb9c975aaf3978083b8c7353f1/_docs/installation/providers/enterprise/windows-images/phpconfig.png?raw=true" /></p>
+  </li>
+  <li>
+    <p>Open php.ini using Notepad++, add the below lines at the end of this file &amp; save the file:
+Required configuration changes for Faveo Helpdesk.</p>
+  </li>
+</ul>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">error_log</span><span class="o">=</span>C:<span class="se">\W</span>indows<span class="se">\t</span>emp<span class="se">\P</span>HP81x64_errors.log
+<span class="nv">upload_tmp_dir</span><span class="o">=</span><span class="s2">"C:</span><span class="se">\W</span><span class="s2">indows</span><span class="se">\T</span><span class="s2">emp"</span>
+session.save_path<span class="o">=</span><span class="s2">"C:</span><span class="se">\W</span><span class="s2">indows</span><span class="se">\T</span><span class="s2">emp"</span>
+cgi.force_redirect<span class="o">=</span>0
+cgi.fix_pathinfo<span class="o">=</span>1
+fastcgi.impersonate<span class="o">=</span>1
+fastcgi.logging<span class="o">=</span>0
+<span class="nv">max_execution_time</span><span class="o">=</span>300
+date.timezone<span class="o">=</span>Asia/Kolkata
+<span class="nv">extension_dir</span><span class="o">=</span><span class="s2">"C:</span><span class="se">\p</span><span class="s2">hp8.1</span><span class="se">\e</span><span class="s2">xt</span><span class="se">\"</span><span class="s2">
+upload_max_filesize = 100M
+post_max_size = 100M
+memory_limit = 256M
+</span></code></pre></div></div>
+<p>Uncomment these extensions.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">extension</span><span class="o">=</span>bz2
+<span class="nv">extension</span><span class="o">=</span>curl
+<span class="nv">extension</span><span class="o">=</span>fileinfo
+<span class="nv">extension</span><span class="o">=</span>gd2
+<span class="nv">extension</span><span class="o">=</span>imap
+<span class="nv">extension</span><span class="o">=</span>ldap
+<span class="nv">extension</span><span class="o">=</span>mbstring
+<span class="nv">extension</span><span class="o">=</span>mysqli
+<span class="nv">extension</span><span class="o">=</span>soap
+<span class="nv">extension</span><span class="o">=</span>sockets
+<span class="nv">extension</span><span class="o">=</span>sodium
+<span class="nv">extension</span><span class="o">=</span>openssl
+<span class="nv">extension</span><span class="o">=</span>pdo_mysql
+</code></pre></div></div>
+<h3 id="update-the-environment-variable-for-php-binarypermalink">Update the Environment Variable for PHP BinaryPermalink</h3>
+<p><img alt="" src="https://github.com/ladybirdweb/faveo-server-images/blob/6bfb7af0993f57bb9c975aaf3978083b8c7353f1/_docs/installation/providers/enterprise/windows-images/env1.png?raw=true" />
+<img alt="" src="https://github.com/ladybirdweb/faveo-server-images/blob/6bfb7af0993f57bb9c975aaf3978083b8c7353f1/_docs/installation/providers/enterprise/windows-images/env2.png?raw=true" /></p>
+
+<ul>
+  <li>Now click on Path &gt; Edit. Delete the old PHP 7.3 path and add PHP 8.1 path and click on ok.
+<img alt="" src="https://github.com/ladybirdweb/faveo-server-images/blob/6bfb7af0993f57bb9c975aaf3978083b8c7353f1/_docs/installation/providers/enterprise/windows-images/php8.1-path.png?raw=true" /></li>
+</ul>
+
+<h3 id="create-fastcgi-handler-mapping">Create FastCGI Handler Mapping</h3>
+<ul>
+  <li>
+    <p>Open Server Manager, locate Tools on the top right corner of the Dashboard, and Open Internet Information Services (IIS) Manager.
+<img alt="" src="https://github.com/ladybirdweb/faveo-server-images/blob/6bfb7af0993f57bb9c975aaf3978083b8c7353f1/_docs/installation/providers/enterprise/windows-images/iis.png?raw=true" /></p>
+  </li>
+  <li>
+    <p>Now in the Left Panel of the IIS Manager select the server then you will find the Handler Mappings it will populate the available options to configure.
+<img alt="" src="https://github.com/ladybirdweb/faveo-server-images/blob/6bfb7af0993f57bb9c975aaf3978083b8c7353f1/_docs/installation/providers/enterprise/windows-images/handlermap.png?raw=true" /></p>
+  </li>
+  <li>Open Handler Mappings, Select “FastCGI” Click on Edit in the Right Panel, and update the new “c:\php8.1\php-cgi.exe” path.
+<img alt="" src="https://github.com/ladybirdweb/faveo-server-images/blob/6bfb7af0993f57bb9c975aaf3978083b8c7353f1/_docs/installation/providers/enterprise/windows-images/fastcgiphp8.1.png?raw=true" /></li>
+  <li>Click on “ok” and restart the IIS server once.</li>
+</ul>
+
+<h3 id="configure-ioncube-php-81-loader">Configure Ioncube PHP 8.1 loader</h3>
+
+<ul>
+  <li><a href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_nonts_vc16_x86-64.zip" target="_blank" rel="noopener">Click Here</a> to download Ioncube Loader zip file, Extract the zip file.</li>
+  <li>Copy the ioncube_loader_win_8.1.dll file from extracted Ioncube folder and paste it into the PHP extension directory C:\php8.1\ext.</li>
+  <li>Add the below line in your php.ini file at the start to enable Ioncube.
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zend_extension <span class="o">=</span> <span class="s2">"C:</span><span class="se">\p</span><span class="s2">hp8.1</span><span class="se">\e</span><span class="s2">xt</span><span class="se">\i</span><span class="s2">oncube_loader_win_8.1.dll"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Click on “ok” and restart the IIS server once.</li>
+</ul>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-11-26">November 26, 2022</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/docs/installation/providers/enterprise/paid-ssl-ubuntu/" class="pagination--pager" title="Install Paid SSL for Faveo on Ubuntu
+">Previous</a>
+    
+    
+      <a href="/docs/installation/providers/enterprise/php82-upgrade/" class="pagination--pager" title="Upgrade From PHP 8.1.x to PHP 8.2.x for Faveo
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/ladybirdweb" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 Ladybird Web Solution Pvt Ltd. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

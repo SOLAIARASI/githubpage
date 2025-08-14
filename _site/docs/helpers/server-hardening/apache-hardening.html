@@ -1,0 +1,1103 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Apache Hardening for Security Implications - Faveo Installation Guide</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Ladybird Web Solution Pvt Ltd">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Faveo Installation Guide">
+<meta property="og:title" content="Apache Hardening for Security Implications">
+<meta property="og:url" content="http://localhost:4000/docs/helpers/server-hardening/apache-hardening">
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/logo.png">
+
+
+
+  <meta name="twitter:site" content="@faveohelpdesk">
+  <meta name="twitter:title" content="Apache Hardening for Security Implications">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:url" content="http://localhost:4000/docs/helpers/server-hardening/apache-hardening">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/logo.png">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2025-08-14T01:22:17-04:00">
+
+
+
+  <meta property="article:modified_time" content="2024-09-17T00:00:00-04:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/docs/helpers/server-hardening/apache-hardening">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Ladybird Web Solution Pvt Ltd",
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/faveohelpdesk","https://www.facebook.com/faveohelpdesk"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Faveo Installation Guide Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Faveo Installation Guide
+          <span class="site-subtitle">By Ladybird Web Solution</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/knowledgebase">User Manual</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://docs.faveohelpdesk.com/">Installation Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/">Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://community.faveohelpdesk.com/">Community</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://developers.faveohelpdesk.com/">Developer Portal</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://status.faveotools.com/status/updates/">Server Status</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://www.faveohelpdesk.com/online-demo/">Demo</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">INSTALLATION GUIDE</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-alma">Faveo on Alma Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rocky">Faveo on Rocky Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rhel">Faveo on RHEL</a></li>
+          
+            <li><a href="/docs/helpers/choose-ubuntu">Faveo on Ubuntu  (Recommended)</a></li>
+          
+            <li><a href="/docs/helpers/choose-debian">Faveo on Debian</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/windows-iis">Windows IIS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/apache-windows">Windows Apache Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/wamp-windows">Faveo on WAMP</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/xampp-windows/">Faveo on XAMPP</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">How To's</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-php/">Upgrade PHP Version</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/generic-migration/">Faveo Migrate or Clone</a></li>
+          
+            <li><a href="/docs/helpers/choose-backup/">Faveo Automated Backup</a></li>
+          
+            <li><a href="/docs/helper/cname/">Custom Domain</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/network-discovery">Install Network Discovery</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/ssl-error">SSL Error Solution (Linux)</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/meilisearch">Install Meilisearch</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/memcached">Install Memcached</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/websockets">Enable Websockets</a></li>
+          
+            <li><a href="/docs/helpers/email-server">Setup Email Server</a></li>
+          
+            <li><a href="/docs/helpers/ldaps">Configure LDAPS</a></li>
+          
+            <li><a href="/docs/helpers/server-hardening/home">Secure Server</a></li>
+          
+            <li><a href="/docs/helpers/node">Install Node</a></li>
+          
+            <li><a href="/docs/helpers/nats">Install NATS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/basic-troubleshooting-script">Troubleshooting script</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Kubernetes</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-k8s/">Faveo on Kubernetes</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Docker</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-docker/">Faveo on Docker</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Apache Hardening for Security Implications">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2025-08-14T01:22:17-04:00">
+    <meta itemprop="dateModified" content="2024-09-17T00:00:00-04:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Apache Hardening for Security Implications
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#11-enforce-hsts-http-strict-transport-security">11. Enforce HSTS (HTTP Strict Transport Security)</a>
+    <ul>
+      <li><a href="#1-hide-web-server-details">1. Hide Web Server Details</a></li>
+      <li><a href="#2-disable-http-trace-method">2. Disable HTTP Trace Method</a></li>
+      <li><a href="#3-disable-directory-listing">3. Disable Directory Listing</a></li>
+      <li><a href="#4-click-jacking-defense-with-x-frame-options">4. Click Jacking defense with X-Frame Options</a></li>
+      <li><a href="#5-basic-xss-protection">5. Basic XSS Protection</a></li>
+      <li><a href="#6-enable-httponly-and-secure-flag">6. Enable HttpOnly and Secure Flag</a></li>
+      <li><a href="#7-disable-etag">7. Disable ETag</a></li>
+      <li><a href="#8-enable-http2-protocol">8. Enable HTTP/2 Protocol</a></li>
+      <li><a href="#9-set-referrer-policy">9. Set Referrer Policy</a></li>
+      <li><a href="#10-set-permissions-policy">10. Set Permissions Policy</a></li>
+      <li><a href="#11-enforce-hsts-http-strict-transport-security-1">11. Enforce HSTS (HTTP Strict Transport Security)</a></li>
+    </ul>
+  </li>
+  <li><a href="#apache-virtual-host-configuration-for-security-hardening">Apache Virtual Host Configuration for Security Hardening</a>
+    <ul>
+      <li><a href="#enabling-and-applying-configuration">Enabling and Applying Configuration:</a></li>
+      <li><a href="#add-the-configuration-virtual-host-file">Add the Configuration (Virtual Host File)</a></li>
+      <li><a href="#restart-apache">Restart Apache.</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p><img alt="Apache" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7ZgLOdo0TtCe4GOWoPmYEhyXY-ax2iILAzizZbFomQl-K7PNJh-i_Q8syiwIlR0Bfw1A&amp;usqp=CAU" width="180" /></p>
+
+<p>The web server has a crucial role in web-based applications. Since most of us leave it to the default configuration, it can leak sensitive data regarding the web server.</p>
+
+<p>By applying numerous configuration tweaks we can make Apache withstand malicious attacks up to a limit. Following are some Apache web server hardening tips that you can incorporate to improve security.</p>
+
+<ul>
+  <li><a href="#1Hide-Web-Server-Details"><strong>1. Hide Web Server Details</strong></a></li>
+  <li><a href="#2Disable-HTTP-Trace-Method"><strong>2. Disable HTTP Trace Method</strong></a></li>
+  <li><a href="#3Disable-Directory-Listing"><strong>3. Disable Directory Listing</strong></a></li>
+  <li><a href="#4Click-Jacking-defense-with-X-Frame-Options"><strong>4. Click Jacking defense with X-Frame Options</strong></a></li>
+  <li><a href="#5Basic-XSS-Protection"><strong>5. Basic XSS Protection</strong></a></li>
+  <li><a href="#6Enable-HttpOnly-and-Secure-Flag"><strong>6. Enable HttpOnly and Secure Flag</strong></a></li>
+  <li><a href="#7Disable-ETag"><strong>7. Disable ETag</strong></a></li>
+  <li><a href="#8Enable-HTTP/2-Protocol"><strong>8. Enable HTTP/2 Protocol</strong></a></li>
+  <li><a href="#9Set-Referrer-Policy"><strong>9. Set Referrer Policy</strong></a></li>
+  <li><a href="#10Set-Permissions-Policy"><strong>10. Set Permissions Policy</strong></a></li>
+  <li>
+    <h2 id="11-enforce-hsts-http-strict-transport-security"><a href="#11Enforce-HSTS-(HTTP-Strict-Transport-Security)"><strong>11. Enforce HSTS (HTTP Strict Transport Security)</strong></a></h2>
+  </li>
+</ul>
+
+<p><a id="1Hide-Web-Server-Details" name="1Hide-Web-Server-Details"></a></p>
+
+<h3 id="1-hide-web-server-details"><strong>1. Hide Web Server Details</strong></h3>
+
+<p>One of the first things to be taken care of is hiding the server version banner.</p>
+
+<p>The default apache configuration will expose the server version. This information might help an attacker gain a greater understanding of the systems in use and potentially develop further attacks targeted at the specific version of the server.</p>
+
+<p>Follow the below steps to hide the server version.</p>
+
+<p>Edit your Apache server configuration file using Nano.</p>
+
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/httpd/conf/httpd.conf
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/apache2/conf-enabled/security.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Scroll down to the “ServerTokens” section where you’ll probably see multiple lines commented out (beginning with “#”) stating “ServerTokens” and different options. Change the uncommented line, likely “ServerTokens OS”, or comment out the line and create a new line to hide the Apache version and OS from HTTP headers:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ServerTokens Prod
+</code></pre></div></div>
+
+<p>The next section down should be the “ServerSignature” section. Turning this off hides the information from server-generated pages (e.g. Internal Server Error).</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ServerSignature Off
+</code></pre></div></div>
+
+<p>Exit the file and save changes.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ctrl + x
+</code></pre></div></div>
+
+<p>Restart Apache.</p>
+
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart httpd
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart apache2
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>The ServerTokens Prod and ServerSignature Off directives hide the server version and detailed information from server-generated pages and HTTP headers.</p>
+
+<p>ServerTokens Prod: This hides the version of Apache and other information to make it harder for attackers to exploit known vulnerabilities.</p>
+
+<p>ServerSignature Off: This hides the Apache version and other details on server-generated pages, reducing the information available to potential attackers.</p>
+
+<hr />
+
+<p><a id="2Disable-HTTP-Trace-Method" name="2Disable-HTTP-Trace-Method"></a></p>
+
+<h3 id="2-disable-http-trace-method"><strong>2. Disable HTTP Trace Method</strong></h3>
+
+<p>Apache versions newer than 1.3.34 and 2.0.55 (or newer) can use the variable TraceEnable to enable or disable. By default, it is enabled. TraceEnable Off causes Apache to return a 403 FORBIDDEN error to the client.</p>
+
+<p>To disable HTTP TRACE/TRACK methods in Apache follow the below steps:</p>
+
+<p>Edit your Apache server configuration file using Nano.</p>
+
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/httpd/conf/httpd.conf
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/apache2/conf-enabled/security.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Search for TraceEnable On, change this option to off</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TraceEnable off
+</code></pre></div></div>
+
+<p>Exit the file and save changes.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ctrl + x
+</code></pre></div></div>
+
+<p>Restart Apache.</p>
+
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart httpd
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart apache2
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>TraceEnable Off: The TraceEnable Off directive disables the HTTP TRACE method, which can be used in cross-site tracing attacks.</p>
+
+<hr />
+
+<p><a id="3Disable-Directory-Listing" name="3Disable-Directory-Listing"></a></p>
+
+<h3 id="3-disable-directory-listing"><strong>3. Disable Directory Listing</strong></h3>
+
+<p>Directory listing is a web server function that displays the directory contents when there is no index file in a specific website directory. It is dangerous to leave this function turned on for the web server because it leads to information disclosure.</p>
+
+<p>You can add -Indexes to Options directive in Apache’s configuration file to fully disable directory listing, or add the same -Indexes option into Directory configuration to disable the feature per-directory.</p>
+
+<p>Edit your Apache server configuration file using Nano.</p>
+
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/httpd/conf/httpd.conf
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/apache2/apache2.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Find the below section:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+&lt;Directory /var/www/&gt;
+        Options Indexes FollowSymLinks
+&lt;/Directory&gt;
+
+</code></pre></div></div>
+
+<p>Change Options Indexes FollowSymLinks to below:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Option -Indexes +FollowSymlinks
+</code></pre></div></div>
+
+<p>Exit the file and save changes.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ctrl + x
+</code></pre></div></div>
+
+<p>Restart Apache.</p>
+
+<p>For RHEL Based Systems:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart httpd
+</code></pre></div></div>
+<p>For Debian Based Systems:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart apache2
+</code></pre></div></div>
+
+<p>Options -Indexes +FollowSymLinks: The Options -Indexes +FollowSymLinks directive in the <Directory> section disables directory listingand allows symbolic links, which prevents information disclosure when no index file is present.</Directory></p>
+
+<hr />
+
+<p><a id="4Click-Jacking-defense-with-X-Frame-Options" name="4Click-Jacking-defense-with-X-Frame-Options"></a></p>
+
+<h3 id="4-click-jacking-defense-with-x-frame-options"><strong>4. Click Jacking defense with X-Frame Options</strong></h3>
+
+<p>Clickjacking is an attack that tricks a user into clicking a webpage element which is invisible or disguised as another element. This can cause users to unwillingly download malware, visit malicious web pages, provide credentials or sensitive information etc online.</p>
+
+<p>X-Frame-Options allows content publishers to prevent their own content from being used in an invisible frame by attackers.</p>
+
+<p>Edit your Apache server configuration file using Nano.</p>
+
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/httpd/conf/httpd.conf
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/apache2/conf-enabled/security.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Now add the following entry to file:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Header always append X-Frame-Options SAMEORIGIN
+</code></pre></div></div>
+<p>Exit the file and save changes.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ctrl + x
+</code></pre></div></div>
+
+<p>Restart Apache.</p>
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart httpd
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart apache2
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Header set X-Frame-Options “SAMEORIGIN”: The Header set X-Frame-Options “SAMEORIGIN” directive prevents your content from being framed and potentially clickjacked. This prevents clickjacking attacks by only allowing your site to be framed by pages from the same origin.</p>
+
+<hr />
+
+<p><a id="5Basic-XSS-Protection" name="5Basic-XSS-Protection"></a></p>
+
+<h3 id="5-basic-xss-protection"><strong>5. Basic XSS Protection</strong></h3>
+
+<p>The X-XSS-Protection header is designed to enable the cross-site scripting (XSS) filter built into modern web browsers. This is usually enabled by default, but using it will enforce it. It is supported by Internet Explorer 8+, Chrome, Edge, Opera, and Safari.</p>
+
+<p>Edit your Apache server configuration file using Nano.</p>
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/httpd/conf/httpd.conf
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/apache2/conf-enabled/security.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>The recommended configuration is to set this header to the following value, which will enable the XSS protection and instruct the browser to block the response in the event that a malicious script has been inserted from user input instead of sanitizing.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Header set XSS-Protection "1;mode=block"
+</code></pre></div></div>
+
+<p>Exit the file and save changes.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ctrl + x
+</code></pre></div></div>
+
+<p>Restart Apache.</p>
+
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart httpd
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart apache2
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Header set XSS-Protection “1; mode=block”: The Header set XSS-Protection “1; mode=block” directive enables the browser’s XSS protection and instructs it to block rather than sanitize the page. This enables cross-site scripting (XSS) protection in browsers and instructs them to block the page if an XSS attack is detected.</p>
+
+<hr />
+
+<p><a id="6Enable-HttpOnly-and-Secure-Flag" name="6Enable-HttpOnly-and-Secure-Flag"></a></p>
+
+<h3 id="6-enable-httponly-and-secure-flag"><strong>6. Enable HttpOnly and Secure Flag</strong></h3>
+
+<p>Cross-site scripting (XSS) attacks are often aimed at stealing session cookies.  Therefore, a method of protecting cookies from such theft was devised: a flag that tells the web browser that the cookie can only be accessed through HTTP – the HttpOnly flag.</p>
+
+<p>The Secure flag is used to declare that the cookie may only be transmitted using a secure connection (SSL/HTTPS). If this cookie is set, the browser will never send the cookie if the connection is HTTP. This flag prevents cookie theft via man-in-the-middle attacks.</p>
+
+<p>Note that this flag can only be set during an HTTPS connection. If it is set during an HTTP connection, the browser ignores it.</p>
+
+<p>Follow the below steps:</p>
+
+<p>Enable the required Apache modules.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a2enmod rewrite
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a2enmod headers
+</code></pre></div></div>
+
+<p>Edit the Apache configuration file for the website.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/apache2/apache2.conf
+</code></pre></div></div>
+
+<p>If your website supports only HTTP, Add the following lines at the end of the file.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Header edit Set-Cookie ^(.*)$ $1;HttpOnly
+</code></pre></div></div>
+
+<p>If your website supports only HTTPS, Add the following lines at the end of the file.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Header edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
+</code></pre></div></div>
+
+<p>Exit the file and save changes.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ctrl + x
+</code></pre></div></div>
+
+<ol>
+  <li>Restart Apache.</li>
+</ol>
+
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart httpd
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart apache2
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Header edit Set-Cookie ^(.<em>)$ “$1;HttpOnly;Secure”: The Header edit Set-Cookie ^(.</em>)$ “$1; HttpOnly; Secure” directive ensures that cookies are marked as HttpOnly and Secure, protecting them from client-side scripts and ensuring they are only sent over HTTPS.</p>
+
+<hr />
+
+<p><a id="7Disable-ETag" name="7Disable-ETag"></a></p>
+
+<h3 id="7-disable-etag"><strong>7. Disable ETag</strong></h3>
+
+<p>The FileETag None directive disables the generation of ETag headers, which can expose information about the inode, size, and modification date of files on your server. Disabling ETag improves privacy and security.</p>
+
+<p>Edit your Apache server configuration file using Nano.</p>
+
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/httpd/conf/httpd.conf
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/apache2/conf-enabled/security.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Add the following line:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FileETag None
+</code></pre></div></div>
+
+<p>Save and exit the file:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ctrl + x
+</code></pre></div></div>
+
+<p>Restart Apache.</p>
+
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart httpd
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart apache2
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>FileETag None: The FileETag None directive disables ETag headers, which can help prevent revealing server-side information and reduce cache-related issues.</p>
+
+<hr />
+
+<p><a id="8Enable-HTTP/2-Protocol" name="8Enable-HTTP/2-Protocol"></a></p>
+
+<h3 id="8-enable-http2-protocol"><strong>8. Enable HTTP/2 Protocol</strong></h3>
+
+<p>The Protocols h2 http/1.1 directive enables the HTTP/2 protocol, which provides significant performance improvements over HTTP/1.1.</p>
+
+<p>Edit your Apache server configuration file using Nano.</p>
+
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/httpd/conf/httpd.conf
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/apache2/conf-enabled/security.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Add the following line:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Protocols h2 http/1.1
+</code></pre></div></div>
+
+<p>Save and exit the file:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ctrl + x
+</code></pre></div></div>
+
+<p>Restart Apache.</p>
+
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart httpd
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart apache2
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Protocols h2 http/1.1: The Protocols h2 http/1.1 directive enables HTTP/2 for improved performance and compatibility.</p>
+
+<hr />
+
+<p><a id="9Set-Referrer-Policy" name="9Set-Referrer-Policy"></a></p>
+
+<h3 id="9-set-referrer-policy"><strong>9. Set Referrer Policy</strong></h3>
+
+<p>The Referrer-Policy header controls how much referrer information should be included with requests. The strict-origin policy ensures that only the origin is sent as the referrer when navigating from HTTPS to HTTP.</p>
+
+<p>Edit your Apache server configuration file using Nano.</p>
+
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/httpd/conf/httpd.conf
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/apache2/conf-enabled/security.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Add the following line:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Header always set Referrer-Policy "strict-origin"
+</code></pre></div></div>
+
+<p>Save and exit the file:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ctrl + x
+</code></pre></div></div>
+
+<p>Restart Apache.</p>
+
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart httpd
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart apache2
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Header always set Referrer-Policy “strict-origin”: The Header always set Referrer-Policy “strict-origin” directive controls the amount of referrer information sent with requests enhancing privacy and security.</p>
+
+<hr />
+
+<p><a id="10Set-Permissions-Policy" name="10Set-Permissions-Policy"></a></p>
+
+<h3 id="10-set-permissions-policy"><strong>10. Set Permissions Policy</strong></h3>
+
+<p>The Permissions-Policy header allows you to control which browser features can be used within your site. This enhances security by restricting access to potentially harmful features.</p>
+
+<p>Edit your Apache server configuration file using Nano.</p>
+
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/httpd/conf/httpd.conf
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/apache2/conf-enabled/security.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Add the following line:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Header always set Permissions-Policy "geolocation=(), midi=(), sync-xhr=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), fullscreen=(self), payment=()"
+</code></pre></div></div>
+
+<p>Save and exit the file:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ctrl + x
+</code></pre></div></div>
+
+<p>Restart Apache.</p>
+
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart httpd
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart apache2
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>The Header always set Permissions-Policy “geolocation=(), midi=(), sync-xhr=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), fullscreen=(self), payment=()” directive restricts browser features that can be used within your site. This restricts various browser features like geolocation and camera access to improve security.</p>
+
+<hr />
+
+<p><a id="11Enforce-HSTS-(HTTP-Strict-Transport-Security)" name="11Enforce-HSTS-(HTTP-Strict-Transport-Security)"></a></p>
+
+<h3 id="11-enforce-hsts-http-strict-transport-security-1"><strong>11. Enforce HSTS (HTTP Strict Transport Security)</strong></h3>
+
+<p>HSTS tells browsers to only communicate with your site over HTTPS, preventing protocol downgrade attacks.</p>
+
+<p>Edit your Apache server configuration file using Nano.</p>
+
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/httpd/conf/httpd.conf
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/apache2/conf-enabled/security.conf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>Add the following line:</p>
+
+<p><code class="language-plaintext highlighter-rouge">&lt;If "%{HTTPS} == 'on'"&gt;
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubdomains"
+&lt;/If&gt;</code></p>
+
+<p>Save and exit the file:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ctrl + x
+</code></pre></div></div>
+
+<p>Restart Apache.</p>
+
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart httpd
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart apache2
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>The Header always set Strict-Transport-Security “max-age=31536000; includeSubdomains” directive ensures that browsers only communicate with your site over HTTPS.</p>
+
+<hr />
+
+<h2 id="apache-virtual-host-configuration-for-security-hardening">Apache Virtual Host Configuration for Security Hardening</h2>
+
+<p>Here is the combined configuration for RHEL-based and Debian-based systems, summarized from all 11 points, to be placed in the virtual host configuration files. Here we are directly making changing in a single virtual host file for a particular website.</p>
+
+<h3 id="enabling-and-applying-configuration">Enabling and Applying Configuration:</h3>
+
+<ul>
+  <li>For RHEL-based Systems:</li>
+</ul>
+
+<p>Edit or create the site-specific configuration file:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/httpd/conf.d/website.conf
+</code></pre></div></div>
+
+<ul>
+  <li>For Debian-based Systems:</li>
+</ul>
+
+<p>Edit or create the site-specific configuration file:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/apache2/sites-available/website.conf
+</code></pre></div></div>
+
+<h3 id="add-the-configuration-virtual-host-file">Add the Configuration (Virtual Host File)</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+&lt;IfModule mod_ssl.c&gt;
+  FileETag None
+  ServerTokens Prod
+  ServerSignature Off
+  TraceEnable Off
+  Protocols h2 http/1.1
+
+  #Security Headers
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set XSS-Protection "1; mode=block"
+  Header always set Referrer-Policy "strict-origin"
+  Header always set Permissions-Policy "geolocation=(), midi=(), sync-xhr=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), fullscreen=(self), payment=()"
+  Header edit Set-Cookie ^(.*)$ "$1;HttpOnly;Secure"
+  &lt;If "%{HTTPS} == 'on'"&gt;
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubdomains"
+  &lt;/If&gt;
+
+  &lt;VirtualHost *:443&gt;
+    ServerName example.com
+    DocumentRoot /var/www/html
+
+    &lt;Directory /var/www/html&gt;
+      Options -Indexes +FollowSymLinks
+      AllowOverride All
+      Require all denied
+
+      &lt;RequireAll&gt;
+        Require ip 192.168.1.0/24
+        Require ip 10.20.30.40.0/24 60.70.80.90 100.200.300.400                # Multiple IPs can be added
+      &lt;/RequireAll&gt;
+    &lt;/Directory&gt;
+    
+    ErrorLog /var/log/apache2/error.log
+    CustomLog /var/log/apache2/access.log combined
+
+    &lt;Location "/server-status"&gt;
+      SetHandler server-status
+      Require local
+    &lt;/Location&gt;
+
+    Include /etc/apache2/options-ssl-apache.conf
+    SSLCertificateFile /etc/apache2/sites-available/ssl/your-certificate.crt
+    SSLCertificateKeyFile /etc/apache2/sites-available/ssl/your-private.key
+    SSLCertificateChainFile /etc/apache2/sites-available/ssl/your-ca-cert.crt
+  &lt;/VirtualHost&gt;
+&lt;/IfModule&gt;
+
+</code></pre></div></div>
+
+<h3 id="restart-apache">Restart Apache.</h3>
+
+<ul>
+  <li>For RHEL Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart httpd
+</code></pre></div>    </div>
+  </li>
+  <li>For Debian Based Systems:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart apache2
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>AllowOverride All: This allows the use of .htaccess files for directory-specific configuration.</p>
+
+<p>Require all denied / <RequireAll>...Require ip...</RequireAll>: This restricts access to your site to specific IP addresses, enhancing security by limiting who can connect.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-09-17">September 17, 2024</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/docs/helpers/server-hardening/access-control" class="pagination--pager" title="Configuring SSH Access Controls in Linux Servers
+">Previous</a>
+    
+    
+      <a href="/docs/helpers/server-hardening/clamav" class="pagination--pager" title="Installing ClamAV and Setting Up a Cron Job
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/ladybirdweb" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 Ladybird Web Solution Pvt Ltd. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

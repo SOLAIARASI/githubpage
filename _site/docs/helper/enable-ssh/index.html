@@ -1,0 +1,631 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Enable SSH on Linux, Mac and Windows Devices - Faveo Installation Guide</title>
+<meta name="description" content="This document explains how to enable SSH on various operating systems for Faveo Network Discovery, allowing data collection from these devices.">
+
+
+  <meta name="author" content="Ladybird Web Solution Pvt Ltd">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Faveo Installation Guide">
+<meta property="og:title" content="Enable SSH on Linux, Mac and Windows Devices">
+<meta property="og:url" content="http://localhost:4000/docs/helper/enable-ssh/">
+
+
+  <meta property="og:description" content="This document explains how to enable SSH on various operating systems for Faveo Network Discovery, allowing data collection from these devices.">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/logo.png">
+
+
+
+  <meta name="twitter:site" content="@faveohelpdesk">
+  <meta name="twitter:title" content="Enable SSH on Linux, Mac and Windows Devices">
+  <meta name="twitter:description" content="This document explains how to enable SSH on various operating systems for Faveo Network Discovery, allowing data collection from these devices.">
+  <meta name="twitter:url" content="http://localhost:4000/docs/helper/enable-ssh/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/logo.png">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2025-08-14T01:22:17-04:00">
+
+
+
+  <meta property="article:modified_time" content="2024-10-04T00:00:00-04:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/docs/helper/enable-ssh/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Ladybird Web Solution Pvt Ltd",
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/faveohelpdesk","https://www.facebook.com/faveohelpdesk"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Faveo Installation Guide Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Faveo Installation Guide
+          <span class="site-subtitle">By Ladybird Web Solution</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/knowledgebase">User Manual</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://docs.faveohelpdesk.com/">Installation Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/">Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://community.faveohelpdesk.com/">Community</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://developers.faveohelpdesk.com/">Developer Portal</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://status.faveotools.com/status/updates/">Server Status</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://www.faveohelpdesk.com/online-demo/">Demo</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">INSTALLATION GUIDE</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-alma">Faveo on Alma Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rocky">Faveo on Rocky Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rhel">Faveo on RHEL</a></li>
+          
+            <li><a href="/docs/helpers/choose-ubuntu">Faveo on Ubuntu  (Recommended)</a></li>
+          
+            <li><a href="/docs/helpers/choose-debian">Faveo on Debian</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/windows-iis">Windows IIS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/apache-windows">Windows Apache Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/wamp-windows">Faveo on WAMP</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/xampp-windows/">Faveo on XAMPP</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">How To's</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-php/">Upgrade PHP Version</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/generic-migration/">Faveo Migrate or Clone</a></li>
+          
+            <li><a href="/docs/helpers/choose-backup/">Faveo Automated Backup</a></li>
+          
+            <li><a href="/docs/helper/cname/">Custom Domain</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/network-discovery">Install Network Discovery</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/ssl-error">SSL Error Solution (Linux)</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/meilisearch">Install Meilisearch</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/memcached">Install Memcached</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/websockets">Enable Websockets</a></li>
+          
+            <li><a href="/docs/helpers/email-server">Setup Email Server</a></li>
+          
+            <li><a href="/docs/helpers/ldaps">Configure LDAPS</a></li>
+          
+            <li><a href="/docs/helpers/server-hardening/home">Secure Server</a></li>
+          
+            <li><a href="/docs/helpers/node">Install Node</a></li>
+          
+            <li><a href="/docs/helpers/nats">Install NATS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/basic-troubleshooting-script">Troubleshooting script</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Kubernetes</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-k8s/">Faveo on Kubernetes</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Docker</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-docker/">Faveo on Docker</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Enable SSH on Linux, Mac and Windows Devices">
+    <meta itemprop="description" content="This document explains how to enable SSH on various operating systems for Faveo Network Discovery, allowing data collection from these devices.">
+    <meta itemprop="datePublished" content="2025-08-14T01:22:17-04:00">
+    <meta itemprop="dateModified" content="2024-10-04T00:00:00-04:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Enable SSH on Linux, Mac and Windows Devices
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#1-linux">1. Linux</a>
+    <ul>
+      <li><a href="#a-for-debian-based-systems">a. For Debian-based Systems</a></li>
+      <li><a href="#b-for-rhel-based-systems">b. For RHEL-based Systems</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-mac">2. Mac</a>
+    <ul>
+      <li><a href="#method-1-enable-ssh-via-system-preferences">Method 1: Enable SSH via System Preferences</a></li>
+      <li><a href="#method-2-enable-ssh-via-terminal">Method 2: Enable SSH via Terminal</a></li>
+      <li><a href="#method-3-check-ssh-status">Method 3: Check SSH Status</a></li>
+    </ul>
+  </li>
+  <li><a href="#3-windows">3. Windows</a>
+    <ul>
+      <li><a href="#method-1-enable-ssh-via-powershell">Method 1: Enable SSH via PowerShell</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <p>This document explains how to enable SSH on various operating systems for Faveo Network Discovery, allowing data collection from these devices.</p>
+
+<h1 id="1-linux">1. Linux</h1>
+
+<h2 id="a-for-debian-based-systems">a. For Debian-based Systems</h2>
+
+<ol>
+  <li>Install OpenSSH Server:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install openssh-server
+sudo systemctl enable ssh
+sudo systemctl start ssh
+</code></pre></div>    </div>
+  </li>
+  <li>Enable SSH in the Firewall (if the firewall is enabled):
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo ufw allow ssh
+sudo ufw enable
+sudo ufw status
+</code></pre></div>    </div>
+  </li>
+  <li>Check if <code class="language-plaintext highlighter-rouge">OpenSSH </code>Server` is Installed:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dpkg -l | grep openssh-server
+sudo apt list --installed | grep openssh-server
+systemctl status ssh
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h2 id="b-for-rhel-based-systems">b. For RHEL-based Systems</h2>
+
+<ol>
+  <li>Install OpenSSH Server:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install openssh-server
+sudo systemctl enable sshd
+sudo systemctl start sshd
+</code></pre></div>    </div>
+  </li>
+  <li>Enable SSH in the Firewall (if the firewall is enabled):
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo firewall-cmd --permanent --zone=public --add-service=ssh
+sudo firewall-cmd --reload
+</code></pre></div>    </div>
+  </li>
+  <li>Check if OpenSSH Server is Installed:
+    <ul>
+      <li>To verify if openssh-server is installed and running, use:</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl status sshd
+rpm -qa | grep openssh-server
+</code></pre></div></div>
+
+<h1 id="2-mac">2. Mac</h1>
+
+<h2 id="method-1-enable-ssh-via-system-preferences">Method 1: Enable SSH via System Preferences</h2>
+
+<ol>
+  <li>
+    <p>Open System Settings: Click the <code class="language-plaintext highlighter-rouge">Apple logo</code> in the top-left corner, and select <code class="language-plaintext highlighter-rouge">System Settings</code> (or <code class="language-plaintext highlighter-rouge">System Preferences</code> in older macOS versions).</p>
+  </li>
+  <li>
+    <p>Go to Sharing: In System Settings, scroll down and click <code class="language-plaintext highlighter-rouge">General</code>, then select <code class="language-plaintext highlighter-rouge">Sharing</code>. On older macOS versions, just click <code class="language-plaintext highlighter-rouge">Sharing</code>.</p>
+  </li>
+  <li>
+    <p>Enable Remote Login:</p>
+  </li>
+</ol>
+
+<ul>
+  <li>
+    <p>In the <code class="language-plaintext highlighter-rouge">Sharing</code> section, look for <code class="language-plaintext highlighter-rouge">Remote Login</code>.</p>
+  </li>
+  <li>
+    <p>Check the box next to <code class="language-plaintext highlighter-rouge">Remote Login</code> to enable SSH.</p>
+  </li>
+</ul>
+
+<ol>
+  <li>Allow Access: Choose whether to allow access for <code class="language-plaintext highlighter-rouge">All users</code> or only specific users.</li>
+</ol>
+
+<h2 id="method-2-enable-ssh-via-terminal">Method 2: Enable SSH via Terminal</h2>
+
+<ol>
+  <li>
+    <p>Open Terminal: Launch the Terminal app (<code class="language-plaintext highlighter-rouge">Applications &gt; Utilities</code>).</p>
+  </li>
+  <li>Run the following command to enable SSH
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemsetup -setremotelogin on
+</code></pre></div>    </div>
+  </li>
+  <li>Verify SSH is enabled:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemsetup -getremotelogin
+</code></pre></div>    </div>
+    <p>If it returns <code class="language-plaintext highlighter-rouge">Remote Login: On</code>, SSH is enabled.</p>
+  </li>
+</ol>
+
+<h2 id="method-3-check-ssh-status">Method 3: Check SSH Status</h2>
+<p>To check if the SSH service is running:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo launchctl list | grep ssh
+</code></pre></div></div>
+
+<p>Once enabled, you can SSH into your Mac using:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh your_username@your_mac_ip_address
+</code></pre></div></div>
+
+<h1 id="3-windows">3. Windows</h1>
+
+<h2 id="method-1-enable-ssh-via-powershell">Method 1: Enable SSH via PowerShell</h2>
+
+<ol>
+  <li>Check if OpenSSH is Installed:</li>
+</ol>
+
+<p>Open PowerShell with administrative privileges and run:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH*'
+</code></pre></div></div>
+
+<ol>
+  <li>Install OpenSSH Server (if not present):
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+</code></pre></div>    </div>
+  </li>
+  <li>Start the SSH Server:</li>
+</ol>
+
+<p>To start the SSH server (sshd), run:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Start-Service sshd
+</code></pre></div></div>
+
+<ol>
+  <li>Check SSH Service Status:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-Service sshd
+</code></pre></div>    </div>
+  </li>
+  <li>Enable SSH at Startup:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Set-Service -Name sshd -StartupType 'Automatic'
+</code></pre></div>    </div>
+  </li>
+  <li>Check Firewall Rules:</li>
+</ol>
+
+<p>Ensure that the firewall allows SSH traffic:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Get-NetFirewallRule -Name *ssh*
+</code></pre></div></div>
+
+<ol>
+  <li>Add a Firewall Rule (if needed):
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>New-NetFirewallRule -Name 'OpenSSH-Server-In-TCP' -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>Once enabled, you can use SSH from other devices using the following command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh your_username@your_windows_ip_address
+</code></pre></div></div>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-10-04">October 4, 2024</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/docs/helper/enable-redis/" class="pagination--pager" title="Enable Redis in Faveo
+">Previous</a>
+    
+    
+      <a href="/docs/helpers/ldaps/" class="pagination--pager" title="LDAPS Self-Signed Certificate Trust Configuration
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/ladybirdweb" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 Ladybird Web Solution Pvt Ltd. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>

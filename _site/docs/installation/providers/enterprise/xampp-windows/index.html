@@ -1,0 +1,1058 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.19.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Faveo Installation on Windows with Xampp Server - Faveo Installation Guide</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="Ladybird Web Solution Pvt Ltd">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Faveo Installation Guide">
+<meta property="og:title" content="Faveo Installation on Windows with Xampp Server">
+<meta property="og:url" content="http://localhost:4000/docs/installation/providers/enterprise/xampp-windows/">
+
+
+  <meta property="og:description" content="">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/logo.png">
+
+
+
+  <meta name="twitter:site" content="@faveohelpdesk">
+  <meta name="twitter:title" content="Faveo Installation on Windows with Xampp Server">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:url" content="http://localhost:4000/docs/installation/providers/enterprise/xampp-windows/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/logo.png">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2025-08-14T01:22:17-04:00">
+
+
+
+  <meta property="article:modified_time" content="2024-11-12T00:00:00-04:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/docs/installation/providers/enterprise/xampp-windows/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Ladybird Web Solution Pvt Ltd",
+      "url": "http://localhost:4000/",
+      "sameAs": ["https://twitter.com/faveohelpdesk","https://www.facebook.com/faveohelpdesk"]
+    
+  }
+</script>
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Faveo Installation Guide Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Faveo Installation Guide
+          <span class="site-subtitle">By Ladybird Web Solution</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/knowledgebase">User Manual</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://docs.faveohelpdesk.com/">Installation Guide</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://support.faveohelpdesk.com/">Support</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://community.faveohelpdesk.com/">Community</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://developers.faveohelpdesk.com/">Developer Portal</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://status.faveotools.com/status/updates/">Server Status</a>
+            </li><li class="masthead__menu-item">
+              <a href="https://www.faveohelpdesk.com/online-demo/">Demo</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      
+
+<nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      <li>
+        
+          <span class="nav__sub-title">INSTALLATION GUIDE</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-alma">Faveo on Alma Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rocky">Faveo on Rocky Linux</a></li>
+          
+            <li><a href="/docs/helpers/choose-rhel">Faveo on RHEL</a></li>
+          
+            <li><a href="/docs/helpers/choose-ubuntu">Faveo on Ubuntu  (Recommended)</a></li>
+          
+            <li><a href="/docs/helpers/choose-debian">Faveo on Debian</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/windows-iis">Windows IIS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/apache-windows">Windows Apache Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/wamp-windows">Faveo on WAMP</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/xampp-windows/" class="active">Faveo on XAMPP</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">How To's</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/helpers/choose-php/">Upgrade PHP Version</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/generic-migration/">Faveo Migrate or Clone</a></li>
+          
+            <li><a href="/docs/helpers/choose-backup/">Faveo Automated Backup</a></li>
+          
+            <li><a href="/docs/helper/cname/">Custom Domain</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/network-discovery">Install Network Discovery</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/ssl-error">SSL Error Solution (Linux)</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/meilisearch">Install Meilisearch</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/memcached">Install Memcached</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/websockets">Enable Websockets</a></li>
+          
+            <li><a href="/docs/helpers/email-server">Setup Email Server</a></li>
+          
+            <li><a href="/docs/helpers/ldaps">Configure LDAPS</a></li>
+          
+            <li><a href="/docs/helpers/server-hardening/home">Secure Server</a></li>
+          
+            <li><a href="/docs/helpers/node">Install Node</a></li>
+          
+            <li><a href="/docs/helpers/nats">Install NATS Server</a></li>
+          
+            <li><a href="/docs/installation/providers/enterprise/basic-troubleshooting-script">Troubleshooting script</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Kubernetes</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-k8s/">Faveo on Kubernetes</a></li>
+          
+        </ul>
+        
+      </li>
+    
+      <li>
+        
+          <span class="nav__sub-title">Docker</span>
+        
+
+        
+        <ul>
+          
+            <li><a href="/docs/installation/providers/enterprise/faveo-helpdesk-docker/">Faveo on Docker</a></li>
+          
+        </ul>
+        
+      </li>
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Faveo Installation on Windows with Xampp Server">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="2025-08-14T01:22:17-04:00">
+    <meta itemprop="dateModified" content="2024-11-12T00:00:00-04:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Faveo Installation on Windows with Xampp Server
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#1-download-and-install-xampp-server">1. Download and Install Xampp Server</a></li>
+  <li><a href="#2-upload-faveo">2. Upload Faveo</a></li>
+  <li><a href="#3-setting-up-the-database">3. Setting up the Database</a></li>
+  <li><a href="#4-install-ioncube-loader">4. Install Ioncube Loader</a></li>
+  <li><a href="#5-install-wkhtmltopdf">5. Install wkhtmltopdf</a></li>
+  <li><a href="#6-configure-the-php-82">6. Configure the PHP 8.2</a></li>
+  <li><a href="#7-install-redis-extension">7. Install Redis Extension</a></li>
+  <li><a href="#8-cron-in-task-scheduler">8. Cron in Task Scheduler</a></li>
+  <li><a href="#9-self-signed-ssl">9. Self-Signed SSL</a>
+    <ul>
+      <li><a href="#step-1-install-chocolatey">Step 1: Install Chocolatey</a></li>
+      <li><a href="#step-2-install-openssl">Step 2: Install OpenSSL</a>
+        <ul>
+          <li><a href="#generate-a-private-key-for-the-ca">Generate a private key for the CA</a></li>
+          <li><a href="#generate-a-certificate-signing-request-for-the-ca">Generate a certificate signing request for the CA</a></li>
+          <li><a href="#generate-a-root-certificate">Generate a root certificate</a></li>
+          <li><a href="#create-a-private-key-for-the-certificate">Create a private key for the certificate</a></li>
+          <li><a href="#create-a-certificate-signing-request-for-the-server-ssl">Create a certificate signing request for the server SSL</a></li>
+          <li><a href="#create-a-certificate-and-sign-it-with-the-ca-private-key">Create a certificate and sign it with the CA private key</a></li>
+          <li><a href="#verify-the-newly-created-certificate">Verify the newly created certificate</a></li>
+          <li><a href="#compiling-the-created-certificate-and-key-file-as-pfx-file">Compiling the created certificate and key file as .pfx file</a></li>
+          <li><a href="#installing-the-ssl-certificate">Installing the SSL certificate</a></li>
+        </ul>
+      </li>
+      <li><a href="#step-3-download--enable-cacertpem-file-in-php-configuration-file">Step 3: Download &amp; Enable cacert.pem File in PHP Configuration File</a></li>
+      <li><a href="#step-4-edit-the-hosts-file-on-the-os-to-map-the-custom-domain-to-loopback-address">Step 4: Edit the “hosts” file on the OS to Map the Custom Domain to Loopback Address.</a></li>
+      <li><a href="#10-install-faveo">10. Install Faveo</a></li>
+    </ul>
+  </li>
+</ul>
+
+            </nav>
+          </aside>
+        
+        <style>p>code, a>code, li>code, figcaption>code, td>code {background: #dedede;}</style>
+
+<p><img alt="Wamp" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Xampp_logo.svg/2560px-Xampp_logo.svg.png" width="200" /></p>
+
+<p><a href="#Faveo-Installation-on-Windows-with-Xampp-Server"><strong>Faveo Installation on Windows with Xampp Server</strong></a></p>
+
+<ul>
+  <li>
+    <p><a href="#installation-steps"><strong>Installation steps:</strong></a></p>
+
+    <ul>
+      <li><a href="#1"><strong> 1.Download and Install Xampp Server </strong></a></li>
+      <li><a href="#2"><strong> 2. Upload Faveo </strong></a></li>
+      <li><a href="#3"><strong> 3. Setting up the Database </strong></a></li>
+      <li><a href="#3"><strong> 4. Install Ioncube Loader </strong></a></li>
+      <li><a href="#4"><strong> 5. Install wkhtmltopdf </strong></a></li>
+      <li><a href="#6"><strong> 6. Configure the PHP 8.2 </strong></a></li>
+      <li><a href="#7"><strong> 7. Install Redis Extension </strong></a></li>
+      <li><a href="#8"><strong> 8. Cron in Task Scheduler </strong></a></li>
+      <li><a href="#9"><strong> 9. Self-Signed SSL </strong></a></li>
+      <li><a href="#10"><strong> 10. Install Faveo </strong></a></li>
+    </ul>
+  </li>
+</ul>
+
+<p><a id="1" name="1"></a></p>
+<h2 id="1-download-and-install-xampp-server">1. Download and Install Xampp Server</h2>
+
+<ul>
+  <li>Download the latest version of XAMPP for your Windows operating system.
+<a href="https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/8.2.17/xampp-windows-x64-8.2.17-0-VS16-installer.exe/download">Click here</a></li>
+</ul>
+
+<p><a id="2" name="2"></a></p>
+<h2 id="2-upload-faveo">2. Upload Faveo</h2>
+
+<ul>
+  <li>Download the Faveo Helpdesk from https://billing.faveohelpdesk.com and upload it to the below directory.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\xampp\htdocs\faveo
+</code></pre></div></div>
+
+<h2 id="3-setting-up-the-database">3. Setting up the Database</h2>
+
+<ul>
+  <li>
+    <p>Visit <b><a href="http://localhost/phpmyadmin/">http://localhost/phpmyadmin/</a></b> from browser to log on the database management panel.</p>
+  </li>
+  <li>
+    <p>Once you are in phpMyAdmin, you can create a new database by following these steps:</p>
+  </li>
+  <li>
+    <p>Click on the “Databases” tab in the top menu.</p>
+  </li>
+  <li>
+    <p>In the “Create database” section, enter a name for your new database in the “Database name” field.</p>
+  </li>
+  <li>
+    <p>Click the “Create” button.</p>
+  </li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/phpmyadmin.png" alt="" style=" width:500px" /></p>
+
+<ul>
+  <li>Your new database should now be created.</li>
+</ul>
+
+<p><a id="4" name="4"></a></p>
+<h2 id="4-install-ioncube-loader">4. Install Ioncube Loader</h2>
+
+<p><a href="https://downloads.ioncube.com/loader_downloads/ioncube_loaders_win_vc16_x86-64.zip">Click Here</a> to download IonCube Loader zip file.</p>
+
+<ul>
+  <li>
+    <p>Step 1: Extract the IonCube Loader file downloaded.</p>
+  </li>
+  <li>
+    <p>Step 2: Copy the <code><b>ioncube_loader_win_8.2.dll</b></code> file and paste it into the PHP extensions directory <code><b>C:\xampp\php\ext</b></code>.</p>
+  </li>
+  <li>
+    <p>Step 3: Copy the “loader-wizard.php” from the extracted Ioncube folder and paste it into the <code><b>C:\xampp\htdocs</b></code>.</p>
+  </li>
+  <li>
+    <p>Step 4: Edit the <code><b>C:\xampp\php\php.ini</b></code> file and below the last line enter the path to the extension within the <code><b>zend_extension</b></code> parameter:</p>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zend_extension = "C:\xampp\php\ext\ioncube_loader_win_8.2.dll"
+</code></pre></div></div>
+<ul>
+  <li>Step 5: Run the below URL to verify the ionCube Installation.</li>
+  <li>Note: If you didn’t get the below output try restarting the Apache Server.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://127.0.0.1\loader-wizard.php
+</code></pre></div></div>
+<p><a id="5" name="5"></a></p>
+<h2 id="5-install-wkhtmltopdf">5. Install wkhtmltopdf</h2>
+
+<p>Wkhtmltopdf is an open source simple and much effective command-line shell utility that enables user to convert any given HTML (Web Page) to PDF document or an image (jpg, png, etc). It uses WebKit rendering layout engine to convert HTML pages to PDF document without losing the quality of the pages. It is really very useful and trustworthy solution for creating and storing snapshots of web pages in real-time.</p>
+
+<ul>
+  <li><a href="https://wkhtmltopdf.org/downloads.html" target="_blank" rel="noopener">Click Here</a> to download 64-bit wkhtmltopdf-0.12.6-1.exe installer file.</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/wkhtmltopdf.png" alt="" style=" width:400px ; height:250px " /></p>
+
+<ul>
+  <li>
+    <p>Run the downloaded <code><b>wkhtmltopdf-0.12.6-1.exe installer</b></code>.</p>
+  </li>
+  <li>
+    <p>Click <code><b>I Agree</b></code> on the license agreement screen.</p>
+  </li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/wkhtmltopdf1.png" alt="" style=" width:400px ; height:250px " /></p>
+
+<ul>
+  <li>Specify the installation destination folder or leave it as default location and click <code><b>Install</b></code></li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/wkhtmltopdf2.png" alt="" style=" width:400px ; height:250px " /></p>
+
+<ul>
+  <li>When the installation is complete, click the <code><b>Close</b></code> button.</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/wkhtmltopdf3.png" alt="" style=" width:400px ; height:250px " /></p>
+
+<ul>
+  <li>
+    <p>Now copy <code><b>wkhtmltox.dll</b></code> located at <code><b>C:\Program Files\wkhtmltopdf\bin</b></code> and paste it in <code><b>C:\xampp\php\ext</b></code></p>
+  </li>
+  <li>
+    <p>Update the Environment variable for <code><b>wkhtmltopdf</b></code>.</p>
+  </li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/envwkhtml.png" alt="" style=" width:400px ; height:250px " /></p>
+
+<p><a id="6" name="6"></a></p>
+<h2 id="6-configure-the-php-82">6. Configure the PHP 8.2</h2>
+
+<ul>
+  <li>Step 1: Edit the <code><b>C:\xampp\php\php.ini</b></code> file and Enable the extensions listed below, by uncommenting them (Remove the semicolon <strong>;</strong> at beginning of line).</li>
+</ul>
+
+<p>Default Extensions</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>extension=bz2
+extension=ldap
+extension=curl
+extension=fileinfo
+extension=gd
+extension=gettext
+extension=imap
+extension=mbstring
+extension=exif
+extension=mysqli
+extension=openssl
+extension=pdo_mysql
+extension=soap
+extension=sockets
+extension=sodium
+</code></pre></div></div>
+
+<ul>
+  <li>Step 2: Set the recommended minimum value of these PHP directives listed below for Faveo to work properly.</li>
+  <li>Search for the directives and assign the value according to this example:</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>max_execution_time = 360
+max_input_time = 360
+max_input_vars = 10000
+memory_limit = 256M
+post_max_size = 1024M
+upload_max_filesize = 100M
+max_file_uploads = 100
+short_open_tag = On
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Update the Environment Variable for PHP Binary.</p>
+  </li>
+  <li>
+    <p>Right click on This PC, go to <code><b>Properties &gt; Advanced System Settings &gt;</b></code> Environment Variables.</p>
+  </li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/env1.png" alt="" style=" width:500px ; height:200px " /></p>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/env2.png" alt="" style=" width:500px ; height:300px " /></p>
+
+<ul>
+  <li>Now click on Path &gt; Edit &gt; New &amp; add copied path <code><b>C:\php</b> </code> here and click OK in all 3 tabs.</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/envpath.png" alt="" style=" width:500px ; height:300px " /></p>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/php-env-xampp.png" alt="" style=" width:500px ; height:300px " /></p>
+
+<h2 id="7-install-redis-extension">7. Install Redis Extension</h2>
+
+<p><a href="https://pecl.php.net/package/redis/6.1.0/windows" target="_blank" rel="noopener">Click Here</a> to download PHP 8.2 Non Thread Safe (TS) x64 zip file.</p>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/PHPredis.png" style=" width:400px ; height:250px " /></p>
+
+<ul>
+  <li>Unzip the php-redis zip file, a folder will be created, go inside the folder, copy the <code><b>php_redis.dll</b></code> file and paste it in <code><b>C:\xampp\php\ext</b></code>. (C:\xampp\php incase of Apache WebServer).</li>
+  <li>Now enable php redis extension in <code><b>php.ini</b></code> configuration located in <code><b>C:\xampp\php</b></code>.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>extension=php_redis.dll
+</code></pre></div></div>
+
+<p><a id="8" name="8Configure-Task-Scheduler"></a></p>
+<h2 id="8-cron-in-task-scheduler"><b>8. Cron in Task Scheduler</b></h2>
+
+<ul>
+  <li>To open Task scheduler press <b>Win+R</b> and type <code><b>taskschd.msc</b></code>.</li>
+  <li>On the Right pane of the Task scheduler select <code><b>Create Basic Task</b></code> enter a <code><b>Name</b></code> for the task and click <code><b>Next</b></code>.</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/apache34.png" alt="" style=" width:500px ; height:250px " /></p>
+
+<ul>
+  <li>
+    <p>Under <code><b>Task Trigger</b></code>, section select <code><b>Daily</b></code> and click <code><b>Next</b></code> and leave the default values in <code><b>Daily</b></code> section tick the <code><b>Synchronize across time zones</b></code> and proceed <code><b>Next</b></code>.</p>
+  </li>
+  <li>
+    <p>Now under the <code><b>Action</b></code> section select <code><b>Start a program</b></code> and click <code><b>Next</b></code>.</p>
+  </li>
+  <li>In <code><b>Start a program</b></code> copy the below value into the <code><b>program/script field</b></code>.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>C:\Windows\System32\cmd.exe
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Add the following highlighted values to the Argument :</p>
+  </li>
+  <li>This is for faveo incoming mail, esacalation, faveo update check.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/c php "C:\xampp\htdocs\faveo\artisan" schedule:run
+</code></pre></div>    </div>
+    <p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/apache35.png" alt="" style=" width:500px ; height:250px " /></p>
+  </li>
+  <li>
+    <p>Finally under the <code><b>Finish</b></code> section select the <code><b>checkbox</b></code> to open the properties window after finish and click the <code><b>Finish</b></code> button.</p>
+  </li>
+  <li>In the properties window, select the <code><b>Triggers</b></code> tab, click on <code><b>Edit</b></code> and select the checkbox for <code><b>Repeat task every</b></code> set values to run every <code><b>5 minutes</b></code>, for a duration of <code><b>indefinitely</b></code> and click on <code><b>OK</b></code>.</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/apache37.png" alt="" style=" width:500px ; height:250px " /></p>
+
+<ul>
+  <li>Similarly add two more triggers <code><b>At log on</b></code> &amp; <code><b>At startup up</b></code>, set values to run every <code><b>5 minutes</b></code>, for a duration of <code><b>indefinitely</b></code> and click on <code><b>OK</b></code>.</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/trigger.png" alt="" style=" width:400px ; height:250px " /></p>
+
+<p><a id="9" name="9"></a></p>
+<h2 id="9-self-signed-ssl">9. Self-Signed SSL</h2>
+
+<p>This document will list how to install Self-Signed SSL certificates on Windows servers.</p>
+
+<ul>
+  <li>
+    <p>We will be using the tool OpenSSL for creating a Self-Signed SSL certificate on a windows machine.</p>
+  </li>
+  <li>
+    <p>The OpenSSL is an open-source library that provides cryptographic functions and implementations.</p>
+  </li>
+  <li>
+    <p>OpenSSL is a defacto library for cryptography-related operations and is used by a lot of different applications.</p>
+  </li>
+  <li>
+    <p>OpenSSL is provided as a library and application.</p>
+  </li>
+  <li>
+    <p>OpenSSL provides functions and features like SSL/TLS, SHA1, Encryption, Decryption, AES, etc.</p>
+  </li>
+</ul>
+
+<hr />
+
+<ul>
+  <li>Edit the <code><b>httpd.conf</b></code> file Open the file <code><b>C:\xampp\apache\conf\httpd.conf</b></code> and un-comment (remove #) from the following 3 lines</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LoadModule ssl_module modules/mod_ssl.so
+Include conf/extra/httpd-ssl.conf
+LoadModule socache_shmcb_module modules/mod_socache_shmcb.so
+</code></pre></div></div>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/httpd.png" alt="" style=" width:500px" /></p>
+
+<h3 id="step-1-install-chocolatey">Step 1: Install Chocolatey</h3>
+
+<ul>
+  <li>
+    <p>Open an elevated Command Prompt or PowerShell. Right-click on the “Start” button and select “Windows Terminal (Admin)” or “Command Prompt (Admin)” or “Windows PowerShell (Admin)”.</p>
+  </li>
+  <li>
+    <p>Copy and paste the following command to download and run the Chocolatey installation script:</p>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+</code></pre></div></div>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/chocol.png" alt="" style=" width:500px" /></p>
+
+<ul>
+  <li>
+    <p>You may be prompted to confirm the execution of scripts. Enter <code><b>"A"</b></code> and press Enter to allow the script to run.</p>
+  </li>
+  <li>
+    <p>Wait for the installation to complete. Chocolatey will be installed in the <code><b>"C:\ProgramData\chocolatey"</b></code> directory by default.</p>
+  </li>
+  <li>
+    <p>To verify the installation, open a new Command Prompt or PowerShell window and run:</p>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>choco --version
+</code></pre></div></div>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/choco-v.png" alt="" style=" width:500px" /></p>
+
+<h3 id="step-2-install-openssl">Step 2: Install OpenSSL</h3>
+
+<ul>
+  <li>
+    <p>After successfully installing Chocolatey, you can proceed to install OpenSSL.</p>
+  </li>
+  <li>
+    <p>Open a new Command Prompt or PowerShell window with administrator privileges.</p>
+  </li>
+  <li>
+    <p>To install OpenSSL, run the following Chocolatey command:</p>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>choco install openssl
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Follow the on-screen prompts to confirm the installation. You can typically accept the default options by pressing Enter <code><b>"A"</b></code>.</p>
+  </li>
+  <li>
+    <p>Wait for the installation to complete. Chocolatey will download and install OpenSSL and its dependencies.</p>
+  </li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/openssl.png" alt="" style=" width:500px" /></p>
+
+<ul>
+  <li>To verify the OpenSSL installation, run:</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl version
+</code></pre></div></div>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/ssl-v.png" alt="" style=" width:500px" /></p>
+
+<h4 id="generate-a-private-key-for-the-ca">Generate a private key for the CA</h4>
+
+<p>Create a directory named SSL under C directory like <code><b>C:\SSL</b></code>, the following commands will create the SSL files those files will be saved in the directory which we create.</p>
+
+<ul>
+  <li>
+    <p>Open Command Prompt from the SSL directory that we created,</p>
+  </li>
+  <li>
+    <p>Run the below command to create a Private key for the rootCA this command will save a file name faveoroot.key in the SSL folder.</p>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl ecparam -out faveoroot.key -name prime256v1 -genkey
+</code></pre></div></div>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/ssl-1.png" alt="" style=" width:500px" /></p>
+
+<h4 id="generate-a-certificate-signing-request-for-the-ca">Generate a certificate signing request for the CA</h4>
+
+<p>From the command prompt run the below command which will create a CSR (certificate signing request) for the Root CA.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl req -new -sha256 -key faveoroot.key -out faveoroot.csr
+</code></pre></div></div>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/ssl-2.png" alt="" style=" width:500px" /></p>
+
+<p>The above command will ask for the below information if needed you can provide them or you can just hit enter and skip them but it is recommended to give the meaningful details.</p>
+
+<ul>
+  <li>Country Name.</li>
+  <li>State Name.</li>
+  <li>Organization.</li>
+  <li>Common name (Leave this as blank or provide the company domain not the faveo domain).</li>
+  <li>Email address.</li>
+</ul>
+
+<p>The above command will save a file in the name faveoroot.csr in the SSL directory.</p>
+
+<h4 id="generate-a-root-certificate">Generate a root certificate</h4>
+
+<p>The below command will create the Root CA certificate which we will use to sign the SSL certificates.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl x509 -req -sha256 -days 3650 -in faveoroot.csr -signkey faveoroot.key -out faveorootCA.crt
+</code></pre></div></div>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/ssl-3.png" alt="" style=" width:500px" /></p>
+
+<p>The above command will create a file and save it as faveorootCA.crt in the SSL directory.</p>
+
+<h4 id="create-a-private-key-for-the-certificate">Create a private key for the certificate</h4>
+
+<p>The below command will create a private key file for the server SSL certificate.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl ecparam -out private.key -name prime256v1 -genkey
+</code></pre></div></div>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/ssl-4.png" alt="" style=" width:500px" /></p>
+
+<p>The above command will save a key file with the name private.key for the server SSL certificate.</p>
+
+<h4 id="create-a-certificate-signing-request-for-the-server-ssl">Create a certificate signing request for the server SSL</h4>
+
+<p>The below command will create a Certificate Signing Request for the Server SSL.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl req -new -sha256 -key private.key -out faveolocal.csr
+</code></pre></div></div>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/ssl-5.png" alt="" style=" width:500px" /></p>
+
+<p>It will ask for the details below we should give the details as shown below.</p>
+
+<ul>
+  <li>Country Name.</li>
+  <li>State Name.</li>
+  <li>Organization.</li>
+  <li>Common name (Here please provide the Domain or the IP through which you need to access faveo).</li>
+  <li>Email address.</li>
+</ul>
+
+<p>The rest can be left blank and after this is completed it will create the CSR file and save it with the name faveolocal.csr in the SSL directory.</p>
+
+<h4 id="create-a-certificate-and-sign-it-with-the-ca-private-key">Create a certificate and sign it with the CA private key</h4>
+
+<p>The below command will create the server SSL certificate which is signed by the Root CA that we created above.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl x509 -req -in faveolocal.csr -CA  faveorootCA.crt -CAkey faveoroot.key -CAcreateserial -out faveolocal.crt -days 3650 -sha256 
+</code></pre></div></div>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/ssl-6.png" alt="" style=" width:500px" /></p>
+
+<p>The above command will create a server SSL file and save it in the name faveolocal.crt, this certificate will be valid for 3650 days which is ten years.</p>
+
+<h4 id="verify-the-newly-created-certificate">Verify the newly created certificate</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl x509 -in faveolocal.crt -text -noout  
+</code></pre></div></div>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/ssl-7.png" alt="" style=" width:500px" /></p>
+
+<h4 id="compiling-the-created-certificate-and-key-file-as-pfx-file">Compiling the created certificate and key file as .pfx file</h4>
+
+<p>As windows need the certificate file in .pfx format which will contain the both certificate and the key file and the CA file for the installation, so we need to convert the created files to .pfx format, this can be done with the below command.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl pkcs12 -export -out cert.pfx -inkey private.key -in faveolocal.crt -certfile faveorootCA.crt
+</code></pre></div></div>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/ssl-8.png" alt="" style=" width:500px" /></p>
+
+<p>The above command will create a .pfx file with the name cert.pfx in the SSL directory.</p>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/openssl-dir.png" alt="" style=" width:500px" /></p>
+
+<h4 id="installing-the-ssl-certificate">Installing the SSL certificate</h4>
+
+<ul>
+  <li>Navigate inside your SSL directory and double click on faveorootCA.crt</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/cert-1.png" alt="" style=" width:300px" /></p>
+
+<ul>
+  <li>Click on Install Certificate → Select local machine → Click on next</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/cert-2.png" alt="" style=" width:300px" /></p>
+
+<ul>
+  <li>Select “Trusted Root Certification Authorities” directory and click on OK.</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/cert-3.png" alt="" style=" width:500px" /></p>
+
+<ul>
+  <li>Click Next and Finish. You should get imported successful .</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/cert-4.png" alt="" style=" width:300px" /></p>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/cert-5.png" alt="" style=" width:300px" /></p>
+
+<h3 id="step-3-download--enable-cacertpem-file-in-php-configuration-file">Step 3: Download &amp; Enable cacert.pem File in PHP Configuration File</h3>
+
+<ul>
+  <li><a href="https://curl.se/docs/caextract.html" target="_blank" rel="noopener">Click Here</a> to download <code><b>cacart.pem</b></code> file. This is required to avoid the “cURL 60 error” which is one of the Probes that Faveo checks.</li>
+  <li>
+    <p>Extract the <code><b>cacert.pem</b></code> file and copy it to <code><b>C:\xampp\php</b></code> path.</p>
+  </li>
+  <li>Edit the <code><b>php.ini</b></code>, Uncomment <code><b>curl.cainfo</b></code> and add the location of <code><b> cacert.pem </b></code> to it as below:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl.cainfo = "C:\xampp\php\cacert.pem"
+</code></pre></div>    </div>
+  </li>
+  <li>Edit the faveorootCA.crt and copy the content.</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/faveorootCA.png" alt="" style=" width:500px" /></p>
+
+<ul>
+  <li>Edit the cacert.pem file and append the content copied from faveorootCA.crt in this file.</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/cacert.png" alt="" style=" width:500px" /></p>
+
+<ul>
+  <li>Save and Close the File.</li>
+</ul>
+
+<h3 id="step-4-edit-the-hosts-file-on-the-os-to-map-the-custom-domain-to-loopback-address">Step 4: Edit the “hosts” file on the OS to Map the Custom Domain to Loopback Address.</h3>
+
+<ul>
+  <li>Open the hosts file from the path <code><b>C:\Windows\System32\drivers\etc</b></code></li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/hosts.png" alt="" style=" width:500px" /></p>
+
+<ul>
+  <li>Map your custom domain to 127.0.0.1</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/hosts-map.png" alt="" style=" width:500px" /></p>
+
+<ul>
+  <li>
+    <p>Save and Close the File.</p>
+  </li>
+  <li>if the above is done we need to edit the php.ini file which is found inside the PHP root directory. Uncomment and add the location of <code><b>cacert.pem</b></code> to <code><b>“openssl.cafile”</b></code> like.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl.cafile = "C:\xampp\php\cacert.pem"
+</code></pre></div>    </div>
+  </li>
+  <li>Edit the <code><b>C:\xampp\apache\conf\extra\httpd-ssl.conf</b></code> file, search for &lt;VirtualHost <em>default</em>:443&gt;</li>
+  <li>Turn SSL Engine on &amp; add the certificate paths respectively as shown below:</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SSLEngine on
+SSLCertificateFile "C:\SSL\faveolocal.crt"
+SSLCertificateKeyFile "C:\SSL\private.key"
+SSLCACertificateFile "C:\SSL\faveorootCA.crt"
+</code></pre></div></div>
+
+<p><img src="https://raw.githubusercontent.com/ladybirdweb/faveo-server-images/master/_docs/installation/providers/enterprise/windows-images/Wamp-Images/httpd-ssl.png" alt="" style=" width:500px" /></p>
+
+<p>Restart the apache service from XAMPP tray and visit https://faveo.localhost from your browser and Self Sign the certificate.</p>
+
+<p><a id="10" name="10"></a></p>
+<h3 id="10-install-faveo"><b>10. Install Faveo</b></h3>
+
+<p>Now you can install Faveo via <a href="/docs/installation/installer/gui">GUI</a> Wizard or <a href="/docs/installation/installer/cli">CLI</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2024-11-12">November 12, 2024</time></p>
+
+
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="/docs/installation/providers/enterprise/wamp-windows/" class="pagination--pager" title="Faveo Installation on Windows with Wamp Server
+">Previous</a>
+    
+    
+      <a href="/docs/installation/providers/enterprise/alma-apache-ssl/" class="pagination--pager" title="Install LetsEncrypt SSL for Faveo on Alma Linux Running Apache Web Server
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><form class="search-content__form" onkeydown="return event.key != 'Enter';">
+    <label class="sr-only" for="search">
+      Enter your search term...
+    </label>
+    <input type="search" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+  </form>
+  <div id="results" class="results"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/ladybirdweb" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/faveohelpdesk" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2025 Ladybird Web Solution Pvt Ltd. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+
+
+
+  </body>
+</html>
